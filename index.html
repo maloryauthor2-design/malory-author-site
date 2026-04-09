@@ -12,14 +12,16 @@
     
     <meta property="og:title" content="Malory | Sci-Fi, LitRPG & Progression Fantasy Author">
     <meta property="og:description" content="Discover new LitRPG and Progression Fantasy adventures. Read the latest releases and get an exclusive free novella.">
-    <meta property="og:image" content="https://maloryauthor.com/hero-bg.jpg">
+    <meta property="og:image" content="https://maloryauthor.com/hero-bg.JPG">
     <meta property="og:url" content="https://maloryauthor.com/">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Malory | Sci-Fi, LitRPG & Progression Fantasy Author">
     <meta name="twitter:description" content="Discover new LitRPG and Progression Fantasy adventures. Read the latest releases and get an exclusive free novella.">
-    <meta name="twitter:image" content="https://maloryauthor.com/hero-bg.jpg">
+    <meta name="twitter:image" content="https://maloryauthor.com/hero-bg.JPG">
+
+    <link rel="preload" as="image" href="hero-bg.JPG">
 
     <script type="application/ld+json">
     {
@@ -67,12 +69,13 @@
         }
         
         .btn-pulse:hover {
-            animation: none; /* Stops pulsing when interacted with */
+            animation: none; 
         }
 
         /* Upgraded Hero Background with Gradient Overlay for Contrast */
+        /* Fixed extension to .JPG */
         .hero-lead-magnet {
-            background: linear-gradient(to right, rgba(13, 16, 21, 0.9) 0%, rgba(13, 16, 21, 0.4) 100%), url('hero-bg.jpg') no-repeat center center;
+            background: linear-gradient(to right, rgba(13, 16, 21, 0.95) 0%, rgba(13, 16, 21, 0.4) 100%), url('hero-bg.JPG') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
         }
@@ -81,15 +84,15 @@
 <body>
     <div class="top-bar">
         <div class="social-links">
-            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://x.com/maloryauthor" target="_blank" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://maloryauthor.substack.com" target="_blank" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
+            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://x.com/maloryauthor" target="_blank" rel="me" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://maloryauthor.substack.com" target="_blank" rel="me" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
         </div>
         <div class="scrolling-text-container">
             <div class="scrolling-text">
-                <a id="promo-ticker" href="https://maloryauthor.substack.com/subscribe" target="_blank" style="transition: opacity 0.5s ease;">Get the free monster-hunter short story, Crude!</a>
+                <a id="promo-ticker" href="https://maloryauthor.substack.com/subscribe" target="_blank">Get the free monster-hunter short story, Crude!</a>
             </div>
         </div>
     </div>
@@ -125,7 +128,7 @@
        <section>
             <h2>Latest Release</h2>
             <div class="book-container">
-                <img src="pts-cover.jpg" alt="Punish the System - A Sci-Fi LitRPG Novel by Malory" class="book-cover" loading="lazy">
+                <img src="pts-cover.JPG" alt="Punish the System - A Sci-Fi LitRPG Novel by Malory" class="book-cover" loading="lazy">
                 <div class="book-info">
                     <h3>Punish the System</h3>
                     <p>A fast-paced nightmare of a LitRPG where surviving means tearing the establishment down. Co-authored with Cassius Lange.</p>
@@ -142,16 +145,16 @@
     <section class="social-video-feed">
         <h2>Latest from the Feed</h2>
         <div class="video-grid">
-            <div class="video-item static-card" data-video-id="7617103900398718230" aria-label="Play TikTok video about Rivers and the Galaxy" tabindex="0" role="button">
-                <div class="video-placeholder" style="background-image: url('thumb1.jpg');"></div>
+            <div class="video-item static-card" data-video-id="7617103900398718230" aria-label="Play TikTok video: Rivers and the Galaxy" tabindex="0" role="button">
+                <div class="video-placeholder" style="background-image: url('thumb1.jpg');" aria-label="Rivers and the Galaxy video thumbnail"></div>
                 <p>@maloryauthor - Rivers and the Galaxy</p>
             </div>
-            <div class="video-item static-card" data-video-id="7622212917286505750" aria-label="Play TikTok video about Pulp Press Fun" tabindex="0" role="button">
-                <div class="video-placeholder" style="background-image: url('thumb2.jpg');"></div>
+            <div class="video-item static-card" data-video-id="7622212917286505750" aria-label="Play TikTok video: Pulp Press Fun" tabindex="0" role="button">
+                <div class="video-placeholder" style="background-image: url('thumb2.jpg');" aria-label="Pulp Press Fun video thumbnail"></div>
                 <p>@maloryauthor - Pulp Press Fun</p>
             </div>
-            <div class="video-item static-card" data-video-id="7602038639912176926" aria-label="Play TikTok video about Morgan & Merlin Obsession" tabindex="0" role="button">
-                <div class="video-placeholder" style="background-image: url('thumb3.jpg');"></div>
+            <div class="video-item static-card" data-video-id="7602038639912176926" aria-label="Play TikTok video: Morgan & Merlin Obsession" tabindex="0" role="button">
+                <div class="video-placeholder" style="background-image: url('thumb3.jpg');" aria-label="Morgan & Merlin Obsession video thumbnail"></div>
                 <p>@samboydreads - Morgan & Merlin Obsession</p>
             </div>
         </div>
@@ -168,7 +171,7 @@
         const ticker = document.getElementById('promo-ticker');
         const messages = [
             { text: "Get the free monster-hunter short story, Crude!", url: "https://maloryauthor.substack.com/subscribe", target: "_blank" },
-            { text: "Discover Arcane Galaxy: Chaos Protocols out now!", url: "books.html#arcane", target: "_self" },
+            { text: "Discover Morgan and Merlin's Excellent Adventures!", url: "books.html#merlin", target: "_self" },
             { text: "Grab the Punish the System audiobook!", url: "https://a.co/d/09k86aJT", target: "_blank" }
         ];
         let currentIndex = 0;
