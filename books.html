@@ -117,10 +117,9 @@
 
         .series-book-card img {
             width: 100%;
-            height: auto; 
+            height: auto; /* Allow the image to find its natural height */
             max-width: 250px;
-            aspect-ratio: 2 / 3;
-            object-fit: cover;
+            /* Removed aspect-ratio and object-fit to prevent squishing/cropping */
             border-radius: 4px;
             margin-bottom: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
@@ -168,7 +167,7 @@
             }
         }
 
-        /* Morgan & Merlin */
+        /* Morgan & Merlin Section Branding */
         #merlin {
             background: linear-gradient(180deg, rgba(13, 20, 15, 0) 0%, rgba(20, 35, 25, 0.5) 50%, rgba(13, 20, 15, 0) 100%);
             border-left: 2px solid #6b8e23;
@@ -178,7 +177,7 @@
         #merlin .series-header h2 { color: #d4af37; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
         #merlin .series-book-card { background: rgba(15, 25, 18, 0.7); border: 1px solid #2d4231; }
 
-        /* Soar Chronicles */
+        /* Soar Chronicles Section Branding */
         #soar {
             background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(30, 30, 35, 0.9) 50%, rgba(10, 10, 10, 0) 100%);
             border-left: 2px solid #8b0000;
@@ -188,7 +187,7 @@
         #soar .series-book-card { background: rgba(25, 25, 30, 0.95); border: 1px solid #444; }
         #soar .series-book-card h3 { color: #ffffff; font-family: 'Playfair Display', serif; }
 
-        /* Psyker Marine */
+        /* Psyker Marine Section Branding */
         #psyker {
             background: linear-gradient(180deg, rgba(5, 10, 20, 0) 0%, rgba(10, 20, 45, 0.7) 50%, rgba(5, 10, 20, 0) 100%);
             border-left: 2px solid #00f2ff;
@@ -199,7 +198,7 @@
         #psyker .series-book-card { background: rgba(10, 15, 30, 0.8); border: 1px solid #1a2b4a; }
         #psyker .series-promo-box { background: rgba(10, 16, 30, 0.9); border: 1px solid #00f2ff; }
 
-        /* Arcane Galaxy */
+        /* Arcane Galaxy Section Branding */
         #arcane {
             background: linear-gradient(180deg, rgba(43, 24, 12, 0) 0%, rgba(61, 38, 24, 0.6) 50%, rgba(43, 24, 12, 0) 100%);
             border-left: 2px solid #cd7f32;
@@ -212,7 +211,7 @@
         #arcane .placeholder-cover { background: rgba(20, 15, 10, 0.8); border: 2px solid #cd7f32; color: #ff9d4d; font-family: 'Special Elite', cursive; }
         #arcane .series-book-card h3 { color: #ff9d4d; font-family: 'IM Fell English SC', serif; }
 
-        /* Punish the System */
+        /* Punish the System Section Branding */
         #pts {
             background: linear-gradient(180deg, rgba(20, 22, 20, 0) 0%, rgba(35, 40, 35, 0.8) 50%, rgba(20, 22, 20, 0) 100%);
             border-left: 2px solid #a39b72; 
@@ -225,7 +224,7 @@
         #pts .series-book-card h3 { color: #d9d2a6; font-family: 'Special Elite', monospace; }
         #pts .placeholder-cover { background: rgba(20, 22, 20, 0.9); border: 2px dashed #a39b72; color: #a39b72; font-family: 'Special Elite', monospace; }
 
-        /* Raconteur Press */
+        /* Raconteur Press Section Branding */
         #raconteur {
             background: linear-gradient(180deg, rgba(30, 15, 5, 0) 0%, rgba(45, 20, 10, 0.85) 50%, rgba(30, 15, 5, 0) 100%);
             border-left: 2px solid #e65100; 
@@ -251,7 +250,7 @@
         }
         #raconteur .series-promo-box { background: rgba(30, 15, 10, 0.9); border: 1px solid #e65100; }
 
-        /* Boy's Own Adventures */
+        /* Boy's Own Adventures Section Branding */
         #boys {
             background: linear-gradient(180deg, rgba(15, 25, 15, 0) 0%, rgba(20, 35, 20, 0.85) 50%, rgba(15, 25, 15, 0) 100%);
             border-left: 2px solid #8b5a2b; 
@@ -482,7 +481,7 @@
         <section class="series-group" id="pts">
             <div class="series-header" style="text-align: center; margin-bottom: 40px;">
                 <h2>Punish the System</h2>
-                <p>A gritty, bureaucratic nightmare of a sci-fi LitRPG where surviving means tearing the establishment down.</p>
+                <p>A gritty nightmare of a sci-fi LitRPG where surviving means tearing the establishment down.</p>
                 <p style="color: #a39b72; font-weight: bold; margin-top: 15px; font-family: 'Rajdhani', sans-serif;">
                     Co-authored with <a href="https://www.amazon.com/stores/Cassius-Lange/author/B07R4C9ZQ9" target="_blank" style="color: #d9d2a6; text-decoration: underline;">Cassius Lange</a>.
                 </p>
@@ -522,7 +521,7 @@
         <section class="series-group" id="raconteur">
             <div class="series-header" style="text-align: center; margin-bottom: 40px;">
                 <h2>Raconteur Press Anthologies</h2>
-                <p>I've contributed short stories to these unapologetic pulp fiction collections. They are built for pure entertainment—action-packed, fast-paced science fiction and fantasy written to bring the fun back to reading for male audiences and pulp-lovers everywhere.</p>
+                <p>I've contributed short stories to these unapologetic pulp fiction collections. They are built for pure entertainment—action-packed, fast-paced science fiction and fantasy written to bring the fun back to reading for pulp-lovers everywhere.</p>
             </div>
 
             <div class="book-grid">
@@ -597,7 +596,7 @@
         <section class="series-group" id="boys">
             <div class="series-header" style="text-align: center; margin-bottom: 40px;">
                 <h2>Boy's Own Adventures</h2>
-                <p>Classic heroics are back. We are returning to the golden age of storytelling for young men, focusing on courage, exploration, and thrilling escapades. These tales leave the modern messaging behind, delivering pure, high-stakes fun designed to capture a boy's imagination and ignite a lifelong love of reading.</p>
+                <p>Classic heroics are back. We are returning to the golden age of storytelling for young men, focusing on courage, exploration, and thrilling escapades.</p>
             </div>
 
             <div class="book-grid">
