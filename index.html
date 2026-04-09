@@ -196,17 +196,25 @@
             
             card.addEventListener('click', function() {
                 const videoId = this.getAttribute('data-video-id');
+                
+                // Inject the TikTok container
                 this.innerHTML = `
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/video/${videoId}" data-video-id="${videoId}" style="width: 100%; margin: 0 auto;">
                         <section></section>
                     </blockquote>
                 `;
-                if (!window.tiktokScriptLoaded) {
-                    const script = document.createElement('script');
-                    script.src = "https://www.tiktok.com/embed.js";
-                    document.body.appendChild(script);
-                    window.tiktokScriptLoaded = true;
+                
+                // The Fix: Remove the old script if it exists
+                const existingScript = document.getElementById('tiktok-script');
+                if (existingScript) {
+                    existingScript.remove();
                 }
+                
+                // Inject a fresh script to force TikTok to re-scan the page
+                const script = document.createElement('script');
+                script.id = 'tiktok-script';
+                script.src = "https://www.tiktok.com/embed.js";
+                document.body.appendChild(script);
             });
         });
     </script>
