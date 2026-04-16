@@ -1,0 +1,65 @@
+/**
+ * animations.js — Scroll-triggered reveal animations
+ *
+ * Add this to every page with:
+ *   <script src="animations.js" defer></script>
+ *
+ * Works by selecting key elements and adding a .reveal class,
+ * then using IntersectionObserver to add .visible when they
+ * scroll into view. The CSS in style.css handles the actual
+ * fade + slide transition.
+ *
+ * Automatically disabled if the user has prefers-reduced-motion set.
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Respect the user's OS motion preference — bail out entirely if set
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Elements to animate. Excludes header/hero (already above fold).
+    // Order matters: more specific selectors take priority.
+    const ANIMATED_SELECTORS = [
+        'main h2',
+        'main h3',
+        '.book-container',
+        '.series-book-card',
+        '.static-card',
+        '.review-card',
+        '.series-promo-box',
+        '.continuity-box',
+        '.about-container',
+        '.award-callout',
+        '.social-proof-subheading'
+    ].join(', ');
+
+    const elements = document.querySelectorAll(ANIMATED_SELECTORS);
+    if (!elements.length) return;
+
+    // Add the reveal class to prime them for animation
+    elements.forEach(el => el.classList.add('reveal'));
+
+    const observer = new IntersectionObserver((entries) => {
+
+        // Sort triggering entries top-to-bottom so stagger feels natural
+        const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        visible.forEach((entry, i) => {
+            // Stagger each element in the batch by 80ms, capped at 400ms total
+            const delay = Math.min(i * 80, 400);
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, delay);
+            // Only animate once — unobserve after triggering
+            observer.unobserve(entry.target);
+        });
+
+    }, {
+        threshold: 0.07,           // Trigger when 7% of the element is visible
+        rootMargin: '0px 0px -30px 0px'  // Slightly before the bottom of the viewport
+    });
+
+    elements.forEach(el => observer.observe(el));
+});

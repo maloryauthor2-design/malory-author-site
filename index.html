@@ -21,7 +21,6 @@
     <meta name="twitter:description" content="Discover new LitRPG and Progression Fantasy adventures. Read the latest releases and get an exclusive free novella.">
     <meta name="twitter:image" content="https://maloryauthor.com/hero-bg.JPG">
 
-    <!-- Preload critical above-the-fold images -->
     <link rel="preload" as="image" href="hero-bg.JPG">
     <link rel="preload" as="image" href="Logo.jpg">
 
@@ -52,19 +51,16 @@
     }
     </script>
 
-    <!-- Fonts: preconnect first, then load only what this page needs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Skip link: lets keyboard users jump past repeated navigation -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <div class="top-bar">
@@ -75,7 +71,6 @@
             <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
         </div>
-        <!-- aria-live announces ticker changes to screen readers -->
         <div class="scrolling-text-container" aria-live="polite" aria-atomic="true">
             <div class="scrolling-text">
                 <a id="promo-ticker" href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Get the free monster-hunter short story, Crude!</a>
@@ -103,7 +98,6 @@
                 <div class="hero-content-box">
                     <h2>Free Story: Crude</h2>
                     <p>Join the VIP reader list on Substack to receive a free download of <em>Crude</em>. Survive a gritty monster-hunter adventure set on an isolated offshore rig, plus get early access to all my upcoming Sci-Fi and Progression Fantasy releases.</p>
-
                     <div class="lead-form">
                         <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse" style="text-align: center;"><i class="fas fa-envelope-open-text"></i> Get Your Free Story</a>
                     </div>
@@ -126,6 +120,54 @@
                 </div>
             </div>
         </section>
+
+        <!-- =============================================
+             READER REVIEWS
+             Replace the placeholder quotes below with
+             real reviews from Amazon, Goodreads, etc.
+             Keep each quote to 2-3 sentences maximum.
+             ============================================= -->
+        <section class="social-proof" aria-label="Reader reviews">
+            <h2>What Readers Are Saying</h2>
+            <p class="social-proof-subheading">Verified reader reviews</p>
+            <div class="review-grid">
+
+                <div class="review-card">
+                    <div class="review-stars" aria-label="Five stars">★★★★★</div>
+                    <blockquote>
+                        Replace this with a real reader quote from Amazon or Goodreads. Two or three sentences works best — something punchy that captures what makes the book fun.
+                    </blockquote>
+                    <div class="review-cite">
+                        <strong>Reader Name</strong>
+                        <span class="review-source">Amazon</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars" aria-label="Five stars">★★★★★</div>
+                    <blockquote>
+                        Replace this with a second reader quote. A review that mentions a specific series or character tends to perform best here — it tells new readers exactly what to expect.
+                    </blockquote>
+                    <div class="review-cite">
+                        <strong>Reader Name</strong>
+                        <span class="review-source">Goodreads</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars" aria-label="Five stars">★★★★★</div>
+                    <blockquote>
+                        Replace this with a third reader quote. Variety is good — if the first two are about action and pace, try one that captures the humour or the characters.
+                    </blockquote>
+                    <div class="review-cite">
+                        <strong>Reader Name</strong>
+                        <span class="review-source">Amazon</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <section class="social-video-feed">
@@ -183,19 +225,13 @@
 
             card.addEventListener('click', function() {
                 const videoId = this.getAttribute('data-video-id');
-
                 this.innerHTML = `
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/video/${videoId}" data-video-id="${videoId}" style="width: 100%; margin: 0 auto;">
                         <section></section>
                     </blockquote>
                 `;
-
-                // Remove old TikTok script to force a fresh load (fixes multiple-embed API bug)
                 const existingScript = document.getElementById('tiktok-script');
-                if (existingScript) {
-                    existingScript.remove();
-                }
-
+                if (existingScript) existingScript.remove();
                 const script = document.createElement('script');
                 script.id = 'tiktok-script';
                 script.src = "https://www.tiktok.com/embed.js";
@@ -203,5 +239,8 @@
             });
         });
     </script>
+
+    <!-- Scroll reveal animations — add this line to books.html and about.html too -->
+    <script src="animations.js" defer></script>
 </body>
 </html>

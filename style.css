@@ -83,6 +83,7 @@ header,
 .series-group,
 main > section:not(.hero-lead-magnet),
 .social-video-feed,
+.social-proof,
 footer {
     width: 90%;
     max-width: 900px;
@@ -144,7 +145,7 @@ footer {
 }
 
 @keyframes bounce-horizontal {
-    0% { left: 0; transform: translate(0, -50%); }
+    0%   { left: 0;    transform: translate(0, -50%); }
     100% { left: 100%; transform: translate(-100%, -50%); }
 }
 
@@ -277,9 +278,9 @@ nav a:hover, .active-link {
 
 /* --- PULSE ANIMATION (lead magnet CTA buttons) --- */
 @keyframes pulse-glow {
-    0%   { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+    0%   { box-shadow: 0 0 0 0   rgba(212, 175, 55, 0.4); }
     70%  { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0   rgba(212, 175, 55, 0); }
 }
 
 .btn-pulse {
@@ -327,6 +328,102 @@ nav a:hover, .active-link {
 
 .book-container:hover .book-cover {
     transform: scale(1.03);
+}
+
+/* =========================================
+   SOCIAL PROOF / READER REVIEWS
+   ========================================= */
+.social-proof {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.social-proof > h2 {
+    margin-bottom: 8px;
+}
+
+.social-proof-subheading {
+    color: #888;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    margin-top: 0;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    text-align: left;
+}
+
+.review-card {
+    background: #1a1e24;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.08);
+}
+
+.review-stars {
+    color: #d4af37;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+.review-card blockquote {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #d1d5db;
+    font-style: italic;
+    flex: 1;
+}
+
+.review-card blockquote::before {
+    content: '\201C';
+    font-family: Georgia, serif;
+    font-size: 3rem;
+    color: #d4af37;
+    line-height: 0;
+    vertical-align: -0.6em;
+    margin-right: 4px;
+    opacity: 0.6;
+}
+
+.review-cite {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid #2a2e34;
+}
+
+.review-cite strong {
+    color: #b3b3b3;
+}
+
+.review-cite .review-source {
+    margin-left: auto;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #d4af37;
+    opacity: 0.7;
 }
 
 /* --- STATIC VIDEO CARDS --- */
@@ -549,14 +646,14 @@ nav a:hover, .active-link {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.btn-amazon { background: #FF9900; color: #111; border-color: #e68a00; }
-.btn-amazon:hover { box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3); }
+.btn-amazon  { background: #FF9900; color: #111; border-color: #e68a00; }
+.btn-amazon:hover  { box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3); }
 
 .btn-audible { background: #232f3e; color: #fff; border-color: #1a232e; }
 .btn-audible:hover { box-shadow: 0 8px 20px rgba(35, 47, 62, 0.4); }
 
-.btn-legion { background: #202285; color: #fff; border-color: #171966; }
-.btn-legion:hover { box-shadow: 0 8px 20px rgba(32, 34, 133, 0.4); }
+.btn-legion  { background: #202285; color: #fff; border-color: #171966; }
+.btn-legion:hover  { box-shadow: 0 8px 20px rgba(32, 34, 133, 0.4); }
 
 /* --- FOOTER --- */
 footer {
@@ -579,6 +676,20 @@ footer {
 
 .footer-badge:hover {
     opacity: 1;
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- MOBILE QUERIES --- */
@@ -640,6 +751,7 @@ footer {
 
     main > section:not(.hero-lead-magnet),
     .social-video-feed,
+    .social-proof,
     .top-bar,
     header,
     footer {
@@ -669,5 +781,12 @@ footer {
 
     .btn-pulse {
         animation: none;
+    }
+
+    /* Make reveal elements immediately visible */
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }
