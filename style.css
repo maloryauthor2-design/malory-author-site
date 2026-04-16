@@ -426,6 +426,54 @@ nav a:hover, .active-link {
     opacity: 0.7;
 }
 
+/* --- PUBLISHER STRIP --- */
+.publisher-strip {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 40px;
+}
+
+.publisher-heading {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.publisher-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.publisher-logos a {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.05rem;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.publisher-logos a:hover {
+    color: #d4af37;
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.publisher-logos .divider {
+    color: #333;
+    font-size: 1.2rem;
+}
+
 /* --- STATIC VIDEO CARDS --- */
 .social-video-feed {
     margin-top: 60px;
@@ -741,6 +789,19 @@ footer {
     .scrolling-text-container {
         width: 100%;
         margin: 0;
+    }
+
+    .publisher-logos {
+        gap: 15px;
+    }
+    
+    .publisher-logos .divider {
+        display: none;
+    }
+    
+    .publisher-logos a {
+        font-size: 0.95rem;
+        margin: 5px 10px;
     }
 }
 
