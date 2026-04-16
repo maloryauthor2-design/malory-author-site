@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1015">
-    
+
     <title>About Malory | Sci-Fi & LitRPG Author</title>
     <meta name="description" content="Learn more about Malory, award-winning author of Sci-Fi, LitRPG, and Progression Fantasy, and a PhD candidate researching men's reading habits.">
     <link rel="canonical" href="https://maloryauthor.com/about.html">
-    
+
     <meta property="og:title" content="About Malory | Sci-Fi & LitRPG Author">
     <meta property="og:description" content="Meet the author behind Morgan & Merlin, Psyker Marine, and Arcane Galaxy.">
     <meta property="og:image" content="https://maloryauthor.com/selfie-1.jpg">
@@ -20,6 +20,9 @@
     <meta name="twitter:title" content="About Malory | Sci-Fi & LitRPG Author">
     <meta name="twitter:description" content="Meet the author behind Morgan & Merlin, Psyker Marine, and Arcane Galaxy.">
     <meta name="twitter:image" content="https://maloryauthor.com/selfie-1.jpg">
+
+    <!-- Preload logo -->
+    <link rel="preload" as="image" href="Logo.jpg">
 
     <script type="application/ld+json">
     {
@@ -43,10 +46,15 @@
     }
     </script>
 
+    <!-- Fonts: only what this page needs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -59,7 +67,7 @@
             border-radius: 12px;
             padding: 50px;
             margin: 40px auto 80px auto;
-            max-width: 1000px;
+            max-width: 900px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             align-items: flex-start;
             backdrop-filter: blur(8px);
@@ -83,7 +91,7 @@
             aspect-ratio: 3 / 4;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        
+
         .about-image:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
@@ -97,7 +105,7 @@
             opacity: 0.7;
             transition: opacity 0.3s ease;
         }
-        
+
         .about-badges:hover {
             opacity: 1;
         }
@@ -152,33 +160,11 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        /* Pulse Animation for Lead Magnet Button */
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-        }
-
-        .btn-pulse {
-            animation: pulse-glow 2.5s infinite;
-        }
-        
-        .btn-pulse:hover {
-            animation: none;
-        }
-
-        /* Hero Background Extension fixed to .JPG */
-        .hero-lead-magnet {
-            background: linear-gradient(to right, rgba(13, 16, 21, 0.95) 0%, rgba(13, 16, 21, 0.4) 100%), url('hero-bg.JPG') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
 
         @media (max-width: 768px) {
             .about-container {
                 flex-direction: column;
-                padding: 30px 20px; 
+                padding: 30px 20px;
                 align-items: center;
                 gap: 35px;
             }
@@ -202,37 +188,40 @@
     </style>
 </head>
 <body>
+    <!-- Skip link: lets keyboard users jump past repeated navigation -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <div class="top-bar">
         <div class="social-links">
-            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://x.com/maloryauthor" target="_blank" rel="me" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://maloryauthor.substack.com" target="_blank" rel="me" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
+            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
         </div>
-        <div class="scrolling-text-container">
+        <div class="scrolling-text-container" aria-live="polite" aria-atomic="true">
             <div class="scrolling-text">
-                <a id="promo-ticker" href="https://maloryauthor.substack.com/subscribe" target="_blank">Get the free monster-hunter short story, Crude!</a>
+                <a id="promo-ticker" href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Get the free monster-hunter short story, Crude!</a>
             </div>
         </div>
     </div>
-    
+
     <header>
         <img src="Logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" fetchpriority="high">
         <div class="header-text">
             <h1>Malory</h1>
             <p>Sci-Fi, LitRPG & Progression Fantasy</p>
             <p style="color: #d4af37; font-size: 0.95rem; font-weight: bold; margin-top: 5px; margin-bottom: 15px; letter-spacing: 1px;"><i class="fas fa-trophy"></i> Winner of the 2026 Jim Baen Memorial Short Story Award</p>
-            <nav>
+            <nav aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="books.html">Books</a>
-                <a href="about.html" class="active-link">About</a>
+                <a href="about.html" class="active-link" aria-current="page">About</a>
             </nav>
         </div>
-    </header>    
+    </header>
 
-    <main>
-        <section class="about-container">
+    <main id="main-content">
+        <section class="about-container" aria-label="About the author">
             <div class="about-image-col">
                 <img src="selfie-1.jpg" alt="Malory - Sci-Fi and Fantasy Author" class="about-image" loading="lazy">
                 <div class="about-badges">
@@ -243,7 +232,7 @@
             <div class="about-text-col">
                 <h2>The Author</h2>
                 <p>I'm a lifelong fan of science fiction and fantasy, and have been writing LitRPG and Progression Fantasy novels for the last few years. I always try to build my books around characters, action, and a good dose of snark.</p>
-                
+
                 <p>Overall, though, I'm just interested in writing fun books people actually want to read. As a PhD candidate currently researching men's reading habits, I spend a lot of time analysing what sits on modern bookshelves. And it strikes me that the world really needs more escapism! I even penned my first Boy's Own Adventure specifically for my son, aiming to bring back the golden age of classic heroics.</p>
 
                 <div class="award-callout">
@@ -257,14 +246,15 @@
             </div>
         </section>
 
-        <section class="hero-lead-magnet" style="margin-top: 60px; min-height: 400px;">
+        <!-- hero-lead-magnet styles come from style.css — no inline override needed -->
+        <section class="hero-lead-magnet" style="margin-top: 60px; min-height: 400px;" aria-label="Free story sign-up">
             <div class="hero-inner">
                 <div class="hero-content-box" style="margin: 0 auto; text-align: center;">
                     <h2>Free Story: Crude</h2>
                     <p>Join the VIP reader list on Substack to receive a free download of <em>Crude</em>. Survive a gritty monster-hunter adventure set on an isolated offshore rig, plus get early access to all my upcoming releases.</p>
-                    
+
                     <div class="lead-form">
-                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" class="buy-button btn-pulse"><i class="fas fa-envelope-open-text"></i> Get Your Free Story</a>
+                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse"><i class="fas fa-envelope-open-text"></i> Get Your Free Story</a>
                     </div>
                 </div>
             </div>
@@ -273,7 +263,7 @@
 
     <footer>
         <p>
-            <img src="HumanAuthored.png" alt="Human Authored Certified" style="max-height: 25px; vertical-align: middle; margin-right: 10px; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+            <img src="HumanAuthored.png" alt="Human Authored Certified" class="footer-badge">
             &copy; 2026 Malory. All rights reserved.
         </p>
     </footer>
