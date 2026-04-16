@@ -16,21 +16,17 @@
     <meta property="og:url" content="https://maloryauthor.com/books.html">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card (added — was missing from this page) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Books | Malory - Sci-Fi, LitRPG & Progression Fantasy">
     <meta name="twitter:description" content="Browse the complete library of Malory's LitRPG, Sci-Fi, and Progression Fantasy books.">
     <meta name="twitter:image" content="https://maloryauthor.com/hero-bg.JPG">
 
-    <!-- Preload logo -->
     <link rel="preload" as="image" href="Logo.jpg">
 
-    <!-- Fonts: only load the families this page actually uses -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -177,7 +173,6 @@
     </style>
 </head>
 <body>
-    <!-- Skip link: lets keyboard users jump past repeated navigation -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <div class="top-bar">
@@ -210,7 +205,35 @@
     </header>
 
     <main id="main-content">
-        <!-- role="tablist" + role="tab" + aria-selected: screen readers now understand this as a tab interface -->
+
+        <section class="guide-section">
+            <h2>Where to Start</h2>
+            <p style="color: #888; font-size: 1.05rem; margin-bottom: 30px;">Not sure which universe to dive into first? Pick your path.</p>
+            
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <i class="fas fa-crosshairs guide-icon"></i>
+                    <h3>The Tactical Reader</h3>
+                    <p>Gritty, military sci-fi with weaponized minds and non-stop galactic combat.</p>
+                    <a href="#psyker" data-target="psyker" class="guide-btn">Enter the War</a>
+                </div>
+                
+                <div class="guide-card">
+                    <i class="fas fa-user-secret guide-icon"></i>
+                    <h3>The Detective</h3>
+                    <p>Classic noir mysteries, shadowy conspiracies, and clues that lead deep into the dark.</p>
+                    <a href="#soar" data-target="soar" class="guide-btn">Solve the Case</a>
+                </div>
+                
+                <div class="guide-card">
+                    <i class="fas fa-magic guide-icon"></i>
+                    <h3>The Adventurer</h3>
+                    <p>Cultivation, progression, and a fun, snarky protagonist in Dark Age Cornwall.</p>
+                    <a href="#merlin" data-target="merlin" class="guide-btn">Start the Journey</a>
+                </div>
+            </div>
+        </section>
+
         <div class="series-jump-menu-container">
             <nav class="series-jump-menu" role="tablist" aria-label="Browse book series">
                 <a id="tab-merlin"    href="#merlin"    data-target="merlin"    class="tab-link active-link" role="tab" aria-selected="true"  aria-controls="merlin">Morgan &amp; Merlin</a>
@@ -226,7 +249,7 @@
         <section class="series-group active" id="merlin" role="tabpanel" aria-labelledby="tab-merlin">
             <div class="series-header" style="text-align: center; margin-bottom: 40px;">
                 <h2>Morgan and Merlin's Excellent Adventures</h2>
-                <p>Cultivation, reincarnation, and a healthy penchant for lying in Dark Age Cornwall.</p>
+                <p>Cultivation, reincarnation, and a fun, snarky protagonist in Dark Age Cornwall.</p>
                 <p style="color: #d4af37; font-weight: bold; margin-top: 15px;">
                     <i class="fas fa-microphone-alt"></i> Audiobooks performed by
                     <a href="https://www.audible.com/search?searchNarrator=Jess+Nahikian" target="_blank" rel="noopener noreferrer" style="color: #e5c158; text-decoration: underline;">Jess Nahikian</a>
@@ -509,7 +532,7 @@
     </footer>
 
     <script>
-        const navLinks = document.querySelectorAll('.tab-link, .continuity-link');
+        const navLinks = document.querySelectorAll('.tab-link, .continuity-link, .guide-btn');
         const sections = document.querySelectorAll('.series-group');
         const jumpMenuTabs = document.querySelectorAll('.tab-link');
         const jumpMenuContainer = document.querySelector('.series-jump-menu');
