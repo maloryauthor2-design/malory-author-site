@@ -5,23 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1015">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
     <title>Books | Malory - Sci-Fi, LitRPG & Progression Fantasy</title>
     <meta name="description" content="Explore the full library of Malory, featuring Boy's Own Adventures, Raconteur Press anthologies, Punish the System, Arcane Galaxy, Psyker Marine, and Morgan & Merlin.">
     <link rel="canonical" href="https://maloryauthor.com/books.html">
 
     <meta property="og:title" content="Books | Malory - Sci-Fi, LitRPG & Progression Fantasy">
     <meta property="og:description" content="Browse the complete library of Malory's LitRPG, Sci-Fi, and Progression Fantasy books.">
-    <meta property="og:image" content="https://maloryauthor.com/hero-bg.JPG">
+    <meta property="og:image" content="https://maloryauthor.com/Logo.jpg">
     <meta property="og:url" content="https://maloryauthor.com/books.html">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Books | Malory - Sci-Fi, LitRPG & Progression Fantasy">
     <meta name="twitter:description" content="Browse the complete library of Malory's LitRPG, Sci-Fi, and Progression Fantasy books.">
-    <meta name="twitter:image" content="https://maloryauthor.com/hero-bg.JPG">
+    <meta name="twitter:image" content="https://maloryauthor.com/Logo.jpg">
 
     <link rel="preload" as="image" href="Logo.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Books by Malory",
+      "description": "The complete library of Malory's LitRPG, Sci-Fi, and Progression Fantasy books.",
+      "url": "https://maloryauthor.com/books.html",
+      "author": {
+        "@type": "Person",
+        "name": "Malory",
+        "url": "https://maloryauthor.com"
+      },
+      "hasPart": [
+        {
+          "@type": "Book",
+          "name": "Welcome to the Dark Ages",
+          "author": { "@type": "Person", "name": "Malory" },
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Progression Fantasy", "Cultivation"],
+          "numberOfPages": null,
+          "isPartOf": {
+            "@type": "BookSeries",
+            "name": "Morgan and Merlin's Excellent Adventures",
+            "position": "1"
+          },
+          "url": "https://mybook.to/WelcometotheDarkAges"
+        },
+        {
+          "@type": "Book",
+          "name": "Murder in the Temple",
+          "author": { "@type": "Person", "name": "Malory" },
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Mystery"],
+          "isPartOf": {
+            "@type": "BookSeries",
+            "name": "The Soar Chronicles",
+            "position": "1"
+          },
+          "url": "https://mybook.to/cxoBiH"
+        },
+        {
+          "@type": "Book",
+          "name": "Psyker Marine: Book 1",
+          "author": { "@type": "Person", "name": "Malory" },
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Military Sci-Fi"],
+          "isPartOf": {
+            "@type": "BookSeries",
+            "name": "Psyker Marine"
+          },
+          "url": "https://mybook.to/Psyker"
+        },
+        {
+          "@type": "Book",
+          "name": "Arcane Galaxy: Chaos Protocols",
+          "author": [
+            { "@type": "Person", "name": "Malory" },
+            { "@type": "Person", "name": "Troy Osgood" }
+          ],
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Space Western"],
+          "isPartOf": {
+            "@type": "BookSeries",
+            "name": "Arcane Galaxy",
+            "position": "1"
+          },
+          "url": "https://mybook.to/Chaosprotocol"
+        },
+        {
+          "@type": "Book",
+          "name": "Punish the System",
+          "author": [
+            { "@type": "Person", "name": "Malory" },
+            { "@type": "Person", "name": "Cassius Lange" }
+          ],
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Sci-Fi"],
+          "url": "https://mybook.to/BmUNF"
+        }
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,8 +117,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        html { scroll-behavior: smooth; }
-
         /* --- SERIES JUMP MENU (sticky) --- */
         .series-jump-menu-container {
             position: sticky;
@@ -42,7 +124,7 @@
             z-index: 1000;
             background: rgba(13, 16, 21, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--color-border, #333);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             width: 100%;
         }
@@ -60,11 +142,24 @@
         .series-jump-menu .tab-link {
             white-space: nowrap;
             text-decoration: none;
-            color: #b3b3b3;
-            font-family: 'Orbitron', sans-serif;
+            color: var(--color-text-muted, #b3b3b3);
+            font-family: var(--font-display, 'Orbitron', sans-serif);
             font-size: 0.8rem;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            padding: 4px 0;
+            position: relative;
+        }
+
+        .series-jump-menu .tab-link.active-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--color-gold, #d4af37);
+            border-radius: 1px;
         }
 
         .book-grid {
@@ -76,7 +171,7 @@
         }
 
         .series-group {
-            border-radius: 12px;
+            border-radius: var(--radius-lg, 12px);
             padding: 40px 20px;
             margin: 30px auto;
             scroll-margin-top: 120px;
@@ -87,7 +182,7 @@
 
         .series-book-card {
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-            border-radius: 8px;
+            border-radius: var(--radius-md, 8px);
             width: 100%;
             padding: 20px;
             display: flex;
@@ -101,7 +196,7 @@
             width: 100%;
             height: auto;
             max-width: 250px;
-            border-radius: 4px;
+            border-radius: var(--radius-sm, 4px);
             margin-bottom: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
@@ -112,7 +207,7 @@
             max-width: 250px;
             aspect-ratio: 2 / 3;
             background: #1a1a1a;
-            border: 2px dashed #444;
+            border: 2px dashed var(--color-border-light, #444);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -120,7 +215,7 @@
             color: #666;
             text-align: center;
             padding: 20px;
-            border-radius: 4px;
+            border-radius: var(--radius-sm, 4px);
             box-sizing: border-box;
             margin-bottom: 15px;
         }
@@ -136,15 +231,27 @@
         .continuity-box p { font-size: 0.9rem; opacity: 0.6; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
 
         .continuity-link {
-            color: #d4af37;
+            color: var(--color-gold, #d4af37);
             text-decoration: none;
-            font-family: 'Rajdhani', sans-serif;
+            font-family: var(--font-body, 'Rajdhani', sans-serif);
             font-weight: bold;
             font-size: 1.1rem;
             transition: all 0.3s ease;
         }
 
-        .continuity-link:hover { color: #ffffff; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+        .continuity-link:hover { color: var(--color-text-bright, #ffffff); text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+
+        /* Series header consistent style */
+        .series-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .series-header p {
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         @media (max-width: 900px) { .book-grid { grid-template-columns: repeat(2, 1fr); } }
 
@@ -174,13 +281,13 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar">
-        <div class="social-links">
-            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
+    <div class="top-bar" role="banner">
+        <div class="social-links" aria-label="Social media links">
+            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group" aria-hidden="true"></i></a>
         </div>
         <div class="scrolling-text-container" aria-live="polite" aria-atomic="true">
             <div class="scrolling-text">
@@ -190,11 +297,13 @@
     </div>
 
     <header>
-        <img src="Logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" fetchpriority="high">
+        <a href="index.html" class="logo-link" aria-label="Malory - Home">
+            <img src="Logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high">
+        </a>
         <div class="header-text">
             <h1>Malory</h1>
-            <p>Sci-Fi, LitRPG & Progression Fantasy</p>
-            <p style="color: #d4af37; font-size: 0.95rem; font-weight: bold; margin-top: 5px; margin-bottom: 15px; letter-spacing: 1px;"><i class="fas fa-trophy"></i> Winner of the 2026 Jim Baen Memorial Short Story Award</p>
+            <p class="header-tagline">Sci-Fi, LitRPG & Progression Fantasy</p>
+            <p class="header-award"><i class="fas fa-trophy" aria-hidden="true"></i> Winner of the 2026 Jim Baen Memorial Short Story Award</p>
             <nav aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="books.html" class="active-link" aria-current="page">Books</a>
@@ -205,27 +314,27 @@
 
     <main id="main-content">
 
-        <section class="guide-section">
+        <section class="guide-section" aria-label="Where to start reading">
             <h2>Where to Start</h2>
             <p style="color: #888; font-size: 1.05rem; margin-bottom: 30px;">Not sure which universe to dive into first? Pick your path.</p>
-            
+
             <div class="guide-grid">
                 <div class="guide-card">
-                    <i class="fas fa-rocket guide-icon"></i>
+                    <i class="fas fa-rocket guide-icon" aria-hidden="true"></i>
                     <h3>The Space Outlaw</h3>
                     <p>Battle a rigged LitRPG System alongside a trigger-happy operator and a rogue elf pilot.</p>
                     <a href="#arcane" data-target="arcane" class="guide-btn">Board the Ship</a>
                 </div>
-                
+
                 <div class="guide-card">
-                    <i class="fas fa-search guide-icon"></i>
+                    <i class="fas fa-search guide-icon" aria-hidden="true"></i>
                     <h3>The Sleuth</h3>
                     <p>Dive into a hardboiled mystery series to chase down conspiracies and untangle corporate lies.</p>
                     <a href="#soar" data-target="soar" class="guide-btn">Uncover the Truth</a>
                 </div>
-                
+
                 <div class="guide-card">
-                    <i class="fas fa-hat-wizard guide-icon"></i>
+                    <i class="fas fa-hat-wizard guide-icon" aria-hidden="true"></i>
                     <h3>The Cultivator</h3>
                     <p>Level up with a snarky protagonist using arcane progression and sharp wit to dominate Dark Age Cornwall.</p>
                     <a href="#merlin" data-target="merlin" class="guide-btn">Begin the Quest</a>
@@ -245,171 +354,175 @@
             </nav>
         </div>
 
+        <!-- MORGAN & MERLIN -->
         <section class="series-group active" id="merlin" role="tabpanel" aria-labelledby="tab-merlin">
-            <div class="series-header" style="text-align: center; margin-bottom: 40px;">
+            <div class="series-header">
                 <h2>Morgan and Merlin's Excellent Adventures</h2>
                 <p>Cultivation, reincarnation, and a fun, snarky protagonist in Dark Age Cornwall.</p>
                 <p style="color: #d4af37; font-weight: bold; margin-top: 15px;">
-                    <i class="fas fa-microphone-alt"></i> Audiobooks performed by
+                    <i class="fas fa-microphone-alt" aria-hidden="true"></i> Audiobooks performed by
                     <a href="https://www.audible.com/search?searchNarrator=Jess+Nahikian" target="_blank" rel="noopener noreferrer" style="color: #e5c158; text-decoration: underline;">Jess Nahikian</a>
                 </p>
             </div>
             <div class="book-grid">
                 <div class="series-book-card">
-                    <img src="welcome-cover.JPG" alt="Welcome to the Dark Ages - Morgan and Merlin's Excellent Adventures Book 1" loading="lazy">
+                    <img src="welcome-cover.JPG" alt="Welcome to the Dark Ages - Morgan and Merlin's Excellent Adventures Book 1" width="250" height="375" loading="lazy">
                     <h3>1. Welcome to the Dark Ages</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/WelcometotheDarkAges" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
-                        <a href="https://www.audible.com/pd/B0DM6Z8VLS" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible</a>
+                        <a href="https://mybook.to/WelcometotheDarkAges" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
+                        <a href="https://www.audible.com/pd/B0DM6Z8VLS" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <img src="tower-cover.jpg" alt="Journey to the Dark Tower - Morgan and Merlin's Excellent Adventures Book 2" loading="lazy">
+                    <img src="tower-cover.jpg" alt="Journey to the Dark Tower - Morgan and Merlin's Excellent Adventures Book 2" width="250" height="375" loading="lazy">
                     <h3>2. Journey to the Dark Tower</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/darktower" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
-                        <a href="https://www.audible.com/pd/B0DQD8K6G4" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible</a>
+                        <a href="https://mybook.to/darktower" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
+                        <a href="https://www.audible.com/pd/B0DQD8K6G4" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <img src="blade-cover.jpg" alt="Quest for the Dark Blade - Morgan and Merlin's Excellent Adventures Book 3" loading="lazy">
+                    <img src="blade-cover.jpg" alt="Quest for the Dark Blade - Morgan and Merlin's Excellent Adventures Book 3" width="250" height="375" loading="lazy">
                     <h3>3. Quest for the Dark Blade</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/darkblade" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
-                        <a href="https://www.audible.com/pd/B0DVNGD7Z6" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible</a>
+                        <a href="https://mybook.to/darkblade" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
+                        <a href="https://www.audible.com/pd/B0DVNGD7Z6" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
                 </div>
             </div>
             <div class="series-promo-box" style="text-align: center; margin-top: 30px;">
                 <p>Grab the premium special edition hardbacks from Legion Publishers.</p>
-                <a href="https://www.legionpublishers.com/malory-book-shop" class="buy-button btn-legion" target="_blank" rel="noopener noreferrer" style="margin-top: 10px;"><i class="fas fa-book-open"></i> Shop the Legion Collection</a>
+                <a href="https://www.legionpublishers.com/malory-book-shop" class="buy-button btn-legion" target="_blank" rel="noopener noreferrer" style="margin-top: 10px;"><i class="fas fa-book-open" aria-hidden="true"></i> Shop the Legion Collection</a>
             </div>
-            <div class="continuity-box"><p>Want something grittier?</p><a href="#soar" data-target="soar" class="continuity-link">Next: The Soar Chronicles <i class="fas fa-arrow-right"></i></a></div>
+            <div class="continuity-box"><p>Want something grittier?</p><a href="#soar" data-target="soar" class="continuity-link">Next: The Soar Chronicles <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
 
+        <!-- THE SOAR CHRONICLES -->
         <section class="series-group" id="soar" role="tabpanel" aria-labelledby="tab-soar">
-            <div class="series-header" style="text-align: center; margin-bottom: 40px;">
+            <div class="series-header">
                 <h2>The Soar Chronicles</h2>
                 <p>A gripping mystery series where every clue leads deeper into the shadows.</p>
                 <p style="color: #e0e0e0; font-weight: bold; margin-top: 15px;">
-                    <i class="fas fa-microphone-alt"></i> Audiobooks performed by
+                    <i class="fas fa-microphone-alt" aria-hidden="true"></i> Audiobooks performed by
                     <a href="https://www.audible.com/search?searchNarrator=Neil+Hellegers" target="_blank" rel="noopener noreferrer" style="color: #cf3a3a; text-decoration: underline;">Neil Hellegers</a>
                 </p>
             </div>
             <div class="book-grid">
                 <div class="series-book-card">
-                    <img src="murder-cover.JPG" alt="Murder in the Temple - The Soar Chronicles Book 1" loading="lazy">
+                    <img src="murder-cover.JPG" alt="Murder in the Temple - The Soar Chronicles Book 1" width="250" height="375" loading="lazy">
                     <h3>1. Murder in the Temple</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/cxoBiH" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
-                        <a href="https://a.co/d/03LV1x7J" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible</a>
+                        <a href="https://mybook.to/cxoBiH" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
+                        <a href="https://a.co/d/03LV1x7J" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <img src="curator-cover.JPG" alt="Death of a Curator - The Soar Chronicles Book 2" loading="lazy">
+                    <img src="curator-cover.JPG" alt="Death of a Curator - The Soar Chronicles Book 2" width="250" height="375" loading="lazy">
                     <h3>2. Death of a Curator</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/uyyzVN2" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
+                        <a href="https://mybook.to/uyyzVN2" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <img src="cuckoo-cover.JPG" alt="The Cuckoo's Last Call - The Soar Chronicles Book 3" loading="lazy">
+                    <img src="cuckoo-cover.JPG" alt="The Cuckoo's Last Call - The Soar Chronicles Book 3" width="250" height="375" loading="lazy">
                     <h3>3. The Cuckoo's Last Call</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/omwwK" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
-                        <a href="https://a.co/d/063nDLNs" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible</a>
+                        <a href="https://mybook.to/omwwK" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
+                        <a href="https://a.co/d/063nDLNs" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
                 </div>
             </div>
             <div class="series-promo-box" style="text-align: center; margin-top: 30px;">
                 <p>Grab the premium special edition hardbacks from Legion Publishers.</p>
-                <a href="https://www.legionpublishers.com/malory-book-shop" class="buy-button btn-legion" target="_blank" rel="noopener noreferrer" style="margin-top: 10px;"><i class="fas fa-book-open"></i> Shop the Legion Collection</a>
+                <a href="https://www.legionpublishers.com/malory-book-shop" class="buy-button btn-legion" target="_blank" rel="noopener noreferrer" style="margin-top: 10px;"><i class="fas fa-book-open" aria-hidden="true"></i> Shop the Legion Collection</a>
             </div>
-            <div class="continuity-box"><p>Ready for the front lines?</p><a href="#psyker" data-target="psyker" class="continuity-link">Next: Psyker Marine <i class="fas fa-arrow-right"></i></a></div>
+            <div class="continuity-box"><p>Ready for the front lines?</p><a href="#psyker" data-target="psyker" class="continuity-link">Next: Psyker Marine <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
 
+        <!-- PSYKER MARINE -->
         <section class="series-group" id="psyker" role="tabpanel" aria-labelledby="tab-psyker">
-            <div class="series-header" style="text-align: center; margin-bottom: 40px;">
+            <div class="series-header">
                 <h2>Psyker Marine</h2>
                 <p>Weaponized minds. Galactic war. The ultimate combat-focused LitRPG experience.</p>
                 <p style="color: #00f2ff; font-weight: bold; margin-top: 15px;">
-                    <i class="fas fa-microphone-alt"></i> Produced by <strong>Royal Guard</strong> | Performed by
+                    <i class="fas fa-microphone-alt" aria-hidden="true"></i> Produced by <strong>Royal Guard</strong> | Performed by
                     <a href="https://www.audible.com/search?searchNarrator=Matthew+Michael+Lewis" target="_blank" rel="noopener noreferrer" style="color: #a0c4ff; text-decoration: underline;">Matthew Michael Lewis</a> and
                     <a href="https://www.audible.com/search?searchNarrator=Renee+Nolen" target="_blank" rel="noopener noreferrer" style="color: #a0c4ff; text-decoration: underline;">Renee Nolen</a>
                 </p>
             </div>
             <div class="book-grid">
                 <div class="series-book-card">
-                    <img src="psyker-1.JPG" alt="Psyker Marine: Book 1 - Combat LitRPG by Malory" loading="lazy">
+                    <img src="psyker-1.JPG" alt="Psyker Marine: Book 1 - Combat LitRPG by Malory" width="250" height="375" loading="lazy">
                     <h3>Book 1</h3>
-                    <div class="buy-group"><a href="https://mybook.to/Psyker" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div>
+                    <div class="buy-group"><a href="https://mybook.to/Psyker" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div>
                 </div>
                 <div class="series-book-card">
-                    <img src="psyker-2.jpg" alt="Psyker Marine: Book 2 - Combat LitRPG by Malory" loading="lazy">
+                    <img src="psyker-2.jpg" alt="Psyker Marine: Book 2 - Combat LitRPG by Malory" width="250" height="375" loading="lazy">
                     <h3>Book 2</h3>
-                    <div class="buy-group"><a href="https://mybook.to/xNEiC" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div>
+                    <div class="buy-group"><a href="https://mybook.to/xNEiC" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div>
                 </div>
                 <div class="series-book-card">
-                    <img src="psyker-3.jpg" alt="Psyker Marine: Book 3 - Combat LitRPG by Malory" loading="lazy">
+                    <img src="psyker-3.jpg" alt="Psyker Marine: Book 3 - Combat LitRPG by Malory" width="250" height="375" loading="lazy">
                     <h3>Book 3</h3>
-                    <div class="buy-group"><a href="https://mybook.to/g7SApUG" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div>
+                    <div class="buy-group"><a href="https://mybook.to/g7SApUG" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div>
                 </div>
                 <div class="series-book-card">
-                    <img src="psyker-4.jpg" alt="Psyker Marine: Book 4 - Combat LitRPG by Malory" loading="lazy">
+                    <img src="psyker-4.jpg" alt="Psyker Marine: Book 4 - Combat LitRPG by Malory" width="250" height="375" loading="lazy">
                     <h3>Book 4</h3>
-                    <div class="buy-group"><a href="https://mybook.to/3A0PQTM" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div>
+                    <div class="buy-group"><a href="https://mybook.to/3A0PQTM" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div>
                 </div>
                 <div class="series-book-card">
-                    <img src="psyker-5.jpg" alt="Psyker Marine: Book 5 - Combat LitRPG by Malory" loading="lazy">
+                    <img src="psyker-5.jpg" alt="Psyker Marine: Book 5 - Combat LitRPG by Malory" width="250" height="375" loading="lazy">
                     <h3>Book 5</h3>
-                    <div class="buy-group"><a href="https://mybook.to/QNOgDBi" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div>
+                    <div class="buy-group"><a href="https://mybook.to/QNOgDBi" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div>
                 </div>
                 <div class="series-book-card">
-                    <img src="psyker-6.jpg" alt="Psyker Marine: Book 6 - Combat LitRPG by Malory" loading="lazy">
+                    <img src="psyker-6.jpg" alt="Psyker Marine: Book 6 - Combat LitRPG by Malory" width="250" height="375" loading="lazy">
                     <h3>Book 6</h3>
-                    <div class="buy-group"><a href="https://mybook.to/MVtVwI8" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div>
+                    <div class="buy-group"><a href="https://mybook.to/MVtVwI8" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div>
                 </div>
             </div>
             <div class="series-promo-box" style="text-align: center; margin-top: 30px;">
                 <p>Binge the entire war with the Psyker Marine Omnibus.</p>
                 <div class="buy-group" style="justify-content: center; margin-top: 15px;">
-                    <a href="https://mybook.to/4byBh8g" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle Omnibus</a>
-                    <a href="https://a.co/d/0bqa6TBq" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible Omnibus</a>
+                    <a href="https://mybook.to/4byBh8g" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle Omnibus</a>
+                    <a href="https://a.co/d/0bqa6TBq" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible Omnibus</a>
                 </div>
             </div>
-            <div class="continuity-box"><p>Meet the crew of the galaxy's most broken ship.</p><a href="#arcane" data-target="arcane" class="continuity-link">Next: Arcane Galaxy <i class="fas fa-arrow-right"></i></a></div>
+            <div class="continuity-box"><p>Meet the crew of the galaxy's most broken ship.</p><a href="#arcane" data-target="arcane" class="continuity-link">Next: Arcane Galaxy <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
 
+        <!-- ARCANE GALAXY -->
         <section class="series-group" id="arcane" role="tabpanel" aria-labelledby="tab-arcane">
-            <div class="series-header" style="text-align: center; margin-bottom: 40px;">
+            <div class="series-header">
                 <h2>Arcane Galaxy</h2>
                 <p>A trigger-happy SAS operator, an elf pilot, and a broken ship against an unforgiving LitRPG System.</p>
                 <p style="color: #ff9d4d; font-weight: bold; margin-top: 15px; font-family: 'Rajdhani', sans-serif;">
                     A Space Western LitRPG co-authored with <a href="https://www.amazon.com/author/troyosgood" target="_blank" rel="noopener noreferrer" style="color: #ffb880; text-decoration: underline;">Troy Osgood</a>.
                 </p>
                 <p style="color: #ff9d4d; font-weight: bold; margin-top: 5px; font-family: 'Rajdhani', sans-serif;">
-                    <i class="fas fa-microphone-alt"></i> Published by <strong>Aethon Books</strong> | Narrated by <a href="https://www.audible.com/search?searchNarrator=Daniel+Wisniewski" target="_blank" rel="noopener noreferrer" style="color: #ffb880; text-decoration: underline;">Daniel Wisniewski</a>
+                    <i class="fas fa-microphone-alt" aria-hidden="true"></i> Published by <strong>Aethon Books</strong> | Narrated by <a href="https://www.audible.com/search?searchNarrator=Daniel+Wisniewski" target="_blank" rel="noopener noreferrer" style="color: #ffb880; text-decoration: underline;">Daniel Wisniewski</a>
                 </p>
             </div>
             <div class="book-grid">
                 <div class="series-book-card">
-                    <img src="arcane-1.jpg" alt="Arcane Galaxy: Chaos Protocols - Space Western LitRPG Book 1" loading="lazy">
+                    <img src="arcane-1.jpg" alt="Arcane Galaxy: Chaos Protocols - Space Western LitRPG Book 1" width="250" height="375" loading="lazy">
                     <h3>1. Chaos Protocols</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/Chaosprotocol" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
-                        <a href="https://amzn.eu/d/0fwAaF1P" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible</a>
+                        <a href="https://mybook.to/Chaosprotocol" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
+                        <a href="https://amzn.eu/d/0fwAaF1P" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <img src="arcane-2.jpg" alt="Arcane Galaxy: Swashbuckler - Space Western LitRPG Book 2" loading="lazy">
+                    <img src="arcane-2.jpg" alt="Arcane Galaxy: Swashbuckler - Space Western LitRPG Book 2" width="250" height="375" loading="lazy">
                     <h3>2. Swashbuckler</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/eM2B" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
+                        <a href="https://mybook.to/eM2B" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <div class="placeholder-cover">
-                        <i class="fas fa-shuttle-space" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <div class="placeholder-cover" aria-label="Book 3 coming soon">
+                        <i class="fas fa-shuttle-space" style="font-size: 3rem; margin-bottom: 10px;" aria-hidden="true"></i>
                         <p>BOOK 3<br>DEEP SPACE</p>
                         <span style="font-size: 0.8rem; opacity: 0.7;">COMING SOON</span>
                     </div>
@@ -417,13 +530,14 @@
             </div>
             <div class="series-promo-box" style="text-align: center; margin-top: 30px; background: rgba(30, 20, 15, 0.9); border: 1px solid #cd7f32; padding: 20px; border-radius: 8px;">
                 <p style="color: #d2b48c; font-family: 'Special Elite', cursive;">Explore the full catalogue of epic adventures at Aethon Books.</p>
-                <a href="https://aethonbooks.com/" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #5d3a1a; margin-top: 10px;"><i class="fas fa-rocket"></i> Visit Aethon Books</a>
+                <a href="https://aethonbooks.com/" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #5d3a1a; margin-top: 10px;"><i class="fas fa-rocket" aria-hidden="true"></i> Visit Aethon Books</a>
             </div>
-            <div class="continuity-box"><p>Tired of the space race? Tear down the machine.</p><a href="#pts" data-target="pts" class="continuity-link">Next: Punish the System <i class="fas fa-arrow-right"></i></a></div>
+            <div class="continuity-box"><p>Tired of the space race? Tear down the machine.</p><a href="#pts" data-target="pts" class="continuity-link">Next: Punish the System <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
 
+        <!-- PUNISH THE SYSTEM -->
         <section class="series-group" id="pts" role="tabpanel" aria-labelledby="tab-pts">
-            <div class="series-header" style="text-align: center; margin-bottom: 40px;">
+            <div class="series-header">
                 <h2>Punish the System</h2>
                 <p>A gritty nightmare of a sci-fi LitRPG where surviving means tearing the establishment down.</p>
                 <p style="color: #a39b72; font-weight: bold; margin-top: 15px; font-family: 'Rajdhani', sans-serif;">
@@ -432,22 +546,22 @@
             </div>
             <div class="book-grid">
                 <div class="series-book-card">
-                    <img src="pts-cover.JPG" alt="Punish the System - Sci-Fi LitRPG Book 1 by Malory and Cassius Lange" loading="lazy">
+                    <img src="pts-cover.JPG" alt="Punish the System - Sci-Fi LitRPG Book 1 by Malory and Cassius Lange" width="250" height="375" loading="lazy">
                     <div class="buy-group">
-                        <a href="https://mybook.to/BmUNF" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
-                        <a href="https://a.co/d/08vUbFcd" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible</a>
+                        <a href="https://mybook.to/BmUNF" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
+                        <a href="https://a.co/d/08vUbFcd" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <div class="placeholder-cover">
-                        <i class="fas fa-folder-open" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <div class="placeholder-cover" aria-label="Book 2 awaiting clearance">
+                        <i class="fas fa-folder-open" style="font-size: 3rem; margin-bottom: 10px;" aria-hidden="true"></i>
                         <p>FILE 2<br>REDACTED</p>
                         <span style="font-size: 0.8rem; opacity: 0.7;">AWAITING CLEARANCE</span>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <div class="placeholder-cover">
-                        <i class="fas fa-archive" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <div class="placeholder-cover" aria-label="Book 3 awaiting clearance">
+                        <i class="fas fa-archive" style="font-size: 3rem; margin-bottom: 10px;" aria-hidden="true"></i>
                         <p>FILE 3<br>CLASSIFIED</p>
                         <span style="font-size: 0.8rem; opacity: 0.7;">AWAITING CLEARANCE</span>
                     </div>
@@ -455,60 +569,62 @@
             </div>
             <div class="series-promo-box" style="text-align: center; margin-top: 30px; background: rgba(20, 22, 20, 0.9); border: 1px solid #a39b72; padding: 20px; border-radius: 8px;">
                 <p style="color: #d9d2a6; font-family: 'Special Elite', monospace;">Experience the immersive audio production.</p>
-                <a href="https://soundbooththeater.com/?srsltid=AfmBOoraPZM-DUWFBQ-Ya_o-2z5whUs4WyZj_Zzpdt5zLPDfepCBv7WW" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #5c5a47; color: #fff; margin-top: 10px;"><i class="fas fa-headphones"></i> Visit Soundbooth Theater</a>
+                <a href="https://soundbooththeater.com/?srsltid=AfmBOoraPZM-DUWFBQ-Ya_o-2z5whUs4WyZj_Zzpdt5zLPDfepCBv7WW" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #5c5a47; color: #fff; margin-top: 10px;"><i class="fas fa-headphones" aria-hidden="true"></i> Visit Soundbooth Theater</a>
             </div>
-            <div class="continuity-box"><p>Machine broken? Dip into some pulp fiction.</p><a href="#raconteur" data-target="raconteur" class="continuity-link">Next: Raconteur Press <i class="fas fa-arrow-right"></i></a></div>
+            <div class="continuity-box"><p>Machine broken? Dip into some pulp fiction.</p><a href="#raconteur" data-target="raconteur" class="continuity-link">Next: Raconteur Press <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
 
+        <!-- RACONTEUR PRESS -->
         <section class="series-group" id="raconteur" role="tabpanel" aria-labelledby="tab-raconteur">
-            <div class="series-header" style="text-align: center; margin-bottom: 40px;">
+            <div class="series-header">
                 <h2>Raconteur Press Anthologies</h2>
                 <p>I've contributed short stories to these unapologetic pulp fiction collections. They are built for pure entertainment—action-packed, fast-paced science fiction and fantasy written to bring the fun back to reading for pulp-lovers everywhere.</p>
             </div>
             <div class="book-grid">
-                <div class="series-book-card"><img src="rac-press1.jpg" alt="Mad Science - Raconteur Press Anthology" loading="lazy"><h3>Mad Science</h3><div class="buy-group"><a href="https://mybook.to/dveduOj" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press2.jpg" alt="Vice Noir - Raconteur Press Anthology" loading="lazy"><h3>Vice Noir</h3><div class="buy-group"><a href="https://mybook.to/A8Hwv" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press3.jpg" alt="Alien Family Traditions - Raconteur Press Anthology" loading="lazy"><h3>Alien Family</h3><div class="buy-group"><a href="https://mybook.to/anAqBf" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press4.jpg" alt="Moggies of Mars - Raconteur Press Anthology" loading="lazy"><h3>Moggies</h3><div class="buy-group"><a href="https://mybook.to/HGqyXpw" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press5.jpg" alt="Mercs and Mayhem - Raconteur Press Anthology" loading="lazy"><h3>Mercs</h3><div class="buy-group"><a href="https://mybook.to/MI8gYL" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press6.jpg" alt="Bourbon and Lead - Raconteur Press Anthology" loading="lazy"><h3>Bourbon</h3><div class="buy-group"><a href="https://mybook.to/ojCMTTQ" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press7.jpg" alt="High Class Muscle - Raconteur Press Anthology" loading="lazy"><h3>Muscle</h3><div class="buy-group"><a href="https://mybook.to/4c0fON" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press8.jpg" alt="Uncanny Valet - Raconteur Press Anthology" loading="lazy"><h3>Valet</h3><div class="buy-group"><a href="https://mybook.to/5Auh2" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press9.jpg" alt="Insert Coin - Raconteur Press Anthology" loading="lazy"><h3>Insert Coin</h3><div class="buy-group"><a href="https://mybook.to/e1dFbL8" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press10.jpg" alt="Plasma Pulp - Raconteur Press Anthology" loading="lazy"><h3>Plasma Pulp</h3><div class="buy-group"><a href="https://mybook.to/FB8tQ" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press11.jpg" alt="Pogue Too - Raconteur Press Anthology" loading="lazy"><h3>Pogue Too</h3><div class="buy-group"><a href="https://mybook.to/BBZI" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
-                <div class="series-book-card"><img src="rac-press12.jpg" alt="Mad Science 2 - Raconteur Press Anthology" loading="lazy"><h3>Mad Science 2</h3><div class="buy-group"><a href="https://mybook.to/SWQS" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press1.jpg" alt="Mad Science - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Mad Science</h3><div class="buy-group"><a href="https://mybook.to/dveduOj" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press2.jpg" alt="Vice Noir - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Vice Noir</h3><div class="buy-group"><a href="https://mybook.to/A8Hwv" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press3.jpg" alt="Alien Family Traditions - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Alien Family</h3><div class="buy-group"><a href="https://mybook.to/anAqBf" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press4.jpg" alt="Moggies of Mars - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Moggies</h3><div class="buy-group"><a href="https://mybook.to/HGqyXpw" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press5.jpg" alt="Mercs and Mayhem - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Mercs</h3><div class="buy-group"><a href="https://mybook.to/MI8gYL" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press6.jpg" alt="Bourbon and Lead - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Bourbon</h3><div class="buy-group"><a href="https://mybook.to/ojCMTTQ" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press7.jpg" alt="High Class Muscle - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Muscle</h3><div class="buy-group"><a href="https://mybook.to/4c0fON" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press8.jpg" alt="Uncanny Valet - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Valet</h3><div class="buy-group"><a href="https://mybook.to/5Auh2" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press9.jpg" alt="Insert Coin - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Insert Coin</h3><div class="buy-group"><a href="https://mybook.to/e1dFbL8" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press10.jpg" alt="Plasma Pulp - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Plasma Pulp</h3><div class="buy-group"><a href="https://mybook.to/FB8tQ" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press11.jpg" alt="Pogue Too - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Pogue Too</h3><div class="buy-group"><a href="https://mybook.to/BBZI" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
+                <div class="series-book-card"><img src="rac-press12.jpg" alt="Mad Science 2 - Raconteur Press Anthology" width="250" height="375" loading="lazy"><h3>Mad Science 2</h3><div class="buy-group"><a href="https://mybook.to/SWQS" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div></div>
             </div>
             <div class="series-promo-box" style="text-align: center; margin-top: 30px; padding: 20px; border-radius: 8px;">
                 <p style="color: #ffcc80; font-family: 'Special Elite', cursive;">Never miss an issue. Subscribe to the Raconteur Press dispatch.</p>
-                <a href="https://raconteurpress.substack.com/" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #bf360c; color: #fff; margin-top: 10px;"><i class="fas fa-envelope-open-text"></i> Join the Substack</a>
+                <a href="https://raconteurpress.substack.com/" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #bf360c; color: #fff; margin-top: 10px;"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Join the Substack</a>
             </div>
-            <div class="continuity-box"><p>Revisit the golden age of classic heroics.</p><a href="#boys" data-target="boys" class="continuity-link">Next: Boy's Own Adventures <i class="fas fa-arrow-right"></i></a></div>
+            <div class="continuity-box"><p>Revisit the golden age of classic heroics.</p><a href="#boys" data-target="boys" class="continuity-link">Next: Boy's Own Adventures <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
 
+        <!-- BOY'S OWN ADVENTURES -->
         <section class="series-group" id="boys" role="tabpanel" aria-labelledby="tab-boys">
-            <div class="series-header" style="text-align: center; margin-bottom: 40px;">
+            <div class="series-header">
                 <h2>Boy's Own Adventures</h2>
                 <p>Classic heroics are back. We are returning to the golden age of storytelling for young men, focusing on courage, exploration, and thrilling escapades. These tales leave the modern messaging behind, delivering pure, high-stakes fun designed to capture a boy's imagination and ignite a lifelong love of reading.</p>
             </div>
             <div class="book-grid">
                 <div class="series-book-card">
-                    <img src="boys-1.jpg" alt="The Weird Map in Mr Glimm's Skull - A Boy's Own Adventure by Malory" loading="lazy">
+                    <img src="boys-1.jpg" alt="The Weird Map in Mr Glimm's Skull - A Boy's Own Adventure by Malory" width="250" height="375" loading="lazy">
                     <h3>The Weird Map in Mr Glimm's Skull</h3>
                     <div class="buy-group">
-                        <a href="https://mybook.to/MrGlimm" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle</a>
+                        <a href="https://mybook.to/MrGlimm" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <div class="placeholder-cover">
-                        <i class="fas fa-compass" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <div class="placeholder-cover" aria-label="Next adventure in development">
+                        <i class="fas fa-compass" style="font-size: 3rem; margin-bottom: 10px;" aria-hidden="true"></i>
                         <p>NEXT ADVENTURE<br>CHARTING THE UNKNOWN</p>
                         <span style="font-size: 0.8rem; opacity: 0.7;">IN DEVELOPMENT</span>
                     </div>
                 </div>
                 <div class="series-book-card">
-                    <div class="placeholder-cover">
-                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <div class="placeholder-cover" aria-label="Further expedition in development">
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 10px;" aria-hidden="true"></i>
                         <p>FURTHER EXPEDITION<br>AWAITING DISCOVERY</p>
                         <span style="font-size: 0.8rem; opacity: 0.7;">IN DEVELOPMENT</span>
                     </div>
@@ -516,21 +632,22 @@
             </div>
             <div class="series-promo-box" style="text-align: center; margin-top: 30px; padding: 20px; border-radius: 8px;">
                 <p style="color: #b3a382; font-family: 'Rajdhani', sans-serif;">Support the return of classic tales for young men.</p>
-                <a href="https://raconteurpress.substack.com/" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #6b4423; color: #fff; margin-top: 10px;"><i class="fas fa-campground"></i> Read Boy's Own Adventures</a>
+                <a href="https://raconteurpress.substack.com/" class="buy-button" target="_blank" rel="noopener noreferrer" style="background: #6b4423; color: #fff; margin-top: 10px;"><i class="fas fa-campground" aria-hidden="true"></i> Read Boy's Own Adventures</a>
             </div>
-            <div class="continuity-box"><p>Adventure over? Head back home.</p><a href="#merlin" data-target="merlin" class="continuity-link">Back to the Beginning <i class="fas fa-undo"></i></a></div>
+            <div class="continuity-box"><p>Adventure over? Head back home.</p><a href="#merlin" data-target="merlin" class="continuity-link">Back to the Beginning <i class="fas fa-undo" aria-hidden="true"></i></a></div>
         </section>
 
     </main>
 
     <footer>
         <p>
-            <img src="HumanAuthored.png" alt="Human Authored Certified" class="footer-badge">
+            <img src="HumanAuthored.png" alt="Human Authored Certified" class="footer-badge" width="75" height="25" loading="lazy">
             &copy; 2026 Malory. All rights reserved.
         </p>
     </footer>
 
     <script>
+        /* --- Tab navigation and series switching --- */
         const navLinks = document.querySelectorAll('.tab-link, .continuity-link, .guide-btn');
         const sections = document.querySelectorAll('.series-group');
         const jumpMenuTabs = document.querySelectorAll('.tab-link');
@@ -542,12 +659,10 @@
                 if (targetId) {
                     e.preventDefault();
 
-                    // 1. Hide all sections, show the target
                     sections.forEach(s => s.classList.remove('active'));
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) targetSection.classList.add('active');
 
-                    // 2. Update tab styling, aria-selected, and scroll the mobile ribbon
                     jumpMenuTabs.forEach(tab => {
                         tab.classList.remove('active-link');
                         tab.setAttribute('aria-selected', 'false');
@@ -564,12 +679,21 @@
                         }
                     });
 
-                    // 3. Scroll page down to the shelf
-                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
 
+        /* Handle direct URL hash navigation (e.g., books.html#arcane) */
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetTab = document.querySelector(`.tab-link[data-target="${hash}"]`);
+                if (targetTab) targetTab.click();
+            }
+        });
+
+        /* --- Promo ticker rotation --- */
         const ticker = document.getElementById('promo-ticker');
         const messages = [
             { text: "Get the free monster-hunter short story, Crude!", url: "https://maloryauthor.substack.com/subscribe", target: "_blank" },
@@ -577,16 +701,24 @@
             { text: "Grab the Punish the System audiobook!", url: "https://a.co/d/09k86aJT", target: "_blank" }
         ];
         let currentIndex = 0;
-        setInterval(() => {
-            ticker.style.opacity = 0;
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % messages.length;
-                ticker.textContent = messages[currentIndex].text;
-                ticker.href = messages[currentIndex].url;
-                ticker.target = messages[currentIndex].target;
-                ticker.style.opacity = 1;
-            }, 500);
-        }, 5000);
+        let tickerInterval;
+
+        function rotateTicker() {
+            tickerInterval = setInterval(() => {
+                ticker.style.opacity = 0;
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % messages.length;
+                    ticker.textContent = messages[currentIndex].text;
+                    ticker.href = messages[currentIndex].url;
+                    ticker.target = messages[currentIndex].target;
+                    ticker.style.opacity = 1;
+                }, 500);
+            }, 5000);
+        }
+        rotateTicker();
+
+        ticker.closest('.scrolling-text-container').addEventListener('mouseenter', () => clearInterval(tickerInterval));
+        ticker.closest('.scrolling-text-container').addEventListener('mouseleave', rotateTicker);
     </script>
     <script src="animations.js" defer></script>
 </body>

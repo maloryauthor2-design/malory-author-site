@@ -15,10 +15,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Respect the user's OS motion preference — bail out entirely if set
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionQuery.matches) return;
 
     // Elements to animate. Excludes header/hero (already above fold).
-    // Order matters: more specific selectors take priority.
     const ANIMATED_SELECTORS = [
         'main h2',
         'main h3',
@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
         '.continuity-box',
         '.about-container',
         '.award-callout',
-        '.social-proof-subheading'
+        '.social-proof-subheading',
+        '.guide-card',
+        '.publisher-strip'
     ].join(', ');
 
     const elements = document.querySelectorAll(ANIMATED_SELECTORS);
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add the reveal class to prime them for animation
     elements.forEach(el => el.classList.add('reveal'));
 
+    // Use a single shared observer for memory efficiency
     const observer = new IntersectionObserver((entries) => {
 
         // Sort triggering entries top-to-bottom so stagger feels natural
@@ -57,9 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     }, {
-        threshold: 0.07,           // Trigger when 7% of the element is visible
-        rootMargin: '0px 0px -30px 0px'  // Slightly before the bottom of the viewport
+        threshold: 0.07,
+        rootMargin: '0px 0px -30px 0px'
     });
 
     elements.forEach(el => observer.observe(el));
+
+    // Listen for runtime changes to motion preference
+    motionQuery.addEventListener('change', (e) => {
+        if (e.matches) {
+            // User just enabled reduced motion — show everything immediately
+            document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+                el.classList.add('visible');
+                observer.unobserve(el);
+            });
+        }
+    });
 });

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1015">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
     <title>About Malory | Sci-Fi & LitRPG Author</title>
     <meta name="description" content="Learn more about Malory, award-winning author of Sci-Fi, LitRPG, and Progression Fantasy, and a PhD candidate researching men's reading habits.">
     <link rel="canonical" href="https://maloryauthor.com/about.html">
@@ -21,7 +22,6 @@
     <meta name="twitter:description" content="Meet the author behind Morgan & Merlin, Psyker Marine, and Arcane Galaxy.">
     <meta name="twitter:image" content="https://maloryauthor.com/selfie-1.jpg">
 
-    <!-- Preload logo -->
     <link rel="preload" as="image" href="Logo.jpg">
 
     <script type="application/ld+json">
@@ -34,11 +34,13 @@
           "jobTitle": "Author",
           "url": "https://maloryauthor.com",
           "image": "https://maloryauthor.com/selfie-1.jpg",
+          "description": "Award-winning author of Sci-Fi, LitRPG, and Progression Fantasy novels. PhD candidate researching men's reading habits.",
           "sameAs": [
             "https://maloryauthor.substack.com",
             "https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr",
             "https://www.instagram.com/maloryauthor",
-            "https://x.com/maloryauthor"
+            "https://x.com/maloryauthor",
+            "https://www.tiktok.com/@maloryauthor"
           ],
           "knowsAbout": ["LitRPG", "Progression Fantasy", "Sci-Fi", "Space Western", "Cyberpunk", "Mystery", "Pulp Fiction", "Boy's Own Adventures"],
           "award": "2026 Jim Baen Memorial Short Story Award"
@@ -46,12 +48,10 @@
     }
     </script>
 
-    <!-- Fonts: only what this page needs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -63,8 +63,8 @@
             display: flex;
             gap: 50px;
             background: rgba(26, 30, 36, 0.85);
-            border: 1px solid #333;
-            border-radius: 12px;
+            border: 1px solid var(--color-border, #333);
+            border-radius: var(--radius-lg, 12px);
             padding: 50px;
             margin: 40px auto 80px auto;
             max-width: 900px;
@@ -84,8 +84,8 @@
         .about-image {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            border: 2px solid #d4af37;
+            border-radius: var(--radius-md, 8px);
+            border: 2px solid var(--color-gold, #d4af37);
             box-shadow: 0 8px 25px rgba(0,0,0,0.6);
             object-fit: cover;
             aspect-ratio: 3 / 4;
@@ -121,18 +121,18 @@
         }
 
         .about-text-col h2 {
-            color: #d4af37;
+            color: var(--color-gold, #d4af37);
             margin-top: 0;
             font-size: 2.2rem;
             margin-bottom: 25px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--color-border, #333);
             padding-bottom: 15px;
         }
 
         .about-text-col p {
             font-size: 1.15rem;
             line-height: 1.8;
-            color: #d1d5db;
+            color: var(--color-review-text, #d1d5db);
             margin-bottom: 20px;
         }
 
@@ -141,20 +141,21 @@
             align-items: center;
             gap: 15px;
             background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), transparent);
-            border-left: 3px solid #d4af37;
+            border-left: 3px solid var(--color-gold, #d4af37);
             padding: 15px 20px;
-            border-radius: 0 4px 4px 0;
+            border-radius: 0 var(--radius-sm, 4px) var(--radius-sm, 4px) 0;
             margin: 30px 0;
         }
 
         .award-callout i {
-            color: #d4af37;
+            color: var(--color-gold, #d4af37);
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .award-callout p {
             margin: 0;
-            font-family: 'Orbitron', sans-serif;
+            font-family: var(--font-display, 'Orbitron', sans-serif);
             color: #fff;
             font-size: 1rem;
             text-transform: uppercase;
@@ -180,24 +181,23 @@
                 flex-direction: column;
                 text-align: center;
                 border-left: none;
-                border-top: 3px solid #d4af37;
+                border-top: 3px solid var(--color-gold, #d4af37);
                 background: linear-gradient(180deg, rgba(212, 175, 55, 0.1), transparent);
-                border-radius: 0 0 4px 4px;
+                border-radius: 0 0 var(--radius-sm, 4px) var(--radius-sm, 4px);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Skip link: lets keyboard users jump past repeated navigation -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar">
-        <div class="social-links">
-            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
+    <div class="top-bar" role="banner">
+        <div class="social-links" aria-label="Social media links">
+            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group" aria-hidden="true"></i></a>
         </div>
         <div class="scrolling-text-container" aria-live="polite" aria-atomic="true">
             <div class="scrolling-text">
@@ -207,11 +207,13 @@
     </div>
 
     <header>
-        <img src="Logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" fetchpriority="high">
+        <a href="index.html" class="logo-link" aria-label="Malory - Home">
+            <img src="Logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high">
+        </a>
         <div class="header-text">
             <h1>Malory</h1>
-            <p>Sci-Fi, LitRPG & Progression Fantasy</p>
-            <p style="color: #d4af37; font-size: 0.95rem; font-weight: bold; margin-top: 5px; margin-bottom: 15px; letter-spacing: 1px;"><i class="fas fa-trophy"></i> Winner of the 2026 Jim Baen Memorial Short Story Award</p>
+            <p class="header-tagline">Sci-Fi, LitRPG & Progression Fantasy</p>
+            <p class="header-award"><i class="fas fa-trophy" aria-hidden="true"></i> Winner of the 2026 Jim Baen Memorial Short Story Award</p>
             <nav aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="books.html">Books</a>
@@ -223,9 +225,9 @@
     <main id="main-content">
         <section class="about-container" aria-label="About the author">
             <div class="about-image-col">
-                <img src="selfie-1.jpg" alt="Malory - Sci-Fi and Fantasy Author" class="about-image" loading="lazy">
+                <img src="selfie-1.jpg" alt="Malory - Sci-Fi and Fantasy Author" class="about-image" width="320" height="427" loading="lazy">
                 <div class="about-badges">
-                    <img src="HumanAuthored.png" alt="Human Authored Certified" title="100% Human Authored">
+                    <img src="HumanAuthored.png" alt="Human Authored Certified" title="100% Human Authored" width="75" height="25" loading="lazy">
                 </div>
             </div>
 
@@ -236,7 +238,7 @@
                 <p>Overall, though, I'm just interested in writing fun books people actually want to read. As a PhD candidate currently researching men's reading habits, I spend a lot of time analysing what sits on modern bookshelves. And it strikes me that the world really needs more escapism! I even penned my first Boy's Own Adventure specifically for my son, aiming to bring back the golden age of classic heroics.</p>
 
                 <div class="award-callout">
-                    <i class="fas fa-award"></i>
+                    <i class="fas fa-award" aria-hidden="true"></i>
                     <p>Winner of the 2026 Jim Baen Memorial Short Story Award</p>
                 </div>
 
@@ -246,15 +248,14 @@
             </div>
         </section>
 
-        <!-- hero-lead-magnet styles come from style.css — no inline override needed -->
         <section class="hero-lead-magnet" style="margin-top: 60px; min-height: 400px;" aria-label="Free story sign-up">
             <div class="hero-inner">
                 <div class="hero-content-box" style="margin: 0 auto; text-align: center;">
                     <h2>Free Story: Crude</h2>
-                    <p>Join the VIP reader list on Substack to receive a free download of <em>Crude</em>. Survive a gritty monster-hunter adventure set on an isolated offshore rig, plus get early access to all my upcoming releases.</p>
+                    <p>I wrote <em>Crude</em> as a love letter to creature features and blue-collar survival horror — the kind of story where the monster's bad, but the real tension comes from the people trapped with it. Grab it free when you join the VIP reader list, and you'll also get early access to everything I'm working on next.</p>
 
                     <div class="lead-form">
-                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse"><i class="fas fa-envelope-open-text"></i> Get Your Free Story</a>
+                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Get Your Free Story</a>
                     </div>
                 </div>
             </div>
@@ -263,12 +264,13 @@
 
     <footer>
         <p>
-            <img src="HumanAuthored.png" alt="Human Authored Certified" class="footer-badge">
+            <img src="HumanAuthored.png" alt="Human Authored Certified" class="footer-badge" width="75" height="25" loading="lazy">
             &copy; 2026 Malory. All rights reserved.
         </p>
     </footer>
 
     <script>
+        /* --- Promo ticker rotation --- */
         const ticker = document.getElementById('promo-ticker');
         const messages = [
             { text: "Get the free monster-hunter short story, Crude!", url: "https://maloryauthor.substack.com/subscribe", target: "_blank" },
@@ -276,16 +278,24 @@
             { text: "Grab the Punish the System audiobook!", url: "https://a.co/d/09k86aJT", target: "_blank" }
         ];
         let currentIndex = 0;
-        setInterval(() => {
-            ticker.style.opacity = 0;
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % messages.length;
-                ticker.textContent = messages[currentIndex].text;
-                ticker.href = messages[currentIndex].url;
-                ticker.target = messages[currentIndex].target;
-                ticker.style.opacity = 1;
-            }, 500);
-        }, 5000);
+        let tickerInterval;
+
+        function rotateTicker() {
+            tickerInterval = setInterval(() => {
+                ticker.style.opacity = 0;
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % messages.length;
+                    ticker.textContent = messages[currentIndex].text;
+                    ticker.href = messages[currentIndex].url;
+                    ticker.target = messages[currentIndex].target;
+                    ticker.style.opacity = 1;
+                }, 500);
+            }, 5000);
+        }
+        rotateTicker();
+
+        ticker.closest('.scrolling-text-container').addEventListener('mouseenter', () => clearInterval(tickerInterval));
+        ticker.closest('.scrolling-text-container').addEventListener('mouseleave', rotateTicker);
     </script>
     <script src="animations.js" defer></script>
 </body>

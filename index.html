@@ -23,7 +23,7 @@
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-    <link rel="preload" as="image" href="hero-bg.JPG">
+    <link rel="preload" as="image" href="hero-bg.JPG" fetchpriority="high">
     <link rel="preload" as="image" href="Logo.jpg">
 
     <script type="application/ld+json">
@@ -35,11 +35,13 @@
           "name": "Malory",
           "jobTitle": "Author",
           "url": "https://maloryauthor.com",
+          "image": "https://maloryauthor.com/Logo.jpg",
           "sameAs": [
             "https://maloryauthor.substack.com",
             "https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr",
             "https://www.instagram.com/maloryauthor",
-            "https://x.com/maloryauthor"
+            "https://x.com/maloryauthor",
+            "https://www.tiktok.com/@maloryauthor"
           ],
           "knowsAbout": ["LitRPG", "Progression Fantasy", "Sci-Fi", "Space Western", "Cyberpunk", "Mystery", "Pulp Fiction", "Boy's Own Adventures"],
           "award": "2026 Jim Baen Memorial Short Story Award"
@@ -48,6 +50,17 @@
           "@type": "WebSite",
           "name": "Malory - Author Website",
           "url": "https://maloryauthor.com"
+        },
+        {
+          "@type": "Book",
+          "name": "Punish the System",
+          "author": [
+            { "@type": "Person", "name": "Malory" },
+            { "@type": "Person", "name": "Cassius Lange" }
+          ],
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Sci-Fi"],
+          "url": "https://mybook.to/BmUNF"
         }
       ]
     }
@@ -65,13 +78,13 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar">
-        <div class="social-links">
-            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group"></i></a>
+    <div class="top-bar" role="banner">
+        <div class="social-links" aria-label="Social media links">
+            <a href="https://www.facebook.com/share/1DfRcJtKhQ/?mibextid=wwXIfr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/maloryauthor?igsh=emRsbXdoMGZsNmto&utm_source=qr" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+            <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group" aria-hidden="true"></i></a>
         </div>
         <div class="scrolling-text-container" aria-live="polite" aria-atomic="true">
             <div class="scrolling-text">
@@ -81,11 +94,13 @@
     </div>
 
     <header>
-        <img src="Logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" fetchpriority="high">
+        <a href="index.html" class="logo-link" aria-label="Malory - Home">
+            <img src="Logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high">
+        </a>
         <div class="header-text">
             <h1>Malory</h1>
-            <p>Sci-Fi, LitRPG & Progression Fantasy</p>
-            <p style="color: #d4af37; font-size: 0.95rem; font-weight: bold; margin-top: 5px; margin-bottom: 15px; letter-spacing: 1px;"><i class="fas fa-trophy"></i> Winner of the 2026 Jim Baen Memorial Short Story Award</p>
+            <p class="header-tagline">Sci-Fi, LitRPG & Progression Fantasy</p>
+            <p class="header-award"><i class="fas fa-trophy" aria-hidden="true"></i> Winner of the 2026 Jim Baen Memorial Short Story Award</p>
             <nav aria-label="Main navigation">
                 <a href="index.html" class="active-link" aria-current="page">Home</a>
                 <a href="books.html">Books</a>
@@ -101,23 +116,23 @@
                     <h2>Free Story: Crude</h2>
                     <p>Join the VIP reader list on Substack to receive a free download of <em>Crude</em>. Survive a gritty monster-hunter adventure set on an isolated offshore rig, plus get early access to all my upcoming Sci-Fi and Progression Fantasy releases.</p>
                     <div class="lead-form">
-                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse" style="text-align: center;"><i class="fas fa-envelope-open-text"></i> Get Your Free Story</a>
+                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Get Your Free Story</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section aria-label="Latest release">
             <h2>Latest Release</h2>
             <div class="book-container">
-                <img src="pts-cover.JPG" alt="Punish the System - A Sci-Fi LitRPG Novel by Malory" class="book-cover" loading="lazy">
+                <img src="pts-cover.JPG" alt="Punish the System - A Sci-Fi LitRPG Novel by Malory" class="book-cover" width="250" height="375" loading="lazy">
                 <div class="book-info">
                     <h3>Punish the System</h3>
                     <p>A fast-paced nightmare of a LitRPG where surviving means tearing the establishment down. Co-authored with Cassius Lange.</p>
-                    <p style="color: #d4af37; font-weight: bold; margin-bottom: 20px;"><i class="fas fa-headphones-alt"></i> Audiobook produced by Soundbooth Theater</p>
+                    <p class="book-audio-badge"><i class="fas fa-headphones-alt" aria-hidden="true"></i> Audiobook produced by Soundbooth Theater</p>
                     <div class="buy-group">
-                        <a href="https://mybook.to/BmUNF" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon"></i> Kindle & Paperback</a>
-                        <a href="https://a.co/d/08vUbFcd" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible"></i> Audible US</a>
+                        <a href="https://mybook.to/BmUNF" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle & Paperback</a>
+                        <a href="https://a.co/d/08vUbFcd" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible US</a>
                     </div>
                 </div>
             </div>
@@ -128,62 +143,62 @@
             <p class="social-proof-subheading">Verified reader reviews</p>
             <div class="review-grid">
 
-                <div class="review-card">
-                    <div class="review-stars" aria-label="Five stars">★★★★★</div>
+                <article class="review-card">
+                    <div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
                     <blockquote>
                         Still the best detective series I've ever read. Classless never meant useless — from book one he showed he was able to function and work, even if it wasn't according to the standards of others. Well done, Malory.
                     </blockquote>
-                    <div class="review-cite">
+                    <footer class="review-cite">
                         <strong>H. House</strong>
                         <span class="review-source">Amazon</span>
-                    </div>
-                </div>
+                    </footer>
+                </article>
 
-                <div class="review-card">
-                    <div class="review-stars" aria-label="Five stars">★★★★★</div>
+                <article class="review-card">
+                    <div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
                     <blockquote>
                         Oh, this one is good. It takes a Stranger Things-like theme and runs with it in unexpected directions — and it makes internal sense, unlike the hot mess of the later Netflix seasons. Try it on for size.
                     </blockquote>
-                    <div class="review-cite">
+                    <footer class="review-cite">
                         <strong>Charles Fout</strong>
                         <span class="review-source">Amazon</span>
-                    </div>
-                </div>
+                    </footer>
+                </article>
 
-                <div class="review-card">
-                    <div class="review-stars" aria-label="Five stars">★★★★★</div>
+                <article class="review-card">
+                    <div class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
                     <blockquote>
                         Absolutely killer read. Great LitRPG with a surprising amount of heart. Looking forward to the next book!
                     </blockquote>
-                    <div class="review-cite">
+                    <footer class="review-cite">
                         <strong>Eric</strong>
                         <span class="review-source">Amazon</span>
-                    </div>
-                </div>
+                    </footer>
+                </article>
 
             </div>
         </section>
 
-        <section class="publisher-strip">
+        <section class="publisher-strip" aria-label="Publishing partners">
             <h3 class="publisher-heading">Published & Produced In Partnership With</h3>
             <div class="publisher-logos">
-                <a href="https://aethonbooks.com/" target="_blank" rel="noopener">Aethon Books</a>
-                <span class="divider">|</span>
-                <a href="https://www.legionpublishers.com/" target="_blank" rel="noopener">Legion Publishers</a>
-                <span class="divider">|</span>
-                <a href="https://soundbooththeater.com/" target="_blank" rel="noopener">Soundbooth Theater</a>
-                <span class="divider">|</span>
-                <a href="https://raconteurpress.substack.com/" target="_blank" rel="noopener">Raconteur Press</a>
-                <span class="divider">|</span>
-                <a href="https://www.facebook.com/groups/5257646894263812/" target="_blank" rel="noopener">LitForge</a>
-                <span class="divider">|</span>
-                <a href="https://royalguardpublishing.com/" target="_blank" rel="noopener">Royal Guard</a>
+                <a href="https://aethonbooks.com/" target="_blank" rel="noopener noreferrer">Aethon Books</a>
+                <span class="divider" aria-hidden="true">|</span>
+                <a href="https://www.legionpublishers.com/" target="_blank" rel="noopener noreferrer">Legion Publishers</a>
+                <span class="divider" aria-hidden="true">|</span>
+                <a href="https://soundbooththeater.com/" target="_blank" rel="noopener noreferrer">Soundbooth Theater</a>
+                <span class="divider" aria-hidden="true">|</span>
+                <a href="https://raconteurpress.substack.com/" target="_blank" rel="noopener noreferrer">Raconteur Press</a>
+                <span class="divider" aria-hidden="true">|</span>
+                <a href="https://www.facebook.com/groups/5257646894263812/" target="_blank" rel="noopener noreferrer">LitForge</a>
+                <span class="divider" aria-hidden="true">|</span>
+                <a href="https://royalguardpublishing.com/" target="_blank" rel="noopener noreferrer">Royal Guard</a>
             </div>
         </section>
 
     </main>
 
-    <section class="social-video-feed">
+    <section class="social-video-feed" aria-label="Social media videos">
         <h2>Latest from the Feed</h2>
         <div class="video-grid">
             <div class="video-item static-card" data-video-id="7617103900398718230" aria-label="Play TikTok video: Rivers and the Galaxy" tabindex="0" role="button">
@@ -203,12 +218,13 @@
 
     <footer>
         <p>
-            <img src="HumanAuthored.png" alt="Human Authored Certified" class="footer-badge">
+            <img src="HumanAuthored.png" alt="Human Authored Certified" class="footer-badge" width="75" height="25" loading="lazy">
             &copy; 2026 Malory. All rights reserved.
         </p>
     </footer>
 
     <script>
+        /* --- Promo ticker rotation --- */
         const ticker = document.getElementById('promo-ticker');
         const messages = [
             { text: "Get the free monster-hunter short story, Crude!", url: "https://maloryauthor.substack.com/subscribe", target: "_blank" },
@@ -216,21 +232,30 @@
             { text: "Grab the Punish the System audiobook!", url: "https://a.co/d/09k86aJT", target: "_blank" }
         ];
         let currentIndex = 0;
+        let tickerInterval;
 
-        setInterval(() => {
-            ticker.style.opacity = 0;
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % messages.length;
-                ticker.textContent = messages[currentIndex].text;
-                ticker.href = messages[currentIndex].url;
-                ticker.target = messages[currentIndex].target;
-                ticker.style.opacity = 1;
-            }, 500);
-        }, 5000);
+        function rotateTicker() {
+            tickerInterval = setInterval(() => {
+                ticker.style.opacity = 0;
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % messages.length;
+                    ticker.textContent = messages[currentIndex].text;
+                    ticker.href = messages[currentIndex].url;
+                    ticker.target = messages[currentIndex].target;
+                    ticker.style.opacity = 1;
+                }, 500);
+            }, 5000);
+        }
+        rotateTicker();
 
+        /* Pause ticker on hover for readability */
+        ticker.closest('.scrolling-text-container').addEventListener('mouseenter', () => clearInterval(tickerInterval));
+        ticker.closest('.scrolling-text-container').addEventListener('mouseleave', rotateTicker);
+
+        /* --- TikTok video embed on click --- */
         document.querySelectorAll('.static-card').forEach(card => {
             card.addEventListener('keydown', function(e) {
-                if(e.key === 'Enter' || e.key === ' ') {
+                if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     this.click();
                 }
