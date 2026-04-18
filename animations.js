@@ -416,80 +416,9 @@
     })();
 
     /* =========================================
-       6. SCROLL-TRIGGERED HEADING TEXT REVEAL
+       6. SCROLL-TRIGGERED HEADING REVEAL
        ========================================= */
-    (function () {
-        if (motionQuery.matches) return;
-
-        // Inject shimmer CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            .text-reveal-wrap {
-                display: inline;
-            }
-            .text-reveal-char {
-                display: inline-block;
-                opacity: 0;
-                transform: translateY(12px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
-            }
-            .text-reveal-char.shown {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            /* Gold flash after reveal */
-            @keyframes gold-flash {
-                0%   { color: inherit; }
-                30%  { color: #d4af37; text-shadow: 0 0 12px rgba(212,175,55,0.4); }
-                100% { color: inherit; text-shadow: none; }
-            }
-            .text-shimmer {
-                animation: gold-flash 1.2s ease;
-            }
-        `;
-        document.head.appendChild(style);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Only target major series headings, not every h2
-            const headings = document.querySelectorAll('.series-header h2');
-
-            headings.forEach(h => {
-                const text = h.textContent;
-                h.innerHTML = '';
-                const words = text.split(' ');
-                words.forEach((word, wi) => {
-                    if (wi > 0) {
-                        const space = document.createElement('span');
-                        space.innerHTML = '&nbsp;';
-                        space.className = 'text-reveal-char';
-                        h.appendChild(space);
-                    }
-                    [...word].forEach(char => {
-                        const span = document.createElement('span');
-                        span.className = 'text-reveal-char';
-                        span.textContent = char;
-                        h.appendChild(span);
-                    });
-                });
-
-                const revealObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const chars = h.querySelectorAll('.text-reveal-char');
-                            chars.forEach((c, i) => {
-                                setTimeout(() => c.classList.add('shown'), i * 30);
-                            });
-                            // Add shimmer after all chars revealed
-                            setTimeout(() => h.classList.add('text-shimmer'), chars.length * 30 + 200);
-                            revealObserver.unobserve(h);
-                        }
-                    });
-                }, { threshold: 0.5 });
-
-                revealObserver.observe(h);
-            });
-        });
-    })();
+    /* Series headings get a simple, reliable fade-up — no per-character tricks. */
 
     /* =========================================
        7. BOOK COVER IMAGE LOADING SHIMMER

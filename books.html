@@ -404,14 +404,17 @@
         .guide-card:nth-child(1) { border-top: 2px solid #cd7f32; }
         .guide-card:nth-child(2) { border-top: 2px solid #8b0000; }
         .guide-card:nth-child(3) { border-top: 2px solid #6b8e23; }
+        .guide-card:nth-child(4) { border-top: 2px solid #00c8ff; }
 
         .guide-card:nth-child(1) .guide-icon { color: #cd7f32; }
         .guide-card:nth-child(2) .guide-icon { color: #cf3a3a; }
         .guide-card:nth-child(3) .guide-icon { color: #6b8e23; }
+        .guide-card:nth-child(4) .guide-icon { color: #00c8ff; }
 
         .guide-card:nth-child(1):hover { border-color: #cd7f32; box-shadow: 0 10px 30px rgba(205, 127, 50, 0.15); }
         .guide-card:nth-child(2):hover { border-color: #8b0000; box-shadow: 0 10px 30px rgba(139, 0, 0, 0.15); }
         .guide-card:nth-child(3):hover { border-color: #6b8e23; box-shadow: 0 10px 30px rgba(107, 142, 35, 0.15); }
+        .guide-card:nth-child(4):hover { border-color: #00c8ff; box-shadow: 0 10px 30px rgba(0, 200, 255, 0.15); }
 
         .guide-card:nth-child(1) .guide-btn { color: #cd7f32; border-color: #cd7f32; }
         .guide-card:nth-child(1) .guide-btn:hover { background: rgba(205, 127, 50, 0.1); }
@@ -419,54 +422,18 @@
         .guide-card:nth-child(2) .guide-btn:hover { background: rgba(139, 0, 0, 0.1); }
         .guide-card:nth-child(3) .guide-btn { color: #6b8e23; border-color: #6b8e23; }
         .guide-card:nth-child(3) .guide-btn:hover { background: rgba(107, 142, 35, 0.1); }
+        .guide-card:nth-child(4) .guide-btn { color: #00c8ff; border-color: #00c8ff; }
+        .guide-card:nth-child(4) .guide-btn:hover { background: rgba(0, 200, 255, 0.1); }
 
-        /* --- COMP-TITLE RECOMMENDATION CARDS --- */
-        .comp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .comp-card {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding: 14px 16px;
-            background: var(--color-surface, #1a1e24);
-            border: 1px solid var(--color-border, #333);
-            border-radius: 6px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-            text-align: left;
-        }
-
-        .comp-card:hover {
-            border-color: var(--color-gold, #d4af37);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
-        }
-
-        .comp-if {
-            font-size: 0.85rem;
-            color: var(--color-text-muted, #b3b3b3);
+        .guide-card .comp-if {
+            font-size: 0.78rem;
+            color: #888;
             font-style: italic;
+            margin-top: 4px;
         }
+        .guide-card .comp-if i { margin-right: 4px; font-size: 0.65rem; }
 
-        .comp-then {
-            font-family: var(--font-display, 'Orbitron', sans-serif);
-            font-size: 0.75rem;
-            color: var(--color-gold, #d4af37);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-
-        .comp-then i { margin-right: 4px; font-size: 0.65rem; }
-
-        .comp-card:hover .comp-then { color: var(--color-text-bright, #fff); }
+        /* (comp-card styles merged into guide-card above) */
 
         /* --- STICKY MOBILE BUY BAR --- */
         .mobile-buy-bar {
@@ -566,53 +533,41 @@
 
     <main id="main-content">
 
-        <!-- COMP-TITLE RECOMMENDATIONS -->
-        <section class="comp-recs" aria-label="Book recommendations based on similar authors" style="text-align: center; margin-bottom: 50px; padding-top: 10px;">
-            <h2 style="font-size: 1.3rem; margin-bottom: 25px;">Already a Fan Of&hellip;</h2>
-            <div class="comp-grid">
-                <a href="#merlin" data-target="merlin" class="comp-card">
-                    <span class="comp-if">Cradle / Primal Hunter?</span>
-                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try Morgan &amp; Merlin</span>
-                </a>
-                <a href="#psyker" data-target="psyker" class="comp-card">
-                    <span class="comp-if">Terran Fleet Command / Galaxy's Edge?</span>
-                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try Psyker Marine</span>
-                </a>
-                <a href="#soar" data-target="soar" class="comp-card">
-                    <span class="comp-if">Noobtown / The Land?</span>
-                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try The Soar Chronicles</span>
-                </a>
-                <a href="#arcane" data-target="arcane" class="comp-card">
-                    <span class="comp-if">Firefly / The Expanse?</span>
-                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try Arcane Galaxy</span>
-                </a>
-            </div>
-        </section>
-
         <section class="guide-section" aria-label="Where to start reading">
             <h2>Where to Start</h2>
-            <p style="color: #888; font-size: 1.05rem; margin-bottom: 30px;">Not sure which universe to dive into first? Pick your path — each series stands alone, so start wherever grabs you.</p>
+            <p style="color: #888; font-size: 1.05rem; margin-bottom: 30px;">Each series stands alone — pick your path based on what you already love.</p>
 
             <div class="guide-grid">
                 <div class="guide-card">
                     <i class="fas fa-rocket guide-icon" aria-hidden="true"></i>
                     <h3>The Space Outlaw</h3>
                     <p>Battle a rigged LitRPG System alongside a trigger-happy operator and a rogue elf pilot.</p>
+                    <span class="comp-if"><i class="fas fa-heart" aria-hidden="true"></i> Love Firefly / The Expanse?</span>
                     <a href="#arcane" data-target="arcane" class="guide-btn">Board the Ship</a>
                 </div>
 
                 <div class="guide-card">
                     <i class="fas fa-search guide-icon" aria-hidden="true"></i>
                     <h3>The Sleuth</h3>
-                    <p>Dive into a hardboiled mystery series to chase down conspiracies and untangle corporate lies.</p>
+                    <p>Dive into a hardboiled mystery where faith is currency and everyone's a suspect.</p>
+                    <span class="comp-if"><i class="fas fa-heart" aria-hidden="true"></i> Love Noobtown / The Land?</span>
                     <a href="#soar" data-target="soar" class="guide-btn">Uncover the Truth</a>
                 </div>
 
                 <div class="guide-card">
                     <i class="fas fa-hat-wizard guide-icon" aria-hidden="true"></i>
                     <h3>The Cultivator</h3>
-                    <p>Level up with a snarky protagonist using arcane progression and sharp wit to dominate Dark Age Cornwall.</p>
+                    <p>Level up with a snarky protagonist using arcane progression to dominate Dark Age Cornwall.</p>
+                    <span class="comp-if"><i class="fas fa-heart" aria-hidden="true"></i> Love Cradle / Primal Hunter?</span>
                     <a href="#merlin" data-target="merlin" class="guide-btn">Begin the Quest</a>
+                </div>
+
+                <div class="guide-card">
+                    <i class="fas fa-crosshairs guide-icon" aria-hidden="true"></i>
+                    <h3>The Soldier</h3>
+                    <p>A psychic marine deployed against an alien horde — think Starship Troopers meets X-Men.</p>
+                    <span class="comp-if"><i class="fas fa-heart" aria-hidden="true"></i> Love Galaxy's Edge / Terran Fleet?</span>
+                    <a href="#psyker" data-target="psyker" class="guide-btn">Deploy Now</a>
                 </div>
             </div>
         </section>
@@ -1013,7 +968,7 @@
         })();
 
         /* --- Tab navigation and series switching --- */
-        const navLinks = document.querySelectorAll('.tab-link, .continuity-link, .guide-btn, .comp-card');
+        const navLinks = document.querySelectorAll('.tab-link, .continuity-link, .guide-btn');
         const sections = document.querySelectorAll('.series-group');
         const jumpMenuTabs = document.querySelectorAll('.tab-link');
         const jumpMenuContainer = document.querySelector('.series-jump-menu');
