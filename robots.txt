@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maloryauthor.com/sitemap.xml

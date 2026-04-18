@@ -814,6 +814,17 @@ nav a.active-link::after {
     transform: scale(1.03);
 }
 
+.book-blurb {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    max-width: 220px;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.85;
+}
+
 .series-promo-box {
     margin-top: 40px;
     padding: 30px;
