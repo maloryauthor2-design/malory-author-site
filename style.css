@@ -940,6 +940,33 @@ nav a.active-link::after {
 .btn-legion  { background: var(--color-legion); color: #fff; border-color: #171966; }
 .btn-legion:hover  { box-shadow: 0 8px 20px rgba(32, 34, 133, 0.4); }
 
+/* --- READ A SAMPLE LINK --- */
+.sample-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color var(--transition-default), transform var(--transition-default);
+}
+
+.sample-link:hover {
+    color: var(--color-gold);
+    transform: translateX(3px);
+}
+
+.sample-link i {
+    font-size: 0.9rem;
+    transition: color var(--transition-default);
+}
+
+.sample-link:hover i {
+    color: var(--color-gold-light);
+}
+
 /* --- KINDLE UNLIMITED BADGE --- */
 .ku-badge {
     display: inline-flex;

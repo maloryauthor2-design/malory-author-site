@@ -420,6 +420,98 @@
         .guide-card:nth-child(3) .guide-btn { color: #6b8e23; border-color: #6b8e23; }
         .guide-card:nth-child(3) .guide-btn:hover { background: rgba(107, 142, 35, 0.1); }
 
+        /* --- COMP-TITLE RECOMMENDATION CARDS --- */
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comp-card {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 14px 16px;
+            background: var(--color-surface, #1a1e24);
+            border: 1px solid var(--color-border, #333);
+            border-radius: 6px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .comp-card:hover {
+            border-color: var(--color-gold, #d4af37);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .comp-if {
+            font-size: 0.85rem;
+            color: var(--color-text-muted, #b3b3b3);
+            font-style: italic;
+        }
+
+        .comp-then {
+            font-family: var(--font-display, 'Orbitron', sans-serif);
+            font-size: 0.75rem;
+            color: var(--color-gold, #d4af37);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .comp-then i { margin-right: 4px; font-size: 0.65rem; }
+
+        .comp-card:hover .comp-then { color: var(--color-text-bright, #fff); }
+
+        /* --- STICKY MOBILE BUY BAR --- */
+        .mobile-buy-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 16, 21, 0.95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--color-border, #333);
+            padding: 10px 16px;
+            z-index: 9000;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-buy-bar.visible { transform: translateY(0); }
+
+        .mobile-buy-bar-title {
+            flex: 1;
+            font-family: var(--font-display, 'Orbitron', sans-serif);
+            font-size: 0.7rem;
+            color: var(--color-text-bright, #fff);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .mobile-buy-bar .buy-button {
+            margin: 0;
+            padding: 8px 14px;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-buy-bar { display: flex; }
+        }
+
         /* Connecting path lines between guide cards */
         @media (min-width: 769px) {
             .guide-grid { position: relative; }
@@ -447,6 +539,7 @@
             <a href="https://www.tiktok.com/@maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
             <a href="https://x.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
             <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group" aria-hidden="true"></i></a>
+            <a href="https://www.goodreads.com/author/show/53152303.Jake_Malory" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Goodreads"><i class="fab fa-goodreads-g" aria-hidden="true"></i></a>
         </div>
         <div class="scrolling-text-container" aria-live="polite" aria-atomic="true">
             <div class="scrolling-text">
@@ -472,6 +565,29 @@
     </header>
 
     <main id="main-content">
+
+        <!-- COMP-TITLE RECOMMENDATIONS -->
+        <section class="comp-recs" aria-label="Book recommendations based on similar authors" style="text-align: center; margin-bottom: 50px; padding-top: 10px;">
+            <h2 style="font-size: 1.3rem; margin-bottom: 25px;">Already a Fan Of&hellip;</h2>
+            <div class="comp-grid">
+                <a href="#merlin" data-target="merlin" class="comp-card">
+                    <span class="comp-if">Cradle / Primal Hunter?</span>
+                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try Morgan &amp; Merlin</span>
+                </a>
+                <a href="#psyker" data-target="psyker" class="comp-card">
+                    <span class="comp-if">Terran Fleet Command / Galaxy's Edge?</span>
+                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try Psyker Marine</span>
+                </a>
+                <a href="#soar" data-target="soar" class="comp-card">
+                    <span class="comp-if">Noobtown / The Land?</span>
+                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try The Soar Chronicles</span>
+                </a>
+                <a href="#arcane" data-target="arcane" class="comp-card">
+                    <span class="comp-if">Firefly / The Expanse?</span>
+                    <span class="comp-then"><i class="fas fa-arrow-right" aria-hidden="true"></i> Try Arcane Galaxy</span>
+                </a>
+            </div>
+        </section>
 
         <section class="guide-section" aria-label="Where to start reading">
             <h2>Where to Start</h2>
@@ -532,6 +648,7 @@
                         <a href="https://links.maloryauthor.com/dark-ages" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
                         <a href="https://links.maloryauthor.com/dark-ages?format=audible" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
+                    <a href="https://www.amazon.com/dp/B0DWNBPKBJ" class="sample-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-reader" aria-hidden="true"></i> Read a Sample</a>
                 </div>
                 <div class="series-book-card">
                     <img src="tower-cover.jpg" alt="Journey to the Dark Tower - Morgan and Merlin's Excellent Adventures Book 2" width="250" height="375" loading="lazy">
@@ -577,6 +694,7 @@
                         <a href="https://links.maloryauthor.com/murder-temple" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
                         <a href="https://links.maloryauthor.com/murder-temple?format=audible" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
+                    <a href="https://www.amazon.com/dp/B0F8W9B8YL" class="sample-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-reader" aria-hidden="true"></i> Read a Sample</a>
                 </div>
                 <div class="series-book-card">
                     <img src="curator-cover.JPG" alt="Death of a Curator - The Soar Chronicles Book 2" width="250" height="375" loading="lazy">
@@ -620,6 +738,7 @@
                     <h3>Book 1</h3>
                     <p class="book-blurb">James Thorne wasn't supposed to matter. Then the aliens came, and it turns out a pissed-off Psyker Marine matters quite a lot.</p>
                     <div class="buy-group"><a href="https://links.maloryauthor.com/psyker-1" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a></div>
+                    <a href="https://www.amazon.com/dp/B0DKK52KFZ" class="sample-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-reader" aria-hidden="true"></i> Read a Sample</a>
                 </div>
                 <div class="series-book-card">
                     <img src="psyker-2.jpg" alt="Psyker Marine: Book 2 - Combat LitRPG by Malory" width="250" height="375" loading="lazy">
@@ -679,6 +798,7 @@
                         <a href="https://links.maloryauthor.com/chaos-protocols" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
                         <a href="https://links.maloryauthor.com/chaos-protocols?format=audible" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
+                    <a href="https://www.amazon.com/dp/B0G2DYHDBL" class="sample-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-reader" aria-hidden="true"></i> Read a Sample</a>
                 </div>
                 <div class="series-book-card">
                     <img src="arcane-2.jpg" alt="Arcane Galaxy: Swashbuckler - Space Western LitRPG Book 2" width="250" height="375" loading="lazy">
@@ -720,6 +840,7 @@
                         <a href="https://links.maloryauthor.com/punish-system" class="buy-button btn-amazon" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Kindle</a>
                         <a href="https://links.maloryauthor.com/punish-system?format=audible" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                     </div>
+                    <a href="https://www.amazon.com/dp/B0GSH1T6KK" class="sample-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-reader" aria-hidden="true"></i> Read a Sample</a>
                 </div>
                 <div class="series-book-card">
                     <div class="placeholder-cover" aria-label="Book 2 awaiting clearance">
@@ -837,9 +958,62 @@
         </p>
     </footer>
 
+    <!-- STICKY MOBILE BUY BAR -->
+    <div class="mobile-buy-bar" id="mobile-buy-bar" aria-hidden="true">
+        <span class="mobile-buy-bar-title" id="mobile-buy-title">Book Title</span>
+        <a href="#" class="buy-button btn-amazon" id="mobile-buy-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Get It</a>
+    </div>
+
     <script>
+        /* --- Sticky mobile buy bar --- */
+        (function() {
+            if (window.innerWidth > 768) return;
+            const bar = document.getElementById('mobile-buy-bar');
+            const barTitle = document.getElementById('mobile-buy-title');
+            const barLink = document.getElementById('mobile-buy-link');
+            if (!bar) return;
+
+            const bookCards = document.querySelectorAll('.series-book-card');
+            let currentBook = null;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        const h3 = card.querySelector('h3');
+                        const buyBtn = card.querySelector('.buy-button.btn-amazon');
+                        if (h3 && buyBtn) {
+                            barTitle.textContent = h3.textContent;
+                            barLink.href = buyBtn.href;
+                            bar.classList.add('visible');
+                            bar.setAttribute('aria-hidden', 'false');
+                            currentBook = card;
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '0px 0px -40% 0px'
+            });
+
+            bookCards.forEach(card => {
+                // Only observe cards that have a buy button (not placeholders)
+                if (card.querySelector('.buy-button.btn-amazon')) {
+                    observer.observe(card);
+                }
+            });
+
+            // Hide when scrolled to top or bottom
+            window.addEventListener('scroll', () => {
+                if (window.scrollY < 300) {
+                    bar.classList.remove('visible');
+                    bar.setAttribute('aria-hidden', 'true');
+                }
+            });
+        })();
+
         /* --- Tab navigation and series switching --- */
-        const navLinks = document.querySelectorAll('.tab-link, .continuity-link, .guide-btn');
+        const navLinks = document.querySelectorAll('.tab-link, .continuity-link, .guide-btn, .comp-card');
         const sections = document.querySelectorAll('.series-group');
         const jumpMenuTabs = document.querySelectorAll('.tab-link');
         const jumpMenuContainer = document.querySelector('.series-jump-menu');

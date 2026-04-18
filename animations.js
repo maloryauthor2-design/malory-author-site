@@ -446,9 +446,11 @@
                 background: linear-gradient(
                     90deg,
                     currentColor 0%,
+                    currentColor 40%,
                     #d4af37 45%,
                     #f5e6a3 50%,
                     #d4af37 55%,
+                    currentColor 60%,
                     currentColor 100%
                 );
                 background-size: 200% auto;
@@ -456,7 +458,7 @@
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
                 animation: shimmer-sweep 1.5s ease forwards;
-                animation-delay: 0.6s;
+                animation-delay: 0.3s;
             }
         `;
         document.head.appendChild(style);
