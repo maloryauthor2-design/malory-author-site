@@ -437,28 +437,14 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-            /* Gold shimmer sweep */
-            @keyframes shimmer-sweep {
-                0%   { background-position: -200% center; }
-                100% { background-position: 200% center; }
+            /* Gold flash after reveal */
+            @keyframes gold-flash {
+                0%   { color: inherit; }
+                30%  { color: #d4af37; text-shadow: 0 0 12px rgba(212,175,55,0.4); }
+                100% { color: inherit; text-shadow: none; }
             }
             .text-shimmer {
-                background: linear-gradient(
-                    90deg,
-                    currentColor 0%,
-                    currentColor 40%,
-                    #d4af37 45%,
-                    #f5e6a3 50%,
-                    #d4af37 55%,
-                    currentColor 60%,
-                    currentColor 100%
-                );
-                background-size: 200% auto;
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: shimmer-sweep 1.5s ease forwards;
-                animation-delay: 0.3s;
+                animation: gold-flash 1.2s ease;
             }
         `;
         document.head.appendChild(style);

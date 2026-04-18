@@ -941,13 +941,14 @@ nav a.active-link::after {
 .btn-legion:hover  { box-shadow: 0 8px 20px rgba(32, 34, 133, 0.4); }
 
 /* --- READ A SAMPLE LINK --- */
-.sample-link {
+.sample-link,
+.sample-link:visited {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     margin-top: 6px;
     font-size: 0.82rem;
-    color: var(--color-text-muted);
+    color: #b3b3b3;
     text-decoration: none;
     letter-spacing: 0.5px;
     transition: color var(--transition-default), transform var(--transition-default);
@@ -960,6 +961,7 @@ nav a.active-link::after {
 
 .sample-link i {
     font-size: 0.9rem;
+    color: #b3b3b3;
     transition: color var(--transition-default);
 }
 
