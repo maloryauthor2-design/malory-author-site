@@ -335,14 +335,106 @@
             .series-jump-menu::-webkit-scrollbar { display: none; }
         }
 
-        /* Section Branding */
+        /* Section Branding — with ambient glow at top */
+        .series-group { position: relative; overflow: hidden; }
+        .series-group::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 250px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            z-index: 0;
+        }
+        .series-group.active::before { opacity: 1; }
+        .series-group > * { position: relative; z-index: 1; }
+
         #merlin  { background: linear-gradient(180deg, rgba(13, 20, 15, 0) 0%, rgba(20, 35, 25, 0.5) 50%, rgba(13, 20, 15, 0) 100%); border-left: 2px solid #6b8e23; border-right: 2px solid #6b8e23; }
+        #merlin::before  { background: radial-gradient(ellipse, rgba(107, 142, 35, 0.12) 0%, transparent 70%); }
+
         #soar    { background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(30, 30, 35, 0.9) 50%, rgba(10, 10, 10, 0) 100%); border-left: 2px solid #8b0000; border-right: 2px solid #8b0000; }
+        #soar::before    { background: radial-gradient(ellipse, rgba(139, 0, 0, 0.12) 0%, transparent 70%); }
+
         #psyker  { background: linear-gradient(180deg, rgba(5, 10, 20, 0) 0%, rgba(10, 20, 45, 0.7) 50%, rgba(5, 10, 20, 0) 100%); border-left: 2px solid #00f2ff; border-right: 2px solid #00f2ff; }
+        #psyker::before  { background: radial-gradient(ellipse, rgba(0, 242, 255, 0.08) 0%, transparent 70%); }
+
         #arcane  { background: linear-gradient(180deg, rgba(43, 24, 12, 0) 0%, rgba(61, 38, 24, 0.6) 50%, rgba(43, 24, 12, 0) 100%); border-left: 2px solid #cd7f32; border-right: 2px solid #cd7f32; }
+        #arcane::before  { background: radial-gradient(ellipse, rgba(205, 127, 50, 0.12) 0%, transparent 70%); }
+
         #pts     { background: linear-gradient(180deg, rgba(20, 22, 20, 0) 0%, rgba(35, 40, 35, 0.8) 50%, rgba(20, 22, 20, 0) 100%); border-left: 2px solid #a39b72; border-right: 2px solid #a39b72; }
+        #pts::before     { background: radial-gradient(ellipse, rgba(163, 155, 114, 0.1) 0%, transparent 70%); }
+
         #raconteur { background: linear-gradient(180deg, rgba(30, 15, 5, 0) 0%, rgba(45, 20, 10, 0.85) 50%, rgba(30, 15, 5, 0) 100%); border-left: 2px solid #e65100; border-right: 2px solid #e65100; }
+        #raconteur::before { background: radial-gradient(ellipse, rgba(230, 81, 0, 0.1) 0%, transparent 70%); }
+
         #boys    { background: linear-gradient(180deg, rgba(15, 25, 15, 0) 0%, rgba(20, 35, 20, 0.85) 50%, rgba(15, 25, 15, 0) 100%); border-left: 2px solid #8b5a2b; border-right: 2px solid #8b5a2b; }
+        #boys::before    { background: radial-gradient(ellipse, rgba(139, 90, 43, 0.12) 0%, transparent 70%); }
+
+        /* --- SLIDING TAB INDICATOR --- */
+        .tab-indicator {
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            background: var(--color-gold, #d4af37);
+            border-radius: 1px;
+            transition: left 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .series-jump-menu {
+            position: relative;
+        }
+
+        /* Remove the old static underline — the JS indicator replaces it */
+        .series-jump-menu .tab-link.active-link::after { display: none; }
+
+        /* --- READING PATH CARDS (Where to Start) --- */
+        .guide-card {
+            border-color: transparent;
+            position: relative;
+        }
+
+        .guide-card:nth-child(1) { border-top: 2px solid #cd7f32; }
+        .guide-card:nth-child(2) { border-top: 2px solid #8b0000; }
+        .guide-card:nth-child(3) { border-top: 2px solid #6b8e23; }
+
+        .guide-card:nth-child(1) .guide-icon { color: #cd7f32; }
+        .guide-card:nth-child(2) .guide-icon { color: #cf3a3a; }
+        .guide-card:nth-child(3) .guide-icon { color: #6b8e23; }
+
+        .guide-card:nth-child(1):hover { border-color: #cd7f32; box-shadow: 0 10px 30px rgba(205, 127, 50, 0.15); }
+        .guide-card:nth-child(2):hover { border-color: #8b0000; box-shadow: 0 10px 30px rgba(139, 0, 0, 0.15); }
+        .guide-card:nth-child(3):hover { border-color: #6b8e23; box-shadow: 0 10px 30px rgba(107, 142, 35, 0.15); }
+
+        .guide-card:nth-child(1) .guide-btn { color: #cd7f32; border-color: #cd7f32; }
+        .guide-card:nth-child(1) .guide-btn:hover { background: rgba(205, 127, 50, 0.1); }
+        .guide-card:nth-child(2) .guide-btn { color: #cf3a3a; border-color: #cf3a3a; }
+        .guide-card:nth-child(2) .guide-btn:hover { background: rgba(139, 0, 0, 0.1); }
+        .guide-card:nth-child(3) .guide-btn { color: #6b8e23; border-color: #6b8e23; }
+        .guide-card:nth-child(3) .guide-btn:hover { background: rgba(107, 142, 35, 0.1); }
+
+        /* Connecting path lines between guide cards */
+        @media (min-width: 769px) {
+            .guide-grid { position: relative; }
+            .guide-card::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -14px;
+                width: 28px;
+                height: 2px;
+                background: linear-gradient(90deg, rgba(212,175,55,0.3), rgba(212,175,55,0.05));
+                pointer-events: none;
+            }
+            .guide-card:last-child::after { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -783,6 +875,55 @@
             });
         });
 
+        /* --- Sliding tab indicator --- */
+        const indicator = document.createElement('div');
+        indicator.className = 'tab-indicator';
+        jumpMenuContainer.style.position = 'relative';
+        jumpMenuContainer.appendChild(indicator);
+
+        function moveIndicator(tab) {
+            if (!tab) return;
+            const menuRect = jumpMenuContainer.getBoundingClientRect();
+            const tabRect = tab.getBoundingClientRect();
+            indicator.style.left = (tabRect.left - menuRect.left + jumpMenuContainer.scrollLeft) + 'px';
+            indicator.style.width = tabRect.width + 'px';
+        }
+
+        // Position on initial active tab
+        const initialActive = jumpMenuContainer.querySelector('.tab-link.active-link');
+        if (initialActive) {
+            // Disable transition for initial placement
+            indicator.style.transition = 'none';
+            moveIndicator(initialActive);
+            // Re-enable after paint
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => { indicator.style.transition = ''; });
+            });
+        }
+
+        // Update indicator on every tab switch
+        const origClickHandlers = [];
+        jumpMenuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                requestAnimationFrame(() => moveIndicator(tab));
+            });
+        });
+        // Also update when continuity/guide links switch tabs
+        document.querySelectorAll('.continuity-link, .guide-btn').forEach(link => {
+            link.addEventListener('click', () => {
+                requestAnimationFrame(() => {
+                    const activeTab = jumpMenuContainer.querySelector('.tab-link.active-link');
+                    moveIndicator(activeTab);
+                });
+            });
+        });
+
+        // Reposition on resize
+        window.addEventListener('resize', () => {
+            const activeTab = jumpMenuContainer.querySelector('.tab-link.active-link');
+            moveIndicator(activeTab);
+        });
+
         /* Handle direct URL hash navigation (e.g., books.html#arcane) */
         window.addEventListener('DOMContentLoaded', () => {
             const hash = window.location.hash.substring(1);
@@ -790,6 +931,11 @@
                 const targetTab = document.querySelector(`.tab-link[data-target="${hash}"]`);
                 if (targetTab) targetTab.click();
             }
+            // Ensure indicator is positioned after full layout
+            requestAnimationFrame(() => {
+                const activeTab = jumpMenuContainer.querySelector('.tab-link.active-link');
+                moveIndicator(activeTab);
+            });
         });
 
         /* --- Promo ticker rotation --- */

@@ -414,13 +414,9 @@ nav a.active-link::after {
     max-width: 250px;
     height: auto;
     border-radius: var(--radius-sm);
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s ease;
     flex-shrink: 0;
     display: block;
-}
-
-.book-container:hover .book-cover {
-    transform: scale(1.03);
 }
 
 .book-audio-badge {
@@ -765,7 +761,18 @@ nav a.active-link::after {
     font-family: var(--font-display);
     font-size: 0.85rem;
     letter-spacing: 1px;
-    transition: all var(--transition-default);
+    transition: color var(--transition-default), text-shadow var(--transition-default);
+    padding: 6px 0;
+    position: relative;
+}
+
+.series-jump-menu .tab-link:hover:not(.active-link) {
+    color: var(--color-text);
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+}
+
+.series-jump-menu .tab-link.active-link {
+    color: var(--color-gold);
 }
 
 .series-group {
@@ -805,13 +812,30 @@ nav a.active-link::after {
     border-radius: var(--radius-sm);
     margin-bottom: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s ease;
     flex-shrink: 0;
     display: block;
+    position: relative;
 }
 
 .series-book-card:hover img {
-    transform: scale(1.03);
+    transform: perspective(800px) rotateY(-5deg) rotateX(2deg) scale(1.04);
+    box-shadow: -8px 8px 25px rgba(0,0,0,0.5), 0 0 40px var(--cover-glow, rgba(212,175,55,0.15));
+}
+
+/* Genre-specific cover glow colours */
+#merlin .series-book-card   { --cover-glow: rgba(107, 142, 35, 0.25); }
+#soar .series-book-card     { --cover-glow: rgba(139, 0, 0, 0.25); }
+#psyker .series-book-card   { --cover-glow: rgba(0, 242, 255, 0.2); }
+#arcane .series-book-card   { --cover-glow: rgba(205, 127, 50, 0.25); }
+#pts .series-book-card      { --cover-glow: rgba(163, 155, 114, 0.25); }
+#raconteur .series-book-card{ --cover-glow: rgba(230, 81, 0, 0.2); }
+#boys .series-book-card     { --cover-glow: rgba(139, 90, 43, 0.25); }
+
+/* Homepage book cover also gets the 3D tilt */
+.book-container:hover .book-cover {
+    transform: perspective(800px) rotateY(-5deg) rotateX(2deg) scale(1.04);
+    box-shadow: -8px 8px 25px rgba(0,0,0,0.5), 0 0 35px rgba(212,175,55,0.15);
 }
 
 .book-blurb {
@@ -937,6 +961,50 @@ nav a.active-link::after {
 .ku-badge i {
     color: var(--color-amazon);
     font-size: 0.85rem;
+}
+
+/* =========================================
+   PAGE LOAD FADE-IN
+   ========================================= */
+@keyframes page-enter {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+body {
+    animation: page-enter 0.6s ease-out;
+}
+
+/* =========================================
+   HEADING DEPTH & TYPOGRAPHY POLISH
+   ========================================= */
+h2 {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+main > section > h2,
+.series-header h2 {
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.2), 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* Improved body text rhythm */
+main p {
+    letter-spacing: 0.015em;
+}
+
+/* =========================================
+   ENHANCED BUTTON PRESS FEEDBACK
+   ========================================= */
+.buy-button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    filter: brightness(0.95);
+    transition-duration: 0.08s;
+}
+
+.guide-btn:active {
+    transform: scale(0.96);
+    transition-duration: 0.08s;
 }
 
 /* =========================================
@@ -1151,7 +1219,7 @@ footer {
         background: #fff;
         color: #000;
     }
-    .top-bar, .social-video-feed, .skip-link, .btn-pulse, #starfield {
+    .top-bar, .social-video-feed, .skip-link, .btn-pulse, #starfield, .hero-floating-covers {
         display: none;
     }
     .hero-lead-magnet {
