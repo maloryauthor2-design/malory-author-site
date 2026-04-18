@@ -1180,6 +1180,30 @@ footer {
 }
 
 /* =========================================
+   VIEW TRANSITIONS API (where supported)
+   ========================================= */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: 0.3s ease both fade-out;
+}
+
+::view-transition-new(root) {
+    animation: 0.3s ease both fade-in;
+}
+
+@keyframes fade-out {
+    to { opacity: 0; transform: scale(0.98); }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: scale(1.02); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================
    REDUCED MOTION (accessibility)
    ========================================= */
 @media (prefers-reduced-motion: reduce) {
@@ -1208,6 +1232,22 @@ footer {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    /* Disable premium effects */
+    .cursor-dot, .cursor-ring, #cursor-particles {
+        display: none !important;
+    }
+    body { cursor: auto !important; }
+    a, button { cursor: pointer !important; }
+    .text-reveal-char {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .text-shimmer {
+        animation: none !important;
+        -webkit-text-fill-color: unset !important;
+        background: none !important;
     }
 }
 
