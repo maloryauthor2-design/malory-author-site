@@ -776,13 +776,21 @@ nav a.active-link::after {
 }
 
 .series-group {
-    margin-bottom: 80px;
-    display: none;
+    margin-bottom: 0;
     scroll-margin-top: 120px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 .series-group.active {
-    display: block;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    pointer-events: auto;
+    margin-bottom: 80px;
     animation: fadeIn 0.5s ease;
 }
 
