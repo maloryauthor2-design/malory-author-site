@@ -166,16 +166,34 @@
                 ctx.fillStyle = 'rgba(212, 175, 55, ' + s.alpha + ')';
                 ctx.fill();
             }
-            raf = requestAnimationFrame(draw);
+            if (!starfieldIdle) raf = requestAnimationFrame(draw);
+            else raf = null;
         }
 
         resize();
         createStars();
         draw();
 
+        // Pause starfield when tab is hidden or idle for 2s
+        let starfieldIdle = false;
+        let starfieldIdleTimer = null;
+
+        function resetStarfieldIdle() {
+            starfieldIdle = false;
+            clearTimeout(starfieldIdleTimer);
+            starfieldIdleTimer = setTimeout(() => {
+                starfieldIdle = true;
+            }, 2000);
+            if (!raf) draw(); // Restart if paused
+        }
+
+        document.addEventListener('mousemove', resetStarfieldIdle);
+        document.addEventListener('scroll', resetStarfieldIdle);
+        resetStarfieldIdle();
+
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) cancelAnimationFrame(raf);
-            else draw();
+            if (document.hidden) { cancelAnimationFrame(raf); raf = null; }
+            else if (!starfieldIdle) draw();
         });
 
         window.addEventListener('resize', resize);
@@ -194,8 +212,8 @@
         // Inject cursor styles
         const style = document.createElement('style');
         style.textContent = `
-            body { cursor: none; }
-            a, button, [role="button"], .buy-button, .guide-btn, .tab-link, .static-card { cursor: none; }
+            /* cursor: none removed for accessibility */
+            /* cursor: none removed for accessibility */
             .cursor-dot {
                 position: fixed;
                 top: 0; left: 0;

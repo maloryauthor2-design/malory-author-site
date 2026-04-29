@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +62,47 @@
           ],
           "bookFormat": "https://schema.org/EBook",
           "genre": ["LitRPG", "Space Western"],
-          "url": "https://links.maloryauthor.com/chaos-protocols"
+          "url": "https://links.maloryauthor.com/chaos-protocols",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "ratingCount": "1000",
+            "bestRating": "5"
+          }
+        },
+,
+        {
+          "@type": "Book",
+          "name": "Welcome to the Dark Ages",
+          "author": { "@type": "Person", "name": "Malory" },
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Progression Fantasy", "Cultivation"],
+          "image": "https://maloryauthor.com/welcome-cover.jpg",
+          "description": "Reincarnated into Dark Age Cornwall with Merlin's ghost offering helpful commentary. Cultivation meets chaos.",
+          "isPartOf": { "@type": "BookSeries", "name": "Morgan and Merlin's Excellent Adventures", "position": "1" },
+          "url": "https://links.maloryauthor.com/dark-ages"
+        },
+        {
+          "@type": "Book",
+          "name": "Murder in the Temple",
+          "author": { "@type": "Person", "name": "Malory" },
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Mystery"],
+          "image": "https://maloryauthor.com/murder-cover.jpg",
+          "description": "A low-Level PI with no Class and no god investigates a murdered High Priestess in a city where faith is currency.",
+          "isPartOf": { "@type": "BookSeries", "name": "The Soar Chronicles", "position": "1" },
+          "url": "https://links.maloryauthor.com/murder-temple"
+        },
+        {
+          "@type": "Book",
+          "name": "Psyker Marine: Book 1",
+          "author": { "@type": "Person", "name": "Malory" },
+          "bookFormat": "https://schema.org/EBook",
+          "genre": ["LitRPG", "Military Sci-Fi"],
+          "image": "https://maloryauthor.com/psyker-1.jpg",
+          "description": "James Thorne wasn't supposed to matter. Then the aliens came, and a pissed-off Psyker Marine matters quite a lot.",
+          "isPartOf": { "@type": "BookSeries", "name": "Psyker Marine", "position": "1" },
+          "url": "https://links.maloryauthor.com/psyker-1"
         },
         {
           "@type": "BreadcrumbList",
@@ -89,7 +129,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <link rel="stylesheet" href="style.css">
 
@@ -282,7 +323,7 @@
             <a href="https://maloryauthor.substack.com" target="_blank" rel="me noopener noreferrer" aria-label="Read Malory on Substack"><i class="fas fa-layer-group" aria-hidden="true"></i></a>
             <a href="https://www.goodreads.com/author/show/53152303.Jake_Malory" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Goodreads"><i class="fab fa-goodreads-g" aria-hidden="true"></i></a>
         </div>
-        <div class="scrolling-text-container" aria-live="polite" aria-atomic="true">
+        <div class="scrolling-text-container">
             <div class="scrolling-text">
                 <a id="promo-ticker" href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Get the free monster-hunter short story, Crude!</a>
             </div>
@@ -290,7 +331,7 @@
     </div>
 
     <header>
-        <a href="index.html" class="logo-link" aria-label="Malory - Home">
+        <a href="/" class="logo-link" aria-label="Malory - Home">
             <img src="logo.jpg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high">
         </a>
         <div class="header-text">
@@ -298,7 +339,7 @@
             <p class="header-tagline">Sci-Fi, LitRPG & Progression Fantasy</p>
             <p class="header-award"><i class="fas fa-trophy" aria-hidden="true"></i> Winner of the 2026 <a href="https://www.baen.com/orbital-decay" target="_blank" rel="noopener noreferrer">Jim Baen Memorial Short Story Award</a></p>
             <nav aria-label="Main navigation">
-                <a href="index.html" class="active-link" aria-current="page">Home</a>
+                <a href="/" class="active-link" aria-current="page">Home</a>
                 <a href="books.html">Books</a>
                 <a href="about.html">About</a>
             </nav>
@@ -308,9 +349,9 @@
     <main id="main-content">
         <section class="hero-lead-magnet" aria-label="Free story and latest release">
             <div class="hero-floating-covers" aria-hidden="true">
-                <img src="welcome-cover.jpg" alt="" width="120" height="180" loading="eager">
-                <img src="arcane-1.jpg" alt="" width="100" height="150" loading="eager">
-                <img src="murder-cover.jpg" alt="" width="110" height="165" loading="eager">
+                <img src="welcome-cover.jpg" alt="" width="120" height="180" loading="lazy">
+                <img src="arcane-1.jpg" alt="" width="100" height="150" loading="lazy">
+                <img src="murder-cover.jpg" alt="" width="110" height="165" loading="lazy">
             </div>
             <div class="hero-inner">
                 <div class="hero-content-box">
@@ -342,7 +383,7 @@
         </section>
 
         <div class="review-aggregate" aria-label="Aggregate reader rating">
-            <span class="agg-stars" role="img" aria-label="4.5 out of 5 stars">★★★★★</span>
+            <span class="agg-stars" role="img" aria-label="4.5 out of 5 stars">★★★★<span style="opacity:0.35">★</span></span>
             <span class="agg-text"><strong>4.5+ average</strong> across 1,000+ ratings on Amazon &amp; Audible</span>
         </div>
 
@@ -477,7 +518,7 @@
 
     <footer>
         <nav class="footer-nav" aria-label="Footer navigation">
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
             <a href="books.html">Books</a>
             <a href="about.html">About</a>
             <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Newsletter</a>

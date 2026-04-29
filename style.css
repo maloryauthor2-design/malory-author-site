@@ -285,7 +285,7 @@ nav a.active-link::after {
 .hero-lead-magnet {
     width: 100%;
     min-height: 500px;
-    background: linear-gradient(to right, rgba(13, 16, 21, 0.95) 0%, rgba(13, 16, 21, 0.4) 100%), url('hero-bg.JPG') no-repeat center center;
+    background: linear-gradient(to right, rgba(13, 16, 21, 0.95) 0%, rgba(13, 16, 21, 0.4) 100%), url('hero-bg.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     padding: 80px 20px;
