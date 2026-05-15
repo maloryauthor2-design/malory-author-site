@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://maloryauthor.com/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://maloryauthor.com/books.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <priority>0.80</priority>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://maloryauthor.com/about.html</loc>
-    <lastmod>2026-04-18</lastmod>
-    <priority>0.50</priority>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
   </url>
 </urlset>
