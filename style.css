@@ -1312,3 +1312,816 @@ footer {
         font-size: 0.8em;
     }
 }
+
+/* =====================================================================
+   DESIGN SYSTEM V2 — REFINEMENT LAYER
+   ---------------------------------------------------------------------
+   Adds a more refined typographic scale, spacing tokens, card system,
+   button polish, refined section dividers, ambient lighting, and
+   tightened mobile.  Loaded AFTER the v1 styles above so it wins on
+   specificity where it needs to and falls back gracefully where it
+   doesn't.  All existing class names continue to work.
+   ===================================================================== */
+
+:root {
+    /* Refined palette — tertiary accents and warmer grays */
+    --c-bg-deep:        #0a0d12;
+    --c-bg:             #0d1015;
+    --c-surface-1:      #14181f;
+    --c-surface-2:      #1a1e26;
+    --c-surface-3:      #1f2530;
+    --c-line-soft:      rgba(255, 255, 255, 0.06);
+    --c-line:           rgba(255, 255, 255, 0.10);
+    --c-line-strong:    rgba(255, 255, 255, 0.16);
+
+    --c-text:           #e6e6ea;
+    --c-text-soft:      #b6b8bd;
+    --c-text-mute:      #7d8088;
+    --c-text-strong:    #ffffff;
+
+    --c-gold:           #d4af37;
+    --c-gold-warm:      #e6c46b;
+    --c-gold-deep:      #a8842a;
+    --c-teal:           #4dd0c9;       /* secondary accent for variety */
+
+    /* Modular type scale (1.250 - major third) */
+    --fs-xs:    0.78rem;
+    --fs-sm:    0.88rem;
+    --fs-base:  1rem;
+    --fs-md:    1.125rem;
+    --fs-lg:    1.25rem;
+    --fs-xl:    1.563rem;
+    --fs-2xl:   1.953rem;
+    --fs-3xl:   2.441rem;
+    --fs-4xl:   3.052rem;
+    --fs-display: 3.815rem;
+
+    /* Spacing scale (4px base) */
+    --sp-1:  4px;
+    --sp-2:  8px;
+    --sp-3:  12px;
+    --sp-4:  16px;
+    --sp-5:  24px;
+    --sp-6:  32px;
+    --sp-7:  48px;
+    --sp-8:  64px;
+    --sp-9:  96px;
+    --sp-10: 128px;
+
+    /* Refined shadow system — layered, subtle */
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-2: 0 2px 4px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-3: 0 4px 6px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.4);
+    --shadow-4: 0 10px 15px rgba(0,0,0,0.3), 0 4px 6px rgba(0,0,0,0.4);
+    --shadow-5: 0 20px 25px rgba(0,0,0,0.35), 0 10px 10px rgba(0,0,0,0.4);
+    --shadow-gold-soft:  0 0 0 1px rgba(212,175,55,0.25), 0 12px 32px rgba(212,175,55,0.12);
+    --shadow-gold-bold:  0 0 0 1px rgba(212,175,55,0.4), 0 16px 40px rgba(212,175,55,0.22);
+
+    --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- AMBIENT BACKGROUND — subtle radial wash --- */
+body {
+    background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(212, 175, 55, 0.045), transparent 60%),
+        radial-gradient(900px 500px at 10% 110%, rgba(77, 208, 201, 0.035), transparent 65%),
+        var(--c-bg-deep);
+    color: var(--c-text);
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+/* --- TYPOGRAPHY REFINEMENT --- */
+/* Pull the heavy heading glow back to something more designed */
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--c-text-strong);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-shadow: none;
+    line-height: 1.18;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, var(--fs-4xl));
+    letter-spacing: 0.08em;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-size: clamp(1.4rem, 3.5vw, var(--fs-2xl));
+    letter-spacing: 0.05em;
+    text-shadow: none;
+}
+
+h3 {
+    font-size: var(--fs-lg);
+    letter-spacing: 0.04em;
+}
+
+/* Overrides for the inline glows added in v1 */
+main > section > h2,
+.series-header h2,
+h2 {
+    text-shadow: none;
+}
+
+/* Better body text rhythm */
+main p {
+    color: var(--c-text);
+    letter-spacing: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+main p + p {
+    margin-top: var(--sp-4);
+}
+
+/* --- ACCENT RULE — for under H2s & similar --- */
+.accent-rule,
+.section-title::after {
+    display: block;
+    content: "";
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--c-gold), transparent);
+    margin-top: var(--sp-3);
+    border-radius: 2px;
+}
+
+/* --- TOP BAR — quieter, denser --- */
+.top-bar {
+    background: linear-gradient(180deg, rgba(20, 24, 31, 0.92), rgba(13, 16, 21, 0.92));
+    border: 1px solid var(--c-line);
+    border-radius: 10px;
+    box-shadow: var(--shadow-2);
+    padding: 10px 18px;
+    margin-top: var(--sp-6);
+    margin-bottom: var(--sp-5);
+}
+
+.social-links a {
+    color: var(--c-text-soft);
+    transition: color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+.social-links a:hover {
+    color: var(--c-gold);
+}
+
+/* --- HEADER — better balance, refined divider --- */
+header {
+    border-bottom: 1px solid var(--c-line);
+    position: relative;
+    padding-bottom: var(--sp-5);
+    margin-bottom: var(--sp-6);
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+}
+
+.header-tagline {
+    color: var(--c-text-soft);
+    font-size: 1.02rem;
+    letter-spacing: 0.04em;
+    margin: 4px 0;
+}
+
+.header-award {
+    color: var(--c-gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+.header-award a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(212, 175, 55, 0.5);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+}
+
+.header-award a:hover {
+    border-bottom-color: var(--c-gold);
+    border-bottom-style: solid;
+}
+
+nav a {
+    color: var(--c-text-soft);
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    transition: color 0.2s var(--ease-out);
+}
+
+nav a:hover,
+nav a.active-link {
+    color: var(--c-gold) !important;
+    text-shadow: none;
+}
+
+nav a.active-link::after {
+    background: var(--c-gold);
+    height: 1px;
+}
+
+/* --- HERO REFINEMENT --- */
+.hero-lead-magnet {
+    background:
+        linear-gradient(115deg, rgba(10, 13, 18, 0.92) 0%, rgba(13, 16, 21, 0.78) 45%, rgba(13, 16, 21, 0.4) 100%),
+        url('hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    border-top: 1px solid var(--c-line);
+    border-bottom: 1px solid var(--c-line);
+    padding: var(--sp-8) var(--sp-4);
+    margin-bottom: var(--sp-7);
+}
+
+.hero-content-box {
+    background: linear-gradient(180deg, rgba(20, 24, 31, 0.92), rgba(13, 16, 21, 0.94));
+    border: 1px solid var(--c-line-strong);
+    border-radius: 12px;
+    box-shadow: var(--shadow-5);
+    padding: var(--sp-6);
+    backdrop-filter: blur(12px);
+}
+
+.hero-content-box h2 {
+    color: var(--c-gold);
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    margin: 0 0 var(--sp-3);
+    letter-spacing: 0.04em;
+}
+
+.hero-content-box p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--c-text);
+    margin-bottom: var(--sp-5);
+}
+
+/* --- CARD SYSTEM — unified treatment for v1 cards --- */
+.book-container,
+.review-card,
+.guide-card,
+.series-book-card,
+.static-card {
+    background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface-1));
+    border: 1px solid var(--c-line);
+    border-radius: 10px;
+    box-shadow: var(--shadow-3);
+    transition:
+        transform 0.3s var(--ease-out),
+        border-color 0.3s var(--ease-out),
+        box-shadow 0.3s var(--ease-out);
+}
+
+.book-container:hover,
+.review-card:hover,
+.guide-card:hover,
+.series-book-card:hover,
+.static-card:hover {
+    border-color: rgba(212, 175, 55, 0.32);
+    box-shadow: var(--shadow-4), var(--shadow-gold-soft);
+    transform: translateY(-3px);
+}
+
+/* --- REVIEW CARD POLISH --- */
+.review-card {
+    padding: var(--sp-6);
+}
+
+.review-card blockquote {
+    line-height: 1.7;
+    font-size: 1.02rem;
+    color: var(--c-text);
+    font-style: normal;
+}
+
+.review-card blockquote::before {
+    color: var(--c-gold);
+    opacity: 0.85;
+    font-size: 2.6rem;
+}
+
+.review-stars {
+    color: var(--c-gold);
+    letter-spacing: 0.18em;
+    font-size: 0.92rem;
+}
+
+.review-cite {
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--c-line-soft);
+    font-size: 0.8rem;
+}
+
+.review-cite .review-source {
+    color: var(--c-gold);
+    opacity: 0.75;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+}
+
+/* --- BUTTONS — refined gradient + better press --- */
+.buy-button {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.84rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: linear-gradient(180deg, var(--c-gold-warm), var(--c-gold));
+    color: #14181f;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, var(--shadow-2);
+    transition:
+        transform 0.18s var(--ease-out),
+        box-shadow 0.18s var(--ease-out),
+        filter 0.18s var(--ease-out);
+}
+
+.buy-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.22) inset,
+        var(--shadow-4),
+        0 8px 24px rgba(212,175,55,0.28);
+    filter: brightness(1.04);
+}
+
+.buy-button:active {
+    transform: translateY(0);
+    filter: brightness(0.96);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, var(--shadow-1);
+}
+
+.btn-amazon {
+    background: linear-gradient(180deg, #ffb84d, var(--color-amazon));
+    color: #14181f;
+    border-color: rgba(0,0,0,0.18);
+}
+
+.btn-audible {
+    background: linear-gradient(180deg, #2a3848, var(--color-audible));
+    color: #fff;
+    border-color: rgba(0,0,0,0.4);
+}
+
+.btn-legion {
+    background: linear-gradient(180deg, #2c2eaa, var(--color-legion));
+    color: #fff;
+    border-color: rgba(0,0,0,0.3);
+}
+
+/* --- SECTION DIVIDERS — gradient hairlines --- */
+.social-proof,
+.social-video-feed,
+.publisher-strip,
+.series-showcase,
+.guide-section {
+    border-top: none;
+    position: relative;
+}
+
+.social-proof::before,
+.social-video-feed::before,
+.publisher-strip::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--c-line-strong) 20%, var(--c-line-strong) 80%, transparent);
+    margin-bottom: var(--sp-7);
+}
+
+.social-proof-subheading {
+    color: var(--c-text-mute);
+    letter-spacing: 0.16em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    margin-bottom: var(--sp-6);
+}
+
+/* --- GUIDE CARDS REFINEMENT --- */
+.guide-card {
+    padding: var(--sp-6) var(--sp-5);
+}
+
+.guide-icon {
+    color: var(--c-gold);
+    font-size: 2rem;
+    margin-bottom: var(--sp-3);
+    opacity: 0.92;
+}
+
+.guide-card h3 {
+    color: var(--c-text-strong);
+    font-size: 1.15rem;
+    margin: 0 0 var(--sp-2);
+}
+
+.guide-card p {
+    color: var(--c-text-soft);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: var(--sp-4);
+}
+
+.comp-if {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--c-gold);
+    text-transform: uppercase;
+    margin-bottom: var(--sp-4);
+    opacity: 0.85;
+}
+
+.guide-btn {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    border-radius: 999px;
+    padding: 10px 22px;
+    border-width: 1px;
+    transition:
+        background 0.2s var(--ease-out),
+        color 0.2s var(--ease-out),
+        transform 0.2s var(--ease-out);
+}
+
+.guide-btn:hover {
+    background: var(--c-gold);
+    color: #14181f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.22);
+}
+
+/* --- SERIES JUMP MENU REFINEMENT --- */
+.series-jump-menu {
+    background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface-1));
+    border: 1px solid var(--c-line);
+    border-radius: 10px;
+    gap: 22px;
+    padding: 14px 20px;
+}
+
+.series-jump-menu .tab-link {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--c-text-soft);
+}
+
+.series-jump-menu .tab-link.active-link {
+    color: var(--c-gold);
+}
+
+/* --- BOOK COVER POLISH --- */
+.series-book-card img,
+.book-cover {
+    border-radius: 4px;
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.06) inset,
+        0 8px 24px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(0,0,0,0.3);
+}
+
+.series-book-card {
+    padding: var(--sp-5) var(--sp-4);
+}
+
+.book-blurb {
+    color: var(--c-text-soft);
+    font-style: normal;
+    opacity: 1;
+}
+
+/* --- FOOTER REFINEMENT --- */
+footer {
+    margin-top: var(--sp-9);
+    margin-bottom: var(--sp-6);
+    color: var(--c-text-mute);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+}
+
+.footer-nav {
+    gap: var(--sp-5);
+    padding-bottom: var(--sp-5);
+    border-bottom: 1px solid var(--c-line-soft);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-nav a {
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    color: var(--c-text-soft);
+}
+
+.footer-nav a:hover {
+    color: var(--c-gold);
+}
+
+.footer-badge {
+    height: 22px;
+    opacity: 0.6;
+}
+
+/* --- KU BADGE REFINEMENT --- */
+.ku-badge {
+    color: var(--c-text-mute);
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+}
+
+.ku-badge i {
+    color: var(--color-amazon);
+}
+
+/* --- LINK STYLES INSIDE PROSE --- */
+main p a,
+.essay-body a,
+.about-text-col p a {
+    color: var(--c-gold-warm);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    padding-bottom: 1px;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+main p a:hover {
+    color: var(--c-gold);
+    border-bottom-color: var(--c-gold);
+}
+
+/* --- PUBLISHER STRIP REFINEMENT --- */
+.publisher-heading {
+    color: var(--c-text-mute);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+}
+
+.publisher-logos a {
+    color: var(--c-text-mute);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    transition: color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+.publisher-logos a:hover {
+    color: var(--c-gold);
+    text-shadow: none;
+    transform: translateY(-1px);
+}
+
+.publisher-logos .divider {
+    color: var(--c-line);
+    font-size: 1rem;
+}
+
+/* --- AGGREGATE REVIEW STRIP (homepage) --- */
+.review-aggregate {
+    background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface-1));
+    border: 1px solid var(--c-line);
+    box-shadow: var(--shadow-2);
+}
+
+.review-aggregate .agg-stars {
+    letter-spacing: 0.18em;
+}
+
+/* --- BOOK PAGE HERO POLISH --- */
+.book-page-hero {
+    margin-top: var(--sp-6);
+}
+
+.book-page-hero .cover-col img {
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.06) inset,
+        0 18px 50px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+.book-page-hero .info-col .meta-pills .pill {
+    background: rgba(20, 24, 31, 0.85);
+    border-color: var(--c-line);
+    color: var(--c-text-soft);
+}
+
+/* --- ESSAY DROP CAP --- */
+.essay-body p:first-of-type::first-letter {
+    color: var(--c-gold);
+    text-shadow: none;
+    padding-right: 12px;
+}
+
+/* --- MICRO-INTERACTIONS — focus rings --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--c-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* --- IMG: forgiving by default --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- CONTAINER UTILITY (for future templates) --- */
+.container,
+.container-narrow {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container { max-width: 1100px; }
+.container-narrow { max-width: 720px; }
+
+/* --- SERIES PAGE COMPONENTS (forthcoming) --- */
+.series-banner {
+    position: relative;
+    padding: var(--sp-8) var(--sp-5);
+    text-align: center;
+    background: linear-gradient(135deg, var(--c-surface-2), var(--c-surface-1));
+    border: 1px solid var(--c-line);
+    border-radius: 12px;
+    box-shadow: var(--shadow-3);
+    margin: var(--sp-6) auto;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.series-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(800px 300px at 50% -10%, color-mix(in srgb, var(--series-color, var(--c-gold)) 20%, transparent), transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.series-banner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.series-banner .eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    color: var(--series-color, var(--c-gold));
+    text-transform: uppercase;
+    margin-bottom: var(--sp-3);
+}
+
+.series-banner h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--c-text-strong);
+    margin: 0 0 var(--sp-3);
+}
+
+.series-banner .deck {
+    color: var(--c-text-soft);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto var(--sp-5);
+    font-style: italic;
+}
+
+.series-meta-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-5);
+    flex-wrap: wrap;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-text-mute);
+    margin-top: var(--sp-5);
+}
+
+.series-meta-row .item strong {
+    display: block;
+    color: var(--c-text-strong);
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    margin-top: 4px;
+}
+
+/* Reading-order grid */
+.reading-order {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--sp-5);
+    margin: var(--sp-6) 0;
+}
+
+.reading-card {
+    background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface-1));
+    border: 1px solid var(--c-line);
+    border-radius: 10px;
+    padding: var(--sp-5);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s var(--ease-out), border-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.reading-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--series-color, var(--c-gold));
+    box-shadow: var(--shadow-4);
+}
+
+.reading-card .order-tag {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--series-color, var(--c-gold));
+    text-transform: uppercase;
+}
+
+.reading-card img {
+    width: 140px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.reading-card h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--c-text-strong);
+}
+
+/* Reviews module (used on book pages) */
+.book-reviews-strip {
+    margin: var(--sp-7) auto;
+    max-width: 820px;
+    padding: 0 var(--sp-5);
+}
+
+.book-reviews-strip h2 {
+    font-size: var(--fs-lg);
+    color: var(--c-gold);
+    border-bottom: 1px solid var(--c-line);
+    padding-bottom: 10px;
+    margin-bottom: var(--sp-5);
+}
+
+.book-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sp-4);
+}
+
+/* --- RESPONSIVE TWEAKS --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+    .hero-content-box {
+        padding: var(--sp-5);
+    }
+    .series-banner {
+        padding: var(--sp-6) var(--sp-4);
+    }
+    nav a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar {
+        margin-top: var(--sp-4);
+        padding: 10px 14px;
+    }
+    .footer-nav {
+        gap: var(--sp-3);
+    }
+}
