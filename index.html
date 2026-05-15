@@ -128,7 +128,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -355,23 +355,56 @@
     </header>
 
     <main id="main-content">
-        <section class="hero-lead-magnet" aria-label="Free story and latest release">
-            <div class="hero-floating-covers" aria-hidden="true">
-                <picture><source srcset="welcome-cover-500w.webp 500w, welcome-cover.webp 1500w" sizes="(max-width: 768px) 50vw, 250px" type="image/webp"><img src="welcome-cover.jpg" alt="" width="120" height="180" loading="lazy"></picture>
-                <picture><source srcset="arcane-1-500w.webp 500w, arcane-1.webp 1500w" sizes="(max-width: 768px) 50vw, 250px" type="image/webp"><img src="arcane-1.jpg" alt="" width="100" height="150" loading="lazy"></picture>
-                <picture><source srcset="murder-cover-500w.webp 500w, murder-cover.webp 1500w" sizes="(max-width: 768px) 50vw, 250px" type="image/webp"><img src="murder-cover.jpg" alt="" width="110" height="165" loading="lazy"></picture>
-            </div>
-            <div class="hero-inner">
-                <div class="hero-content-box">
-                    <h2>Free Story: Crude</h2>
-                    <p>Grab a free download of a monster-hunter short story set on an isolated offshore rig, plus early access to every new release.</p>
-                    <div class="lead-form">
-                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Get Your Free Story</a>
+        <section class="hero-editorial" aria-label="Introduction">
+            <div class="hero-editorial-grid">
+                <div class="hero-editorial-copy">
+                    <div class="editorial-eyebrow"><span>No. 01 &nbsp;·&nbsp; Now Reading</span></div>
+
+                    <h1 class="hero-editorial-title">Snark, swords,<br>and <em>broken systems.</em></h1>
+
+                    <p class="hero-editorial-meta">
+                        Malory<span class="sep">·</span>Novelist<span class="sep">·</span>Birmingham, UK<span class="sep">·</span>30+ Books, 7 Series
+                    </p>
+
+                    <p class="hero-editorial-deck">
+                        LitRPG, progression fantasy, and the kind of hard sci-fi that won the Jim Baen prize. Plus a doctoral thesis on why fewer men read &mdash; and what to do about it.
+                    </p>
+
+                    <div class="hero-editorial-actions">
+                        <a href="chaos-protocols.html" class="btn-primary">
+                            Read the Latest <span class="arrow">→</span>
+                        </a>
+                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                            Free Novella
+                        </a>
                     </div>
-                    <p class="lead-trust"><i class="fas fa-lock" aria-hidden="true"></i> Join 1,000+ readers · Unsubscribe anytime</p>
+                </div>
+
+                <div class="hero-editorial-artifact" aria-hidden="false">
+                    <a href="chaos-protocols.html" class="cover-wrap" aria-label="Read about Arcane Galaxy: Chaos Protocols">
+                        <picture>
+                            <source srcset="arcane-1-500w.webp 500w, arcane-1.webp 1500w" sizes="(max-width: 768px) 80vw, 320px" type="image/webp">
+                            <img src="arcane-1.jpg" alt="Arcane Galaxy: Chaos Protocols cover" width="320" height="480" fetchpriority="high">
+                        </picture>
+                        <div class="award-badge">
+                            <strong>2026 Winner</strong>
+                            Jim Baen Award
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hero-editorial-aside">
+                    <div class="stat"><strong>30+</strong>Books in print</div>
+                    <div class="stat"><strong>7</strong>Series</div>
+                    <div class="stat"><strong>4.5★</strong>Across 1,000+ ratings</div>
+                    <div class="stat"><strong>2026</strong>Jim Baen Award</div>
                 </div>
             </div>
         </section>
+
+        <div class="editorial-rule" aria-hidden="true">
+            <img src="ornament-rule.svg" alt="">
+        </div>
 
         <section aria-label="Latest release">
             <h2>Latest Release</h2>
