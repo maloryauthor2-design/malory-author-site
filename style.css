@@ -2729,10 +2729,240 @@ main > section > h2.editorial,
 /* --- MOBILE TYPOGRAPHY SCALE --- */
 @media (max-width: 768px) {
     .hero-editorial-meta {
-        font-size: 0.7rem;
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+        line-height: 1.6;
+    }
+    .hero-editorial-meta .sep {
+        margin: 0 0.45em;
     }
     .hero-editorial-deck {
         font-size: 1.05rem;
+        line-height: 1.55;
+    }
+}
+
+/* =====================================================================
+   V3 — MOBILE TIGHTENING + SITE-WIDE ROLLOUT
+   ---------------------------------------------------------------------
+   Surgical mobile fixes for the editorial hero, plus the propagation
+   move that pushes Fraunces into every page's existing heading rules
+   by redirecting --font-display.  No HTML changes needed; pages that
+   previously rendered Orbitron headlines now render Fraunces.
+   ===================================================================== */
+
+/* Make Fraunces the global display face — propagates to every page's
+   existing inline styles that reference var(--font-display). */
+:root {
+    --font-display: 'Fraunces', 'EB Garamond', Georgia, serif;
+}
+
+/* But UI labels that look right in mono — eyebrows, footer-nav,
+   publisher-logos, series-jump-menu tabs, .ku-badge labels —
+   override back to JetBrains Mono so they don't read as serif
+   small-caps where geometric small-caps was the working intent. */
+.footer-nav a,
+.publisher-logos a,
+.series-jump-menu .tab-link,
+.guide-btn,
+.continuity-link,
+nav a,
+.header-award {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+}
+
+/* Body headings that previously had Orbitron's heavy uppercase
+   tracking now use Fraunces — pull tracking back and drop caps. */
+h1, h2, h3, h4 {
+    text-transform: none;
+    letter-spacing: -0.005em;
+    text-shadow: none;
+}
+
+/* But the editorial system's intentional eyebrow caps still need
+   wide tracking — these keep their existing class-level settings. */
+.editorial-eyebrow,
+.mono-tag,
+.case-file-line,
+.section-numeral .label,
+.hero-editorial-meta,
+.editorial-rule,
+.review-cite .review-source,
+.mal-meta {
+    text-transform: uppercase;
+}
+
+/* Page-section h2s on series/book/press/about pages all use
+   Fraunces via --font-display now — refine the size scale so
+   they don't feel as shouty as Orbitron did. */
+.press-section h2,
+.award-section h2,
+.genre-section h2,
+.book-section h2,
+.book-reviews-strip h2,
+.essay-body h2,
+.essay-body h3 {
+    font-variation-settings: "opsz" 48, "wght" 560;
+    letter-spacing: -0.01em;
+    color: var(--text-warm);
+    text-transform: none;
+}
+
+/* Series banner heading — bigger, more confident */
+.series-banner h1 {
+    font-variation-settings: "opsz" 144, "wght" 580;
+    letter-spacing: -0.02em;
+}
+.series-banner .deck {
+    font-family: var(--font-serif-body);
+    font-variation-settings: "opsz" 24, "wght" 420;
+    font-style: italic;
+    color: var(--text-cream);
+}
+
+/* About-page h2 (which was using gold + Orbitron-uppercase) becomes
+   editorial — bigger, serif, no underline rule. */
+.about-text-col h2 {
+    font-family: var(--font-serif-display) !important;
+    font-variation-settings: "opsz" 96, "wght" 580;
+    font-size: clamp(2.2rem, 4.5vw, 2.8rem) !important;
+    color: var(--text-warm) !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 1.2rem !important;
+    text-transform: none !important;
+    letter-spacing: -0.015em;
+}
+
+/* Press / Award / Genre / Essays page h1s — confident editorial */
+.press-hero h1,
+.award-hero h1,
+.genre-hero h1,
+.essay-header h1,
+.essays-hero h1,
+.book-page-hero h1 {
+    font-variation-settings: "opsz" 144, "wght" 580;
+    letter-spacing: -0.02em;
+}
+
+/* Eyebrow on existing pages — switch to the editorial eyebrow look */
+.press-hero .press-eyebrow,
+.award-hero .award-eyebrow,
+.genre-hero .eyebrow,
+.essay-header .essay-eyebrow,
+.essays-hero .eyebrow,
+.series-banner .eyebrow {
+    font-family: var(--font-mono);
+    letter-spacing: 0.16em;
+    color: var(--brass);
+}
+
+/* =====================================================================
+   MOBILE HERO REFINEMENTS
+   ===================================================================== */
+
+@media (max-width: 768px) {
+    .hero-editorial {
+        padding: var(--sp-6) 0 var(--sp-5);
+    }
+
+    .hero-editorial::after {
+        top: 16px;
+        right: 16px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .hero-editorial-grid {
+        padding: 0 var(--sp-4);
+        gap: var(--sp-6);
+    }
+
+    .hero-editorial-title {
+        font-size: clamp(2rem, 9vw, 2.6rem);
+        line-height: 1.05;
+    }
+
+    /* Stats stack 2x2 instead of awkward space-between row */
+    .hero-editorial-aside {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--sp-3);
+        margin-top: var(--sp-6);
+        padding-top: var(--sp-4);
+    }
+
+    .hero-editorial-aside .stat {
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+    }
+
+    .hero-editorial-aside .stat strong {
+        font-size: 0.78rem;
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    /* Pull cover registration marks inside the cover at mobile —
+       they were clipping off-screen at narrow widths. */
+    .hero-editorial-artifact .cover-wrap::before {
+        top: -10px; left: -10px;
+        width: 16px; height: 16px;
+    }
+    .hero-editorial-artifact .cover-wrap::after {
+        top: -10px; right: -10px;
+        width: 16px; height: 16px;
+    }
+    .hero-editorial-artifact .cover-wrap {
+        width: 180px;
+    }
+
+    .hero-editorial-artifact .award-badge {
+        bottom: -10px;
+        right: -8px;
+        padding: 7px 10px;
+        font-size: 0.6rem;
+    }
+
+    .hero-editorial-actions {
+        gap: var(--sp-3);
+    }
+
+    .hero-editorial-actions .btn-primary,
+    .hero-editorial-actions .btn-secondary {
+        padding: 12px 18px;
+        font-size: 0.72rem;
+    }
+
+    .editorial-rule {
+        margin: var(--sp-5) auto;
+    }
+
+    .editorial-rule svg,
+    .editorial-rule img {
+        width: 180px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-editorial-grid {
+        padding: 0 var(--sp-4);
+    }
+
+    .hero-editorial-meta {
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+    }
+
+    /* On very narrow screens the four-stat block is still too dense —
+       allow the values to drop to a single column if needed */
+    .hero-editorial-aside {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-editorial-title {
+        font-size: clamp(1.75rem, 10vw, 2.25rem);
     }
 }
 
