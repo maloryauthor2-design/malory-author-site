@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+        <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1015">
@@ -128,7 +129,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap"></noscript>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -663,22 +665,40 @@
             </div>
         </section>
 
-        <section class="social-video-feed" aria-label="Social media videos">
-        <h2>Latest from the Feed</h2>
-        <div class="video-grid">
-            <div class="video-item static-card" data-video-id="7617103900398718230" aria-label="Play TikTok video: Rivers and the Galaxy" tabindex="0" role="button">
-                <div class="video-placeholder" style="background-image: url('thumb1.jpg');" aria-hidden="true"></div>
-                <p>@maloryauthor - Rivers and the Galaxy</p>
+        <section class="latest-essays" aria-label="Latest essays">
+            <div class="reviews-scroller-head" style="max-width: 1100px; margin: 0 auto var(--sp-5); padding: 0 var(--sp-5);">
+                <h2>From the Substack</h2>
+                <span class="source-tag"><i class="fas fa-layer-group gr-mark" aria-hidden="true"></i>Snark and Shotguns</span>
             </div>
-            <div class="video-item static-card" data-video-id="7622212917286505750" aria-label="Play TikTok video: Pulp Press Fun" tabindex="0" role="button">
-                <div class="video-placeholder" style="background-image: url('thumb2.jpg');" aria-hidden="true"></div>
-                <p>@maloryauthor - Pulp Press Fun</p>
+
+            <div class="essay-pull-grid">
+                <a href="essays/first-person-narrative-voice.html" class="essay-pull-card">
+                    <div class="essay-pull-meta"><span class="cat">Craft</span><span class="sep">·</span><span class="date">13 May 2026</span></div>
+                    <h3>Using First-Person Narrative Voice</h3>
+                    <p>Wednesday Deconstruction. It ain't for everyone.</p>
+                    <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+
+                <a href="essays/what-you-told-me-about-boys-and-books.html" class="essay-pull-card">
+                    <div class="essay-pull-meta"><span class="cat">Research</span><span class="sep">·</span><span class="date">8 May 2026</span></div>
+                    <h3>What You Told Me About Boys and Books</h3>
+                    <p>Reader feedback on the reading decline &mdash; and how it got dark fast.</p>
+                    <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+
+                <a href="essays/bait-and-switch-chapter-end.html" class="essay-pull-card">
+                    <div class="essay-pull-meta"><span class="cat">Craft</span><span class="sep">·</span><span class="date">7 May 2026</span></div>
+                    <h3>The Art of the Bait-and-Switch Chapter End</h3>
+                    <p>Wednesday Deconstruction. The trick the genre lives on.</p>
+                    <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
             </div>
-            <div class="video-item static-card" data-video-id="7602038639912176926" aria-label="Play TikTok video: Morgan & Merlin Obsession" tabindex="0" role="button">
-                <div class="video-placeholder" style="background-image: url('thumb3.jpg');" aria-hidden="true"></div>
-                <p>@samboydreads - Morgan & Merlin Obsession</p>
+
+            <div class="essay-pull-foot">
+                <a href="essays/">Browse all essays <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <span class="essay-pull-foot-sep">·</span>
+                <a href="https://maloryauthor.substack.com" target="_blank" rel="noopener noreferrer">Subscribe on Substack</a>
             </div>
-        </div>
         </section>
 
         <section class="publisher-strip publisher-strip-logos" aria-label="Publishing partners">

@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+        <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1015">
@@ -56,7 +57,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap"></noscript>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -319,6 +321,12 @@
             <div class="press-eyebrow">Press &amp; Media Kit</div>
             <h1>Everything you need to write about Malory</h1>
             <p>Bios, high-resolution author photo, cover art, award context, and contact &mdash; all in one place.</p>
+            <p style="margin-top: 22px;">
+                <a href="malory-press-kit.pdf" download class="buy-button" style="background: var(--brass); color: var(--ink-deep); border: 1px solid var(--brass); font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 28px; border-radius: 2px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i> Download the Full Press Kit (PDF)
+                </a>
+            </p>
+            <p style="margin-top: 12px; font-size: 0.78rem; font-family: var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-quiet);">Or browse the elements individually below.</p>
         </section>
 
         <section class="press-section" aria-label="Quick facts">

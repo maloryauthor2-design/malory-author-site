@@ -3773,3 +3773,218 @@ footer p {
     }
 }
 
+/* =====================================================================
+   LATEST ESSAYS PULL — homepage essays section (replaces TikTok feed)
+   ===================================================================== */
+
+.latest-essays {
+    max-width: 1100px;
+    margin: var(--sp-8) auto;
+    padding: var(--sp-6) var(--sp-5) var(--sp-5);
+    position: relative;
+}
+
+.latest-essays::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rule-strong) 20%, var(--rule-strong) 80%, transparent);
+    margin: 0 auto var(--sp-6);
+    max-width: 600px;
+}
+
+.essay-pull-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.essay-pull-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface-1));
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--rule);
+    border-radius: 6px;
+    padding: var(--sp-5);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s var(--ease-out), border-top-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+    min-height: 200px;
+}
+
+.essay-pull-card:hover {
+    transform: translateY(-3px);
+    border-top-color: var(--brass);
+    box-shadow: var(--shadow-4);
+}
+
+.essay-pull-meta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.essay-pull-meta .sep {
+    color: var(--text-faint);
+    opacity: 0.5;
+}
+
+.essay-pull-meta .date {
+    color: var(--text-quiet);
+}
+
+.essay-pull-card h3 {
+    font-family: var(--font-serif-display);
+    font-variation-settings: "opsz" 48, "wght" 560;
+    font-size: 1.2rem;
+    line-height: 1.22;
+    color: var(--text-warm);
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.005em;
+}
+
+.essay-pull-card p {
+    font-family: var(--font-serif-body);
+    font-variation-settings: "opsz" 18, "wght" 420;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--text-cream);
+    margin: 0;
+    flex: 1;
+    font-style: italic;
+}
+
+.essay-pull-cta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--rule-soft);
+}
+
+.essay-pull-card:hover .essay-pull-cta {
+    color: var(--brass-bright);
+}
+
+.essay-pull-cta i {
+    transition: transform 0.2s var(--ease-out);
+    font-size: 0.7rem;
+}
+
+.essay-pull-card:hover .essay-pull-cta i {
+    transform: translateX(3px);
+}
+
+.essay-pull-foot {
+    margin-top: var(--sp-6);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-quiet);
+}
+
+.essay-pull-foot a {
+    color: var(--brass);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(201, 168, 90, 0.3);
+    padding-bottom: 1px;
+}
+
+.essay-pull-foot a:hover {
+    border-bottom-style: solid;
+}
+
+.essay-pull-foot-sep {
+    margin: 0 var(--sp-3);
+    color: var(--text-faint);
+    opacity: 0.5;
+}
+
+@media (max-width: 820px) {
+    .essay-pull-grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-3);
+    }
+    .essay-pull-card {
+        min-height: 0;
+    }
+}
+
+/* =====================================================================
+   AUDIBLE SAMPLE PLAYER — on book pages with audiobook editions
+   ===================================================================== */
+
+.audible-sample {
+    margin: var(--sp-5) 0 var(--sp-4);
+    padding: var(--sp-4) var(--sp-5);
+    background: linear-gradient(180deg, rgba(35, 47, 62, 0.45), rgba(20, 24, 31, 0.6));
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--brass);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+}
+
+.audible-sample-meta {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+.audible-sample-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.audible-sample-title {
+    font-family: var(--font-serif-display);
+    font-variation-settings: "opsz" 24, "wght" 500;
+    font-style: italic;
+    font-size: 0.98rem;
+    color: var(--text-warm);
+    margin: 0;
+}
+
+.audible-sample-title small {
+    font-family: var(--font-mono);
+    font-style: normal;
+    color: var(--text-quiet);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    margin-left: 8px;
+}
+
+.audible-sample audio {
+    flex: 0 1 320px;
+    min-width: 240px;
+    height: 38px;
+    filter: invert(0.92) hue-rotate(180deg);
+    border-radius: 4px;
+}
+

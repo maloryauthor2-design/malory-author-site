@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+        <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1015">
@@ -102,7 +103,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap"></noscript>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -203,6 +205,13 @@
                     <a href="https://links.maloryauthor.com/dark-blade?format=audible" class="buy-button btn-audible" target="_blank" rel="noopener noreferrer"><i class="fab fa-audible" aria-hidden="true"></i> Audible</a>
                 </div>
 
+                <div class="audible-sample" role="region" aria-label="Audiobook sample">
+                    <div class="audible-sample-meta">
+                        <div class="audible-sample-eyebrow"><i class="fab fa-audible" aria-hidden="true"></i> Audiobook Sample</div>
+                        <p class="audible-sample-title">Read by Jess Nahikian</p>
+                    </div>
+                    <audio controls preload="none" src="https://samples.audible.co.uk/bk/adbl/063917/bk_adbl_063917_sample.mp3">Your browser does not support the audio element. <a href="https://samples.audible.co.uk/bk/adbl/063917/bk_adbl_063917_sample.mp3">Listen to the sample</a>.</audio>
+                </div>
                 <p class="ku-line"><i class="fab fa-amazon" aria-hidden="true"></i> Free on Kindle Unlimited</p>
             </div>
         </section>
