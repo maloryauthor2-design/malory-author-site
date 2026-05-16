@@ -2966,3 +2966,215 @@ h1, h2, h3, h4 {
     }
 }
 
+/* =====================================================================
+   HORIZONTAL SCROLL — READER REVIEWS STRIP
+   ---------------------------------------------------------------------
+   Curated reviews mirrored from Goodreads. No auto-rotation: user
+   swipes/drags at their own pace.  Snap-points keep cards aligned.
+   Fade at right edge signals "more to scroll."  Final tile is the
+   "See all on Goodreads" CTA so traffic flows correctly.
+   ===================================================================== */
+
+.reviews-scroller {
+    margin: var(--sp-7) auto;
+    max-width: 1100px;
+    padding: 0 var(--sp-5);
+    position: relative;
+}
+
+.reviews-scroller-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+}
+
+.reviews-scroller-head h2 {
+    font-family: var(--font-serif-display);
+    font-variation-settings: "opsz" 48, "wght" 560;
+    font-size: 1.5rem;
+    color: var(--text-warm);
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-transform: none;
+}
+
+.reviews-scroller-head .source-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-quiet);
+}
+
+.reviews-scroller-head .source-tag .gr-mark {
+    color: var(--brass);
+    margin-right: 4px;
+}
+
+.reviews-track-wrap {
+    position: relative;
+    /* Subtle right-edge fade indicating more content */
+    mask-image: linear-gradient(to right, black 0, black calc(100% - 60px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 0, black calc(100% - 60px), transparent 100%);
+}
+
+.reviews-track {
+    display: flex;
+    gap: var(--sp-4);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+    padding: var(--sp-2) 0 var(--sp-5);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--brass-deep) transparent;
+}
+
+.reviews-track::-webkit-scrollbar {
+    height: 6px;
+}
+.reviews-track::-webkit-scrollbar-track {
+    background: transparent;
+}
+.reviews-track::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 3px;
+}
+.reviews-track::-webkit-scrollbar-thumb:hover {
+    background: var(--brass-deep);
+}
+
+.review-tile {
+    flex: 0 0 320px;
+    max-width: 320px;
+    scroll-snap-align: start;
+    background: linear-gradient(180deg, var(--c-surface-2, #1a1e26), var(--c-surface-1, #14181f));
+    border: 1px solid var(--rule);
+    border-top: 2px solid var(--brass);
+    border-radius: 6px;
+    padding: var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    box-shadow: var(--shadow-3);
+}
+
+.review-tile .stars {
+    color: var(--brass);
+    letter-spacing: 0.16em;
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.review-tile .stars .empty {
+    opacity: 0.25;
+}
+
+.review-tile blockquote {
+    font-family: var(--font-serif-body);
+    font-variation-settings: "opsz" 18, "wght" 420;
+    font-size: 1.02rem;
+    line-height: 1.62;
+    color: var(--text-cream);
+    margin: 0;
+    flex: 1;
+    font-style: normal;
+}
+
+.review-tile blockquote::before {
+    content: "\201C";
+    font-family: var(--font-serif-display);
+    font-size: 2.4rem;
+    color: var(--brass);
+    line-height: 0;
+    vertical-align: -0.5em;
+    margin-right: 4px;
+    opacity: 0.6;
+}
+
+.review-tile footer {
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--sp-2);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.review-tile footer .name {
+    color: var(--text-warm);
+    font-weight: 500;
+}
+
+.review-tile footer .source {
+    color: var(--text-quiet);
+}
+
+/* The closing CTA tile that ends the strip */
+.review-tile-cta {
+    flex: 0 0 240px;
+    max-width: 240px;
+    scroll-snap-align: end;
+    background: transparent;
+    border: 1px dashed var(--rule-strong);
+    border-top-width: 1px;
+    border-radius: 6px;
+    padding: var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-warm);
+    transition: border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.review-tile-cta:hover {
+    border-color: var(--brass);
+    background: rgba(201, 168, 90, 0.05);
+}
+
+.review-tile-cta .cta-icon {
+    color: var(--brass);
+    font-size: 1.4rem;
+}
+
+.review-tile-cta .cta-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-warm);
+}
+
+.review-tile-cta .cta-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    color: var(--text-quiet);
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .review-tile {
+        flex: 0 0 84vw;
+        max-width: 320px;
+    }
+    .review-tile-cta {
+        flex: 0 0 72vw;
+        max-width: 280px;
+    }
+    .reviews-scroller {
+        padding: 0 var(--sp-4);
+    }
+}
+
