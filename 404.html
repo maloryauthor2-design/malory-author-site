@@ -25,49 +25,106 @@
     <style>
         .error-message-box {
             text-align: center;
-            padding: 100px 20px;
-            max-width: 800px;
+            padding: 96px 24px 64px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
+        .error-message-box .err-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--brass, #c9a85a);
+            margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .error-message-box .err-eyebrow::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.85;
+        }
+
         .error-message-box h1 {
-            font-size: clamp(3rem, 15vw, 6rem);
-            color: #d4af37;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            font-family: 'Fraunces', Georgia, serif;
+            font-variation-settings: "opsz" 144, "wght" 580;
+            font-size: clamp(4rem, 14vw, 7rem);
+            color: var(--text-warm, #ece8df);
+            letter-spacing: -0.04em;
+            margin: 0 0 8px;
+            line-height: 1;
+            text-shadow: none;
+            text-transform: none;
+            font-weight: 580;
         }
 
         .error-message-box h2 {
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            font-family: 'Fraunces', Georgia, serif;
+            font-variation-settings: "opsz" 72, "wght" 500;
+            font-style: italic;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: var(--text-cream, #d9d3c5);
+            margin: 0 0 28px;
+            letter-spacing: -0.005em;
+            text-transform: none;
+            font-weight: 500;
         }
 
         .error-message-box p {
-            font-size: 1.2rem;
-            color: #b3b3b3;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
+            font-family: 'Newsreader', Georgia, serif;
+            font-variation-settings: "opsz" 24, "wght" 420;
+            font-size: 1.1rem;
+            color: var(--text-cream, #d9d3c5);
+            margin: 0 auto 36px;
+            max-width: 540px;
+            line-height: 1.62;
         }
 
-        /* Pulse Animation for Lead Magnet Button */
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        .err-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .btn-pulse {
-            animation: pulse-glow 2.5s infinite;
+        .err-actions a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 14px 26px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.18s ease, background 0.18s, border-color 0.18s;
         }
-        
-        /* Upgraded Hero Background with Gradient Overlay */
-        .hero-lead-magnet {
-            background: linear-gradient(to right, rgba(13, 16, 21, 0.95) 0%, rgba(13, 16, 21, 0.4) 100%), url('hero-bg.jpg') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
+
+        .err-actions .err-primary {
+            background: var(--brass, #c9a85a);
+            color: var(--ink-deep, #0a0c10);
+            border: 1px solid var(--brass, #c9a85a);
+        }
+
+        .err-actions .err-primary:hover {
+            background: var(--brass-bright, #e0c478);
+            transform: translateY(-1px);
+        }
+
+        .err-actions .err-secondary {
+            background: transparent;
+            color: var(--text-warm, #ece8df);
+            border: 1px solid var(--rule-strong, rgba(236,232,223,0.22));
+        }
+
+        .err-actions .err-secondary:hover {
+            border-color: var(--brass, #c9a85a);
+            color: var(--brass, #c9a85a);
         }
     </style>
     <!-- Privacy-friendly analytics by Plausible -->
@@ -114,26 +171,15 @@
 
     <main id="main-content">
         <section class="error-message-box">
+            <div class="err-eyebrow">Coordinates Unknown</div>
             <h1>404</h1>
-            <h2>SYSTEM ERROR: Sector Unknown</h2>
-            <p>It appears your nav-computer has encountered an anomaly. The coordinates you entered don't exist in our current star charts, or perhaps they've been redacted by the System. Either way, you're currently floating in deep space.</p>
-            
-            <div class="buy-group">
-                <a href="index.html" class="buy-button"><i class="fas fa-home"></i> Return to Base Command</a>
-                <a href="books.html" class="buy-button" style="background: #333; color: #fff; border-color: #444;"><i class="fas fa-book"></i> Browse the Library</a>
-            </div>
-        </section>
+            <h2>The page you were looking for isn&rsquo;t here.</h2>
+            <p>Could be a redirect that hasn&rsquo;t caught up. Could be a typo. Could be the System redacting things for reasons of its own. Either way, the rest of the catalogue is intact, and there&rsquo;s a free novella one click away.</p>
 
-        <section class="hero-lead-magnet">
-            <div class="hero-inner">
-                <div class="hero-content-box">
-                    <h2>Lost in Space?</h2>
-                    <p>While we get your navigation back online, why not grab a free download of <em>Crude</em>? Join the VIP list for the monster-hunter short story and early access to new releases.</p>
-                    
-                    <div class="lead-form">
-                        <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="buy-button btn-pulse" style="text-align: center;"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Get Your Free Story</a>
-                    </div>
-                </div>
+            <div class="err-actions">
+                <a href="/" class="err-primary">Back to the Front</a>
+                <a href="books.html" class="err-secondary">Browse the Library</a>
+                <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" class="err-secondary">Free Novella</a>
             </div>
         </section>
     </main>
