@@ -834,6 +834,34 @@
         </section>
 
         <style>
+            /* Where-to-Start guide cards — series-anchor colours per BRAND_FOUNDATION.md.
+               1=Arcane (blue) 2=Soar (steel) 3=Merlin (violet) 4=Psyker (red) 5=Boys Own (brass-bright) 6=Raconteur (brass) */
+            .guide-card { border-top: 2px solid transparent; }
+            .guide-card:nth-child(1) { border-top-color: #3D7FB8; }
+            .guide-card:nth-child(2) { border-top-color: #7A8B99; }
+            .guide-card:nth-child(3) { border-top-color: #5B3A7A; }
+            .guide-card:nth-child(4) { border-top-color: #D04848; }
+            .guide-card:nth-child(5) { border-top-color: #E0C478; }
+            .guide-card:nth-child(6) { border-top-color: #C9A85A; }
+            .guide-card:nth-child(1) .guide-icon-svg, .guide-card:nth-child(1) .guide-icon { color: #3D7FB8; }
+            .guide-card:nth-child(2) .guide-icon-svg, .guide-card:nth-child(2) .guide-icon { color: #7A8B99; }
+            .guide-card:nth-child(3) .guide-icon-svg, .guide-card:nth-child(3) .guide-icon { color: #5B3A7A; }
+            .guide-card:nth-child(4) .guide-icon-svg, .guide-card:nth-child(4) .guide-icon { color: #D04848; }
+            .guide-card:nth-child(5) .guide-icon-svg, .guide-card:nth-child(5) .guide-icon { color: #E0C478; }
+            .guide-card:nth-child(6) .guide-icon-svg, .guide-card:nth-child(6) .guide-icon { color: #C9A85A; }
+            .guide-card:nth-child(1) .guide-btn { color: #3D7FB8; border-color: #3D7FB8; }
+            .guide-card:nth-child(1) .guide-btn:hover { background: rgba(61, 127, 184, 0.10); }
+            .guide-card:nth-child(2) .guide-btn { color: #7A8B99; border-color: #7A8B99; }
+            .guide-card:nth-child(2) .guide-btn:hover { background: rgba(122, 139, 153, 0.10); }
+            .guide-card:nth-child(3) .guide-btn { color: #5B3A7A; border-color: #5B3A7A; }
+            .guide-card:nth-child(3) .guide-btn:hover { background: rgba(91, 58, 122, 0.10); }
+            .guide-card:nth-child(4) .guide-btn { color: #D04848; border-color: #D04848; }
+            .guide-card:nth-child(4) .guide-btn:hover { background: rgba(208, 72, 72, 0.10); }
+            .guide-card:nth-child(5) .guide-btn { color: #E0C478; border-color: #E0C478; }
+            .guide-card:nth-child(5) .guide-btn:hover { background: rgba(224, 196, 120, 0.10); }
+            .guide-card:nth-child(6) .guide-btn { color: #C9A85A; border-color: #C9A85A; }
+            .guide-card:nth-child(6) .guide-btn:hover { background: rgba(201, 168, 90, 0.10); }
+
             .visually-hidden {
                 position: absolute;
                 width: 1px;
