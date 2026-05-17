@@ -129,8 +129,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap"></noscript>
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Inter:wght@400;500;600;700&display=swap">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -259,13 +259,13 @@
             text-decoration: none;
             color: inherit;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border-top: 2px solid var(--accent, #d4af37);
+            border-top: 2px solid var(--accent, #C9A85A);
             align-items: flex-start;
         }
 
         .showcase-card:hover {
             transform: translateY(-4px);
-            border-color: var(--accent, #d4af37);
+            border-color: var(--accent, #C9A85A);
             box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 20px color-mix(in srgb, var(--accent) 15%, transparent);
         }
 
@@ -298,9 +298,9 @@
         }
 
         .showcase-cta {
-            font-family: var(--font-display, 'Orbitron', sans-serif);
+            font-family: var(--font-display, 'Fraunces', Georgia, serif);
             font-size: 0.75rem;
-            color: var(--accent, #d4af37);
+            color: var(--accent, #C9A85A);
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
@@ -671,28 +671,104 @@
                 <span class="source-tag"><i class="fas fa-layer-group gr-mark" aria-hidden="true"></i>Snark and Shotguns</span>
             </div>
 
-            <div class="essay-pull-grid">
+            <!-- Initial 3 posts hardcoded as fallback. The script below replaces
+                 this grid with live data from the Substack RSS feed on page load. -->
+            <div class="essay-pull-grid" id="essay-pull-grid">
+                <a href="https://maloryauthor.substack.com/p/tutorial-phase" target="_blank" rel="noopener noreferrer" class="essay-pull-card">
+                    <div class="essay-pull-meta"><span class="cat">Update</span><span class="sep">·</span><span class="date">17 May 2026</span></div>
+                    <h3>Tutorial Phase</h3>
+                    <p>Eighteen months in. Starting very soon.</p>
+                    <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+
+                <a href="https://maloryauthor.substack.com/p/how-to-manufacture-a-man-who-doesnt" target="_blank" rel="noopener noreferrer" class="essay-pull-card">
+                    <div class="essay-pull-meta"><span class="cat">Research</span><span class="sep">·</span><span class="date">16 May 2026</span></div>
+                    <h3>How to Manufacture a Man Who Doesn't Read</h3>
+                    <p>Or: it isn't the phones.</p>
+                    <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                </a>
+
                 <a href="essays/first-person-narrative-voice.html" class="essay-pull-card">
                     <div class="essay-pull-meta"><span class="cat">Craft</span><span class="sep">·</span><span class="date">13 May 2026</span></div>
                     <h3>Using First-Person Narrative Voice</h3>
                     <p>Wednesday Deconstruction. It ain't for everyone.</p>
                     <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                 </a>
-
-                <a href="essays/what-you-told-me-about-boys-and-books.html" class="essay-pull-card">
-                    <div class="essay-pull-meta"><span class="cat">Research</span><span class="sep">·</span><span class="date">8 May 2026</span></div>
-                    <h3>What You Told Me About Boys and Books</h3>
-                    <p>Reader feedback on the reading decline &mdash; and how it got dark fast.</p>
-                    <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </a>
-
-                <a href="essays/bait-and-switch-chapter-end.html" class="essay-pull-card">
-                    <div class="essay-pull-meta"><span class="cat">Craft</span><span class="sep">·</span><span class="date">7 May 2026</span></div>
-                    <h3>The Art of the Bait-and-Switch Chapter End</h3>
-                    <p>Wednesday Deconstruction. The trick the genre lives on.</p>
-                    <span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </a>
             </div>
+
+            <script>
+            /* Live-pull the latest 3 Substack posts via the rss2json proxy.
+               If the fetch fails (offline, rate-limited, etc.) the hardcoded
+               fallback above stays in place — so the section is always populated. */
+            (function() {
+                var grid = document.getElementById('essay-pull-grid');
+                if (!grid) return;
+                var FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' +
+                           encodeURIComponent('https://maloryauthor.substack.com/feed');
+
+                // On-site mirrors — if a Substack post has a local copy, link to that instead.
+                var MIRRORS = {
+                    'wednesday-deconstruction-using-first': 'essays/first-person-narrative-voice.html',
+                    'what-you-told-me-about-boys-and-books': 'essays/what-you-told-me-about-boys-and-books.html',
+                    'wednesday-deconstruction-the-art':     'essays/bait-and-switch-chapter-end.html'
+                };
+
+                function categoryFor(title) {
+                    var t = title.toLowerCase();
+                    if (t.indexOf('wednesday deconstruction') === 0 || t.indexOf('art of') !== -1) return 'Craft';
+                    if (t.indexOf('what you told') !== -1 || t.indexOf('manufacture') !== -1 || t.indexOf('research') !== -1) return 'Research';
+                    return 'Essay';
+                }
+                function cleanTitle(title) {
+                    return title.replace(/^Wednesday Deconstruction:\s*/i, '');
+                }
+                function formatDate(pubDate) {
+                    var d = new Date(pubDate);
+                    if (isNaN(d)) return '';
+                    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                    return d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+                }
+                function shortDesc(html) {
+                    var tmp = document.createElement('div');
+                    tmp.innerHTML = html || '';
+                    var text = (tmp.textContent || '').trim();
+                    return text.length > 100 ? text.slice(0, 97) + '...' : text;
+                }
+                function slugOf(link) {
+                    var m = link.match(/\/p\/([a-z0-9-]+)/);
+                    return m ? m[1] : '';
+                }
+                function escapeHtml(s) {
+                    return (s || '').replace(/[&<>"']/g, function(c){
+                        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+                    });
+                }
+
+                fetch(FEED).then(function(r){ return r.json(); }).then(function(data) {
+                    if (!data || data.status !== 'ok' || !data.items || data.items.length === 0) return;
+                    var posts = data.items.slice(0, 3);
+                    var html = posts.map(function(p) {
+                        var slug = slugOf(p.link);
+                        var href = MIRRORS[slug] || p.link;
+                        var external = !MIRRORS[slug];
+                        var cat = categoryFor(p.title);
+                        var date = formatDate(p.pubDate);
+                        var desc = shortDesc(p.description);
+                        return '<a href="' + escapeHtml(href) + '"' +
+                               (external ? ' target="_blank" rel="noopener noreferrer"' : '') +
+                               ' class="essay-pull-card">' +
+                               '<div class="essay-pull-meta"><span class="cat">' + escapeHtml(cat) +
+                               '</span><span class="sep">·</span><span class="date">' + escapeHtml(date) +
+                               '</span></div>' +
+                               '<h3>' + escapeHtml(cleanTitle(p.title)) + '</h3>' +
+                               '<p>' + escapeHtml(desc) + '</p>' +
+                               '<span class="essay-pull-cta">Read the essay <i class="fas fa-arrow-right" aria-hidden="true"></i></span>' +
+                               '</a>';
+                    }).join('');
+                    grid.innerHTML = html;
+                }).catch(function() { /* keep fallback */ });
+            })();
+            </script>
 
             <div class="essay-pull-foot">
                 <a href="essays/">Browse all essays <i class="fas fa-arrow-right" aria-hidden="true"></i></a>

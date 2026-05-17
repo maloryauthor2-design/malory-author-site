@@ -4,10 +4,10 @@
  * Features:
  *   1. Scroll-triggered reveal animations (staggered fade + slide)
  *   2. Reactive starfield background (stars scatter from cursor)
- *   3. Custom cursor with gold particle trail
+ *   3. Custom cursor with brass particle trail
  *   4. Magnetic hover on CTA buttons
  *   5. Interactive book cover spotlight (light follows cursor)
- *   6. Scroll-triggered heading text reveal with gold shimmer
+ *   6. Scroll-triggered heading text reveal with brass shimmer
  *   7. Book cover image loading shimmer placeholders
  *   8. Smooth page transitions (View Transitions API + fallback)
  *
@@ -163,7 +163,7 @@
 
                 ctx.beginPath();
                 ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(212, 175, 55, ' + s.alpha + ')';
+                ctx.fillStyle = 'rgba(201, 168, 90, ' + s.alpha + ')';
                 ctx.fill();
             }
             if (!starfieldIdle) raf = requestAnimationFrame(draw);
@@ -204,7 +204,7 @@
     })();
 
     /* =========================================
-       3. CUSTOM CURSOR WITH GOLD PARTICLE TRAIL
+       3. CUSTOM CURSOR WITH BRASS PARTICLE TRAIL
        ========================================= */
     (function () {
         if (motionQuery.matches || isTouch) return;
@@ -218,7 +218,7 @@
                 position: fixed;
                 top: 0; left: 0;
                 width: 8px; height: 8px;
-                background: #d4af37;
+                background: #C9A85A;
                 border-radius: 50%;
                 pointer-events: none;
                 z-index: 99999;
@@ -228,13 +228,13 @@
             }
             .cursor-dot.hovering {
                 width: 14px; height: 14px;
-                background: rgba(212, 175, 55, 0.6);
+                background: rgba(201, 168, 90, 0.6);
             }
             .cursor-ring {
                 position: fixed;
                 top: 0; left: 0;
                 width: 36px; height: 36px;
-                border: 1.5px solid rgba(212, 175, 55, 0.35);
+                border: 1.5px solid rgba(201, 168, 90, 0.35);
                 border-radius: 50%;
                 pointer-events: none;
                 z-index: 99998;
@@ -243,7 +243,7 @@
             }
             .cursor-ring.hovering {
                 width: 50px; height: 50px;
-                border-color: rgba(212, 175, 55, 0.6);
+                border-color: rgba(201, 168, 90, 0.6);
             }
         `;
         document.head.appendChild(style);
@@ -323,7 +323,7 @@
                 }
                 pCtx.beginPath();
                 pCtx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
-                pCtx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
+                pCtx.fillStyle = `rgba(201, 168, 90, ${p.alpha})`;
                 pCtx.fill();
             }
 

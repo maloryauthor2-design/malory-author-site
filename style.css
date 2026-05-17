@@ -9,24 +9,25 @@
     --color-border:      #333;
     --color-border-light:#444;
     --color-border-subtle:rgba(255,255,255,0.05);
-    --color-gold:        #d4af37;
-    --color-gold-light:  #e6c860;
-    --color-text:        #e0e0e0;
-    --color-text-muted:  #b3b3b3;
-    --color-text-dim:    #888;
+    /* Brand-foundation primary accents — single source of truth. */
+    --color-gold:        #C9A85A;  /* brass */
+    --color-gold-light:  #E0C478;  /* brass bright */
+    --color-text:        #E8E0CC;  /* cream */
+    --color-text-muted:  #9AA0A8;  /* muted */
+    --color-text-dim:    #9AA0A8;
     --color-text-bright: #ffffff;
     --color-review-text: #d1d5db;
     --color-amazon:      #FF9900;
     --color-audible:     #232f3e;
     --color-legion:      #202285;
-    --font-display:      'Orbitron', sans-serif;
-    --font-body:         'Rajdhani', sans-serif;
+    --font-display:      'Fraunces', 'EB Garamond', Georgia, serif;
+    --font-body:         'Inter', system-ui, -apple-system, sans-serif;
     --radius-sm:         4px;
     --radius-md:         8px;
     --radius-lg:         12px;
     --shadow-card:       0 8px 20px rgba(0,0,0,0.4);
     --shadow-card-hover: 0 12px 30px rgba(0,0,0,0.6);
-    --shadow-gold:       0 8px 20px rgba(212,175,55,0.3);
+    --shadow-gold:       0 8px 20px rgba(201,168,90,0.3);
     --transition-default:0.3s ease;
     --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     --max-width:         900px;
@@ -113,7 +114,7 @@ h1, h2, h3 {
 h1 {
     font-size: clamp(2.5rem, 8vw, 4rem);
     margin-bottom: 0;
-    text-shadow: 0 0 10px var(--color-gold), 0 0 20px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 10px var(--color-gold), 0 0 20px rgba(201, 168, 90, 0.5);
     letter-spacing: 3px;
 }
 
@@ -249,7 +250,7 @@ header {
 
 .site-logo:hover {
     transform: scale(1.03);
-    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.3));
+    filter: drop-shadow(0 0 12px rgba(201, 168, 90, 0.3));
 }
 
 nav a {
@@ -356,7 +357,7 @@ nav a.active-link::after {
 .lead-form input[type="email"]:focus {
     outline: none;
     border-color: var(--color-gold);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 10px rgba(201, 168, 90, 0.3);
 }
 
 .lead-form .buy-button {
@@ -369,9 +370,9 @@ nav a.active-link::after {
 
 /* --- PULSE ANIMATION (CTA) --- */
 @keyframes pulse-glow {
-    0%   { box-shadow: 0 0 0 0   rgba(212, 175, 55, 0.4); }
-    70%  { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-    100% { box-shadow: 0 0 0 0   rgba(212, 175, 55, 0); }
+    0%   { box-shadow: 0 0 0 0   rgba(201, 168, 90, 0.4); }
+    70%  { box-shadow: 0 0 0 10px rgba(201, 168, 90, 0); }
+    100% { box-shadow: 0 0 0 0   rgba(201, 168, 90, 0); }
 }
 
 .btn-pulse {
@@ -467,8 +468,8 @@ nav a.active-link::after {
 }
 
 .review-card:hover {
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.08);
+    border-color: rgba(201, 168, 90, 0.5);
+    box-shadow: 0 8px 25px rgba(201, 168, 90, 0.08);
 }
 
 .review-stars {
@@ -563,7 +564,7 @@ nav a.active-link::after {
 .publisher-logos a:hover {
     color: var(--color-gold);
     transform: translateY(-2px);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 0 10px rgba(201, 168, 90, 0.3);
 }
 
 .publisher-logos .divider {
@@ -600,7 +601,7 @@ nav a.active-link::after {
 .static-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-gold);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 10px 25px rgba(201, 168, 90, 0.15);
 }
 
 .video-placeholder {
@@ -645,7 +646,7 @@ nav a.active-link::after {
 }
 
 .static-card:hover .video-placeholder::after {
-    background: rgba(212,175,55,0.2);
+    background: rgba(201, 168, 90,0.2);
     border-color: var(--color-gold);
     transform: translate(-50%, -50%) scale(1.1);
 }
@@ -691,7 +692,7 @@ nav a.active-link::after {
 .guide-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-gold);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+    box-shadow: 0 10px 25px rgba(201, 168, 90, 0.15);
 }
 
 .guide-icon {
@@ -732,8 +733,8 @@ nav a.active-link::after {
 }
 
 .guide-btn:hover {
-    background: rgba(212, 175, 55, 0.1);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    background: rgba(201, 168, 90, 0.1);
+    box-shadow: 0 4px 15px rgba(201, 168, 90, 0.2);
 }
 
 .series-jump-menu-container {
@@ -768,7 +769,7 @@ nav a.active-link::after {
 
 .series-jump-menu .tab-link:hover:not(.active-link) {
     color: var(--color-text);
-    text-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+    text-shadow: 0 0 12px rgba(201, 168, 90, 0.15);
 }
 
 .series-jump-menu .tab-link.active-link {
@@ -828,7 +829,7 @@ nav a.active-link::after {
 
 .series-book-card:hover img {
     transform: perspective(800px) rotateY(-5deg) rotateX(2deg) scale(1.04);
-    box-shadow: -8px 8px 25px rgba(0,0,0,0.5), 0 0 40px var(--cover-glow, rgba(212,175,55,0.15));
+    box-shadow: -8px 8px 25px rgba(0,0,0,0.5), 0 0 40px var(--cover-glow, rgba(201, 168, 90,0.15));
 }
 
 /* Genre-specific cover glow colours */
@@ -843,7 +844,7 @@ nav a.active-link::after {
 /* Homepage book cover also gets the 3D tilt */
 .book-container:hover .book-cover {
     transform: perspective(800px) rotateY(-5deg) rotateX(2deg) scale(1.04);
-    box-shadow: -8px 8px 25px rgba(0,0,0,0.5), 0 0 35px rgba(212,175,55,0.15);
+    box-shadow: -8px 8px 25px rgba(0,0,0,0.5), 0 0 35px rgba(201, 168, 90,0.15);
 }
 
 .book-blurb {
@@ -892,7 +893,7 @@ nav a.active-link::after {
 
 .continuity-link:hover {
     color: var(--color-text-bright);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 10px rgba(201, 168, 90, 0.5);
 }
 
 /* =========================================
@@ -1021,7 +1022,7 @@ h2 {
 
 main > section > h2,
 .series-header h2 {
-    text-shadow: 0 0 12px rgba(212, 175, 55, 0.2), 0 2px 8px rgba(0,0,0,0.5);
+    text-shadow: 0 0 12px rgba(201, 168, 90, 0.2), 0 2px 8px rgba(0,0,0,0.5);
 }
 
 /* Improved body text rhythm */
@@ -1339,10 +1340,9 @@ footer {
     --c-text-mute:      #7d8088;
     --c-text-strong:    #ffffff;
 
-    --c-gold:           #d4af37;
-    --c-gold-warm:      #e6c46b;
-    --c-gold-deep:      #a8842a;
-    --c-teal:           #4dd0c9;       /* secondary accent for variety */
+    --c-gold:           #C9A85A;  /* brass — brand-foundation primary accent */
+    --c-gold-warm:      #E0C478;  /* brass bright */
+    --c-gold-deep:      #927838;  /* brass deep */
 
     /* Modular type scale (1.250 - major third) */
     --fs-xs:    0.78rem;
@@ -1374,8 +1374,8 @@ footer {
     --shadow-3: 0 4px 6px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.4);
     --shadow-4: 0 10px 15px rgba(0,0,0,0.3), 0 4px 6px rgba(0,0,0,0.4);
     --shadow-5: 0 20px 25px rgba(0,0,0,0.35), 0 10px 10px rgba(0,0,0,0.4);
-    --shadow-gold-soft:  0 0 0 1px rgba(212,175,55,0.25), 0 12px 32px rgba(212,175,55,0.12);
-    --shadow-gold-bold:  0 0 0 1px rgba(212,175,55,0.4), 0 16px 40px rgba(212,175,55,0.22);
+    --shadow-gold-soft:  0 0 0 1px rgba(201,168,90,0.25), 0 12px 32px rgba(201,168,90,0.12);
+    --shadow-gold-bold:  0 0 0 1px rgba(201,168,90,0.4), 0 16px 40px rgba(201,168,90,0.22);
 
     --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
     --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1384,8 +1384,7 @@ footer {
 /* --- AMBIENT BACKGROUND — subtle radial wash --- */
 body {
     background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(212, 175, 55, 0.045), transparent 60%),
-        radial-gradient(900px 500px at 10% 110%, rgba(77, 208, 201, 0.035), transparent 65%),
+        radial-gradient(1200px 600px at 80% -10%, rgba(201, 168, 90, 0.045), transparent 60%),
         var(--c-bg-deep);
     color: var(--c-text);
     font-size: 1.05rem;
@@ -1486,7 +1485,7 @@ header::after {
     right: 0;
     bottom: -1px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 90, 0.35), transparent);
 }
 
 .header-tagline {
@@ -1507,7 +1506,7 @@ header::after {
 .header-award a {
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px dotted rgba(212, 175, 55, 0.5);
+    border-bottom: 1px dotted rgba(201, 168, 90, 0.5);
     padding-bottom: 1px;
     transition: border-color 0.2s;
 }
@@ -1592,7 +1591,7 @@ nav a.active-link::after {
 .guide-card:hover,
 .series-book-card:hover,
 .static-card:hover {
-    border-color: rgba(212, 175, 55, 0.32);
+    border-color: rgba(201, 168, 90, 0.32);
     box-shadow: var(--shadow-4), var(--shadow-gold-soft);
     transform: translateY(-3px);
 }
@@ -1658,7 +1657,7 @@ nav a.active-link::after {
     box-shadow:
         0 1px 0 rgba(255,255,255,0.22) inset,
         var(--shadow-4),
-        0 8px 24px rgba(212,175,55,0.28);
+        0 8px 24px rgba(201, 168, 90,0.28);
     filter: brightness(1.04);
 }
 
@@ -1766,7 +1765,7 @@ nav a.active-link::after {
     background: var(--c-gold);
     color: #14181f;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(212,175,55,0.22);
+    box-shadow: 0 8px 20px rgba(201, 168, 90,0.22);
 }
 
 /* --- SERIES JUMP MENU REFINEMENT --- */
@@ -1857,7 +1856,7 @@ main p a,
 .about-text-col p a {
     color: var(--c-gold-warm);
     text-decoration: none;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    border-bottom: 1px solid rgba(201, 168, 90, 0.25);
     padding-bottom: 1px;
     transition: border-color 0.2s, color 0.2s;
 }
@@ -2137,7 +2136,7 @@ img {
      - Fraunces (variable serif) for headlines — characterful, opsz-aware
      - Newsreader (variable serif) for prose — designed for screens
      - JetBrains Mono for metadata, eyebrows, dates — working-text feel
-     - Orbitron / Rajdhani retained for backwards compatibility on
+     - Orbitron / Rajdhani deprecated (per brand foundation) — only retained as fallback for
        sections that already use them
 
    Palette refinement:
@@ -2585,23 +2584,25 @@ main > section > h2.editorial,
     }
 }
 
-/* Award badge floating on the cover */
+/* Award badge — pinned outside the cover at top-right so it never covers
+   author/title type. Hangs off the cover edge by 12px on top and right. */
 .hero-editorial-artifact .award-badge {
     position: absolute;
-    bottom: -16px;
-    right: -16px;
+    top: -14px;
+    right: -14px;
     background: var(--brass);
     color: var(--ink-deep);
-    padding: 10px 14px;
+    padding: 8px 12px;
     border-radius: 2px;
     font-family: var(--font-mono);
     font-size: 0.65rem;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     font-weight: 600;
     line-height: 1.25;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     text-align: right;
+    z-index: 2;
 }
 
 .hero-editorial-artifact .award-badge strong {
@@ -2919,7 +2920,7 @@ h1, h2, h3, h4 {
     }
 
     .hero-editorial-artifact .award-badge {
-        bottom: -10px;
+        top: -10px;
         right: -8px;
         padding: 7px 10px;
         font-size: 0.6rem;
@@ -3023,6 +3024,7 @@ h1, h2, h3, h4 {
 
 .reviews-track {
     display: flex;
+    align-items: flex-start;
     gap: var(--sp-4);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -3060,6 +3062,9 @@ h1, h2, h3, h4 {
     flex-direction: column;
     gap: var(--sp-3);
     box-shadow: var(--shadow-3);
+    /* Cards size to their content so short reviews don't have ghost void. */
+    align-self: flex-start;
+    height: auto;
 }
 
 .review-tile .stars {
@@ -3080,7 +3085,7 @@ h1, h2, h3, h4 {
     line-height: 1.62;
     color: var(--text-cream);
     margin: 0;
-    flex: 1;
+    flex: 0 0 auto;
     font-style: normal;
 }
 
