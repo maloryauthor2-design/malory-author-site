@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" font-family="Inter, sans-serif">
+  <rect width="1200" height="480" fill="#0D1015"/>
+
+  <text x="40" y="60" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="34" fill="#E8E0CC">Series Anchors</text>
+  <line x1="40" y1="80" x2="280" y2="80" stroke="#C9A85A" stroke-width="2"/>
+  <text x="40" y="104" font-size="13" font-weight="500" letter-spacing="0.18em" fill="#9AA0A8">ONE COLOUR PER SERIES · SPINE · STRIP · CARD BORDER</text>
+
+  <g font-size="13" fill="#E8E0CC">
+    <!-- Each row: colour swatch + series + register -->
+    <rect x="40" y="140" width="60" height="40" fill="#D04848"/>
+    <text x="120" y="158" font-weight="600" font-size="15">Psyker Marine</text>
+    <text x="120" y="176" fill="#9AA0A8">Military sci-fi · Signal red · #D04848</text>
+
+    <rect x="40" y="195" width="60" height="40" fill="#C9A85A"/>
+    <text x="120" y="213" font-weight="600" font-size="15">Apocalypse on the Bounty</text>
+    <text x="120" y="231" fill="#9AA0A8">Post-apocalyptic LitRPG · Brass · #C9A85A</text>
+
+    <rect x="40" y="250" width="60" height="40" fill="#3DA672"/>
+    <text x="120" y="268" font-weight="600" font-size="15">Punish the System</text>
+    <text x="120" y="286" fill="#9AA0A8">LitRPG · Console green · #3DA672</text>
+
+    <rect x="40" y="305" width="60" height="40" fill="#3D7FB8"/>
+    <text x="120" y="323" font-weight="600" font-size="15">Arcane Galaxy: Chaos Protocols</text>
+    <text x="120" y="341" fill="#9AA0A8">Space opera · Electric blue · #3D7FB8</text>
+
+    <rect x="600" y="140" width="60" height="40" fill="#7A8B99"/>
+    <text x="680" y="158" font-weight="600" font-size="15">The Soar Chronicles</text>
+    <text x="680" y="176" fill="#9AA0A8">Military progression fantasy · Steel · #7A8B99</text>
+
+    <rect x="600" y="195" width="60" height="40" fill="#5B3A7A"/>
+    <text x="680" y="213" font-weight="600" font-size="15">Morgan and Merlin</text>
+    <text x="680" y="231" fill="#9AA0A8">Dark fantasy adventure · Deep violet · #5B3A7A</text>
+
+    <rect x="600" y="250" width="60" height="40" fill="#E0C478"/>
+    <text x="680" y="268" font-weight="600" font-size="15">Boys' Own Adventures</text>
+    <text x="680" y="286" fill="#9AA0A8">Anthology · Brass bright · #E0C478</text>
+  </g>
+</svg>

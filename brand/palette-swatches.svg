@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="Inter, sans-serif">
+  <rect width="1200" height="600" fill="#0D1015"/>
+
+  <!-- Title -->
+  <text x="40" y="60" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="36" fill="#E8E0CC">Malory — Palette</text>
+  <line x1="40" y1="82" x2="280" y2="82" stroke="#C9A85A" stroke-width="2"/>
+  <text x="40" y="106" font-size="13" font-weight="500" letter-spacing="0.18em" fill="#9AA0A8">DARK · MILITARY · FIELD-MANUAL</text>
+
+  <!-- Swatches -->
+  <g font-size="13" fill="#E8E0CC">
+    <!-- Row 1: Surfaces -->
+    <rect x="40"  y="160" width="180" height="120" fill="#0D1015" stroke="#333A44" stroke-width="1"/>
+    <text x="50" y="305" font-weight="600">Primary deep</text>
+    <text x="50" y="324" fill="#9AA0A8">#0D1015</text>
+
+    <rect x="240" y="160" width="180" height="120" fill="#1A1E24"/>
+    <text x="250" y="305" font-weight="600">Primary mid</text>
+    <text x="250" y="324" fill="#9AA0A8">#1A1E24</text>
+
+    <rect x="440" y="160" width="180" height="120" fill="#22272F"/>
+    <text x="450" y="305" font-weight="600">Surface 2</text>
+    <text x="450" y="324" fill="#9AA0A8">#22272F</text>
+
+    <rect x="640" y="160" width="180" height="120" fill="#333A44"/>
+    <text x="650" y="305" font-weight="600">Line</text>
+    <text x="650" y="324" fill="#9AA0A8">#333A44</text>
+
+    <!-- Row 2: Accents -->
+    <rect x="40"  y="360" width="180" height="120" fill="#C9A85A"/>
+    <text x="50" y="505" font-weight="600">Brass</text>
+    <text x="50" y="524" fill="#9AA0A8">#C9A85A · primary accent</text>
+
+    <rect x="240" y="360" width="180" height="120" fill="#E0C478"/>
+    <text x="250" y="505" font-weight="600">Brass bright</text>
+    <text x="250" y="524" fill="#9AA0A8">#E0C478</text>
+
+    <rect x="440" y="360" width="180" height="120" fill="#927838"/>
+    <text x="450" y="505" font-weight="600">Brass deep</text>
+    <text x="450" y="524" fill="#9AA0A8">#927838</text>
+
+    <rect x="640" y="360" width="180" height="120" fill="#D04848"/>
+    <text x="650" y="505" font-weight="600">Signal red</text>
+    <text x="650" y="524" fill="#9AA0A8">#D04848 · CTAs only</text>
+
+    <rect x="840" y="360" width="180" height="120" fill="#E8E0CC"/>
+    <text x="850" y="505" font-weight="600" fill="#0D1015">Cream</text>
+    <text x="850" y="524" fill="#9AA0A8">#E8E0CC</text>
+  </g>
+</svg>

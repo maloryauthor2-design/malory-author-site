@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" font-family="Fraunces, Georgia, serif">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&amp;display=swap');
+      .first { font-family: 'Fraunces', Georgia, serif; font-weight: 400; letter-spacing: 0.10em; }
+      .last  { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: 0.04em; }
+    </style>
+  </defs>
+
+  <!-- "Jake" — lighter weight, slightly wider tracking -->
+  <text x="400" y="110" text-anchor="middle" class="first" font-size="56" fill="#9AA0A8">JAKE</text>
+
+  <!-- "Malory" — primary weight, dominant -->
+  <text x="400" y="208" text-anchor="middle" class="last" font-size="130" fill="#E8E0CC">Malory</text>
+
+  <!-- Brass rule beneath -->
+  <line x1="250" y1="246" x2="550" y2="246" stroke="#C9A85A" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Kicker beneath -->
+  <text x="400" y="284" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" letter-spacing="0.28em" fill="#9AA0A8">PSYKER MARINE  ·  ARCANE GALAXY</text>
+</svg>

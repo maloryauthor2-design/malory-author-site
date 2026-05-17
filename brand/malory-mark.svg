@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <!--
+    Malory monogram mark.
+    For: favicon, social avatar, watermark, nav, anywhere ≤256px.
+    Block-cut M in brass on primary-deep with a thin brass ring.
+  -->
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800&amp;display=swap');
+      .mono { font-family: 'Fraunces', Georgia, serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Circular base, brand primary-deep -->
+  <circle cx="120" cy="120" r="118" fill="#0D1015"/>
+
+  <!-- Inner brass ring -->
+  <circle cx="120" cy="120" r="110" fill="none" stroke="#C9A85A" stroke-width="1.5" opacity="0.85"/>
+
+  <!-- M monogram, brass, optically centered -->
+  <text x="120" y="162" text-anchor="middle" class="mono" font-size="148" fill="#C9A85A" letter-spacing="-0.04em">M</text>
+
+  <!-- Small bottom rule for solidity (the "field manual" register cue) -->
+  <line x1="80" y1="184" x2="160" y2="184" stroke="#C9A85A" stroke-width="1.2" opacity="0.6"/>
+</svg>
