@@ -201,12 +201,19 @@ def render_anchor(W, H, jake=False, max_w=None):
     else:
         word_w = tdraw.textlength("Malory", font=word_font)
 
+    # The kicker is often wider than the wordmark — measure it and use the larger
+    # so the rendered layer encloses both without clipping.
+    kicker_w = tdraw.textlength(kicker_text, font=kicker_font)
+    widest = max(word_w, kicker_w)
+
     # Logo monogram size
     rule_w = int(word_w * 0.6)
     mono_size = mono_h   # square mark
 
-    # Anchor block width is driven by the wordmark plus a tiny bit of breathing room
-    block_w = int(word_w * 1.15)
+    # Anchor block width is driven by whichever line is widest (wordmark OR kicker)
+    # plus a tiny bit of breathing room. Without this the kicker gets clipped on
+    # banners where the kicker is wider than "Malory".
+    block_w = int(widest * 1.10)
     # Make sure it's at least as wide as the monogram + small margin
     block_w = max(block_w, mono_size + 16)
 
@@ -410,6 +417,78 @@ def build_banner(W, H, out_name, jake=False):
     img.save(out, "JPEG", quality=93, optimize=True, progressive=True)
     sz = os.path.getsize(out)
     print(f"  ✓ {out_name}  ({W}×{H}, {sz:,} bytes)")
+    return  # explicit early return — code below is the old shared save
+
+
+def build_youtube_banner(out_name, jake=False):
+    """
+    YouTube channel banner — 2048 × 1152.
+
+    YouTube crops aggressively across devices:
+      - TV view:      shows the full 2048 × 1152
+      - Desktop view: shows ~2048 × 423 (centred horizontally + vertically)
+      - Mobile view:  shows ~1546 × 423 (centred)
+      - SAFE ZONE:    1235 × 338, centred — guaranteed visible everywhere
+
+    So the brand block must live INSIDE the safe zone, and the cover cascade
+    spreads into the side bleed wings (visible on desktop/TV but cropped on
+    mobile — that's fine, they're decorative).
+    """
+    W, H = 2048, 1152
+    SAFE_W, SAFE_H = 1235, 338
+    safe_left   = (W - SAFE_W) // 2     # 406
+    safe_right  = safe_left + SAFE_W    # 1641
+    safe_top    = (H - SAFE_H) // 2     # 407
+    safe_bottom = safe_top + SAFE_H     # 745
+
+    img = background(W, H)
+
+    # Brand block — pass a virtual height much larger than the safe zone so
+    # the anchor renders at a visually appropriate size for the 2048×1152
+    # canvas. Then constrain horizontal width to the safe zone so nothing
+    # spills outside what's guaranteed visible.
+    anchor_inner_w = SAFE_W - 120
+    virtual_h = int(H * 0.62)   # gives the wordmark room to be properly large
+    anchor, ablock_w, ablock_h = render_anchor(W, virtual_h, jake=jake,
+                                                max_w=anchor_inner_w)
+    anchor_x = (W - ablock_w) // 2
+    anchor_y = (H - ablock_h) // 2
+    img.paste(anchor, (anchor_x, anchor_y), anchor)
+
+    # Cover cascades in the two bleed wings.
+    # YouTube's bleed wings are narrow (~400px each side of the safe zone),
+    # so use only 2 covers per wing — over-stuffing crams them. The flagship
+    # (last COVER in the roster) goes to the right wing front.
+    n = len(COVERS)
+    # Use the 4 most prominent covers; flagship sits in right wing front.
+    selected = COVERS[-4:]   # last four (flagship is last)
+    left_pair  = selected[:2]
+    right_pair = selected[2:]
+
+    # Vertical band for covers — narrower so cover_w fits the wing width.
+    cov_top    = (H - 420) // 2
+    cov_bottom = cov_top + 420
+
+    # Left wing — covers tilt slightly outward
+    cascade_covers(img, left_pair,
+                   area_left=int(W * 0.04),
+                   area_right=safe_left - 40,
+                   area_top=cov_top,
+                   area_bottom=cov_bottom,
+                   max_tilt=2.5)
+
+    # Right wing — flagship sits frontmost on the right.
+    cascade_covers(img, right_pair,
+                   area_left=safe_right + 40,
+                   area_right=W - int(W * 0.04),
+                   area_top=cov_top,
+                   area_bottom=cov_bottom,
+                   max_tilt=2.5)
+
+    out = os.path.join(OUT, out_name)
+    img.save(out, "JPEG", quality=93, optimize=True, progressive=True)
+    sz = os.path.getsize(out)
+    print(f"  ✓ {out_name}  ({W}×{H}, {sz:,} bytes)")
 
 
 def main():
@@ -417,6 +496,7 @@ def main():
     build_banner(1640, 624, "fb-cover.jpg")
     build_banner(1280, 384, "reddit-banner.jpg")
     build_banner(1500, 500, "twitter-header.jpg")
+    build_youtube_banner("youtube-banner.jpg")
 
     # Optional Jake Malory variants for Psyker / Arcane Galaxy launches
     # Build them so they exist; the author can use them when the moment calls.
@@ -431,6 +511,7 @@ def main():
     build_banner(1640, 624, "fb-cover-jake.jpg",      jake=True)
     build_banner(1280, 384, "reddit-banner-jake.jpg", jake=True)
     build_banner(1500, 500, "twitter-header-jake.jpg", jake=True)
+    build_youtube_banner("youtube-banner-jake.jpg", jake=True)
     COVERS = original
 
 
