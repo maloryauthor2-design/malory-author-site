@@ -443,16 +443,20 @@ def build_youtube_banner(out_name, jake=False):
 
     img = background(W, H)
 
-    # Brand block — pass a virtual height much larger than the safe zone so
-    # the anchor renders at a visually appropriate size for the 2048×1152
-    # canvas. Then constrain horizontal width to the safe zone so nothing
-    # spills outside what's guaranteed visible.
+    # Brand block — must fit entirely inside the safe zone, BOTH vertically and
+    # horizontally, because YouTube crops down to ~2048×423 on desktop and
+    # ~1546×423 on mobile (intersecting with the 1235×338 safe area). Anything
+    # outside the safe zone vertically vanishes on desktop.
+    #
+    # Pass a virtual height a hair larger than SAFE_H so render_anchor has
+    # working room for its 10% top/bottom safety, then position centred in the
+    # safe zone (NOT the full canvas).
     anchor_inner_w = SAFE_W - 120
-    virtual_h = int(H * 0.62)   # gives the wordmark room to be properly large
+    virtual_h = int(SAFE_H * 1.18)   # tiny growth budget for internal safety
     anchor, ablock_w, ablock_h = render_anchor(W, virtual_h, jake=jake,
                                                 max_w=anchor_inner_w)
     anchor_x = (W - ablock_w) // 2
-    anchor_y = (H - ablock_h) // 2
+    anchor_y = safe_top + (SAFE_H - ablock_h) // 2
     img.paste(anchor, (anchor_x, anchor_y), anchor)
 
     # Cover cascades in the two bleed wings.
@@ -465,9 +469,14 @@ def build_youtube_banner(out_name, jake=False):
     left_pair  = selected[:2]
     right_pair = selected[2:]
 
-    # Vertical band for covers — narrower so cover_w fits the wing width.
-    cov_top    = (H - 420) // 2
-    cov_bottom = cov_top + 420
+    # Vertical band for covers — sized so cover_w fits the wing horizontally,
+    # AND positioned so the covers sit within the desktop-crop band (~423px
+    # centred on the canvas). Anything outside that band is invisible on
+    # desktop, so we keep the covers inside it.
+    cov_band_h = 380
+    desktop_crop_top = (H - 423) // 2
+    cov_top    = desktop_crop_top + (423 - cov_band_h) // 2
+    cov_bottom = cov_top + cov_band_h
 
     # Left wing — covers tilt slightly outward
     cascade_covers(img, left_pair,
