@@ -39,6 +39,18 @@ BRASS_DEEP   = (146, 120, 56)      # #927838
 CREAM        = (232, 224, 204)     # #E8E0CC
 MUTED        = (154, 160, 168)     # #9AA0A8
 
+# Series anchor colors — from BRAND_FOUNDATION.md §6.
+# Order matches the catalogue layout used on the homepage and books page.
+SERIES_ANCHORS = [
+    (208,  72,  72),   # #D04848 Psyker Marine — signal red
+    (201, 168,  90),   # #C9A85A Apocalypse on the Bounty — brass (flagship)
+    ( 61, 166, 114),   # #3DA672 Punish the System — console green
+    ( 61, 127, 184),   # #3D7FB8 Arcane Galaxy — electric blue
+    (122, 139, 153),   # #7A8B99 The Soar Chronicles — steel
+    ( 91,  58, 122),   # #5B3A7A Morgan and Merlin — deep violet
+    (224, 196, 120),   # #E0C478 Boy's Own Adventures — brass bright
+]
+
 # Fonts
 FRAUNCES_BOLD = os.path.join(FONTS, "Fraunces-VF.ttf")           # variable; size only
 FRAUNCES_SB   = os.path.join(FONTS, "Fraunces-SemiBold.ttf")
@@ -58,7 +70,7 @@ COVERS = [
     ("welcome-cover.jpg",   "Morgan & Merlin · Welcome to the Dark Ages"),
     ("psyker-5.jpg",        "Psyker Marine 5"),
     ("cuckoo-cover.jpg",    "The Soar Chronicles · Cuckoo's Last Call"),
-    ("boys-2.jpg",          "Boy's Own Adventures · Mr Glimm's Skull"),
+    ("boys-1.jpg",          "Boy's Own Adventures · Mr Glimm's Skull"),
     ("pts-cover.jpg",       "Punish the System"),
     ("arcane-1.jpg",        "Arcane Galaxy: Chaos Protocols  (Jim Baen Award)"),
 ]
@@ -217,12 +229,15 @@ def render_anchor(W, H, jake=False, max_w=None):
     # Make sure it's at least as wide as the monogram + small margin
     block_w = max(block_w, mono_size + 16)
 
-    # Total block height
+    # Total block height. Umbrella variant adds a series-anchor dot strip
+    # under the kicker (see render below).
+    dot_d = max(4, int(kicker_font_size * 0.55))
+    dot_strip_h = int(kicker_font_size * 1.4) + dot_d + 4 if not jake else 0
     if jake:
         block_h = (int(jake_font_size * 1.1) + word_h + 6
                    + 2 + gap_a + mono_size + gap_b + kicker_h)
     else:
-        block_h = word_h + 6 + 2 + gap_a + mono_size + gap_b + kicker_h
+        block_h = word_h + 6 + 2 + gap_a + mono_size + gap_b + kicker_h + dot_strip_h
 
     # Cap to avail_h
     if block_h > avail_h:
@@ -235,13 +250,19 @@ def render_anchor(W, H, jake=False, max_w=None):
         mono_size = int(mono_size * scale)
         word_w = tdraw.textlength("Malory", font=word_font)
         rule_w = int(word_w * 0.6)
-        block_w = max(int(word_w * 1.15), mono_size + 16)
-        # Recompute block_h
+        # Recompute kicker width with the (now smaller) font, and use the wider
+        # of word/kicker to size the block — otherwise long kickers get clipped.
+        new_kicker_w = tdraw.textlength(kicker_text, font=kicker_font)
+        block_w = max(int(max(word_w, new_kicker_w) * 1.15), mono_size + 16)
+        # Recompute block_h (and include dot-strip room on umbrella variant)
+        dot_d = max(4, int(kicker_font.size * 0.55))
+        dot_strip_h = int(kicker_font.size * 1.4) + dot_d + 4 if not jake else 0
         if jake:
             block_h = (int(jake_font.size * 1.1) + int(word_font.size * 1.05) + 6
                        + 2 + gap_a + mono_size + gap_b + int(kicker_font.size * 1.1))
         else:
-            block_h = int(word_font.size * 1.05) + 6 + 2 + gap_a + mono_size + gap_b + int(kicker_font.size * 1.1)
+            block_h = (int(word_font.size * 1.05) + 6 + 2 + gap_a + mono_size
+                       + gap_b + int(kicker_font.size * 1.1) + dot_strip_h)
 
     layer = Image.new("RGBA", (block_w, block_h), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
@@ -307,7 +328,24 @@ def render_anchor(W, H, jake=False, max_w=None):
     kicker = "SCI-FI · LITRPG · PROGRESSION" if not jake else "PSYKER MARINE · ARCANE GALAXY"
     bbox = d.textbbox((0, 0), kicker, font=kicker_font)
     text_w = bbox[2] - bbox[0]
+    kicker_baseline = y
     d.text((cx - text_w // 2, y - bbox[1]), kicker, font=kicker_font, fill=BRASS)
+    y = kicker_baseline + int(kicker_font.size * 1.4)
+
+    # Series anchor dots — per BRAND_FOUNDATION §7 (homepage dot-before-series
+    # idiom). Seven small dots in the series anchor colors, centred under the
+    # kicker. Acts as a quiet legend that ties the banner to the site's
+    # series-anchor rule treatment. Only on umbrella variant (not Jake).
+    if not jake and y + 8 <= block_h:
+        n_dots = len(SERIES_ANCHORS)
+        dot_d = max(4, int(kicker_font.size * 0.55))
+        gap = max(4, int(kicker_font.size * 0.65))
+        strip_w = n_dots * dot_d + (n_dots - 1) * gap
+        dx0 = cx - strip_w // 2
+        dy0 = y
+        for i, col in enumerate(SERIES_ANCHORS):
+            x = dx0 + i * (dot_d + gap)
+            d.ellipse([x, dy0, x + dot_d, dy0 + dot_d], fill=col)
 
     return layer, block_w, block_h
 
@@ -361,8 +399,11 @@ def cascade_covers(canvas, covers, area_left, area_right, area_top, area_bottom,
     area_h = area_bottom - area_top
     area_w = area_right - area_left
 
-    # Cover height: about 92% of the area height (small margins top/bottom)
-    cover_h = int(area_h * 0.92)
+    # Cover height: 85% of the area height, capped at 360px so wider banners
+    # don't produce covers so large the cascade has to overlap them aggressively
+    # and chop titles. Tuned visually against FB 1640×624 / Twitter 1500×500 /
+    # Reddit 1280×384 — keeps each cover's title legible.
+    cover_h = min(int(area_h * 0.85), 360)
     cover_w_approx = cover_h / 1.6
     tilt_expansion = cover_h * math.sin(math.radians(max_tilt))
     effective_w = cover_w_approx + tilt_expansion
@@ -370,7 +411,10 @@ def cascade_covers(canvas, covers, area_left, area_right, area_top, area_bottom,
     max_last_left = area_right - effective_w
     if n > 1:
         step = (max_last_left - area_left) / (n - 1)
-        step = max(step, cover_w_approx * 0.45)
+        # Minimum non-overlap: 58% of cover width. Each cover shows at least
+        # 58% of its own face — enough to protect titles from being eaten by
+        # the next cover. Higher than the previous 45% floor.
+        step = max(step, cover_w_approx * 0.58)
     else:
         step = 0
 
@@ -395,9 +439,10 @@ def build_banner(W, H, out_name, jake=False):
     """Produce one banner: composite background + anchor + cover cascade."""
     img = background(W, H)
 
-    # Anchor zone — left ~26% of width, with 30px outer padding either side
+    # Anchor zone — left ~22% of width (tightened from 26% to give the cover
+    # cascade more horizontal room).
     pad = 30
-    anchor_zone_w = int(W * 0.26)
+    anchor_zone_w = int(W * 0.22)
     anchor_inner_w = anchor_zone_w - 2 * pad
 
     # Build the anchor constrained to that inner width so nothing overflows
@@ -502,26 +547,25 @@ def build_youtube_banner(out_name, jake=False):
 
 def main():
     print("Building social banners → " + OUT)
+
+    # Clean up any prior Jake Malory variants — those are no longer generated
+    # (umbrella catalogue banners only as of this revision). Soft-fail on
+    # permission errors so the script still runs in restricted environments;
+    # the author can rm the leftovers manually if needed.
+    for stale in ("fb-cover-jake.jpg", "reddit-banner-jake.jpg",
+                  "twitter-header-jake.jpg", "youtube-banner-jake.jpg"):
+        p = os.path.join(OUT, stale)
+        if os.path.exists(p):
+            try:
+                os.remove(p)
+                print(f"  · removed stale: {stale}")
+            except OSError as e:
+                print(f"  · could not remove {stale} ({e.strerror}); rm manually")
+
     build_banner(1640, 624, "fb-cover.jpg")
     build_banner(1280, 384, "reddit-banner.jpg")
     build_banner(1500, 500, "twitter-header.jpg")
     build_youtube_banner("youtube-banner.jpg")
-
-    # Optional Jake Malory variants for Psyker / Arcane Galaxy launches
-    # Build them so they exist; the author can use them when the moment calls.
-    # We swap the leftmost roster to put a Jake series cover at the front.
-    global COVERS
-    original = COVERS[:]
-    COVERS = [c for c in COVERS if c[0] not in ("arcane-1.jpg", "psyker-5.jpg")] + \
-             [("psyker-5.jpg", "Psyker Marine 5"),
-              ("arcane-1.jpg", "Arcane Galaxy: Chaos Protocols")]
-    print()
-    print("Jake Malory variants (psyker/arcane front):")
-    build_banner(1640, 624, "fb-cover-jake.jpg",      jake=True)
-    build_banner(1280, 384, "reddit-banner-jake.jpg", jake=True)
-    build_banner(1500, 500, "twitter-header-jake.jpg", jake=True)
-    build_youtube_banner("youtube-banner-jake.jpg", jake=True)
-    COVERS = original
 
 
 if __name__ == "__main__":
