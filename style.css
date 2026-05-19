@@ -2016,6 +2016,17 @@ img {
     margin: 0 auto var(--sp-3);
 }
 
+/* Umbrella Malory wordmark — per BRAND_FOUNDATION §5a.
+   The everyday brand layer. Lives on series banners for Malory-umbrella
+   series (i.e. not Psyker / AG). Sized a touch smaller than the Jake
+   variant to soften the duplication with the global nav's "Malory" text. */
+.series-banner .malory-lockup {
+    display: block;
+    width: clamp(200px, 22vw, 260px);
+    height: auto;
+    margin: 0 auto var(--sp-3);
+}
+
 /* Series anchor rule — per BRAND_FOUNDATION §6 usage rules.
    A thin 4–6px rule in the series color, drawn beneath the author lockup. */
 .series-banner .series-anchor-rule {
@@ -2028,10 +2039,17 @@ img {
 
 /* Book-detail page versions — left-aligned to match info-col layout.
    Reads --book-accent from the page's :root (each book page sets its own
-   color: AG = #3D7FB8, Psyker = #D04848, etc). */
+   color: AG = #3D7FB8, Psyker = #D04848, M&M = #5B3A7A, etc). */
 .book-page-hero .jake-lockup {
     display: block;
     width: clamp(200px, 22vw, 260px);
+    height: auto;
+    margin: 0 0 10px;
+}
+
+.book-page-hero .malory-lockup {
+    display: block;
+    width: clamp(180px, 20vw, 230px);
     height: auto;
     margin: 0 0 10px;
 }
