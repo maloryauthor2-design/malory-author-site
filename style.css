@@ -2006,6 +2006,44 @@ img {
     font-style: italic;
 }
 
+/* Jake Malory secondary lockup — per BRAND_FOUNDATION §5c.
+   Used on Psyker Marine and Arcane Galaxy: Chaos Protocols material only.
+   Sits above the series eyebrow when present. */
+.series-banner .jake-lockup {
+    display: block;
+    width: clamp(220px, 26vw, 300px);
+    height: auto;
+    margin: 0 auto var(--sp-3);
+}
+
+/* Series anchor rule — per BRAND_FOUNDATION §6 usage rules.
+   A thin 4–6px rule in the series color, drawn beneath the author lockup. */
+.series-banner .series-anchor-rule {
+    width: 96px;
+    height: 4px;
+    margin: 0 auto var(--sp-4);
+    background: var(--series-color, var(--c-gold));
+    border-radius: 2px;
+}
+
+/* Book-detail page versions — left-aligned to match info-col layout.
+   Reads --book-accent from the page's :root (each book page sets its own
+   color: AG = #3D7FB8, Psyker = #D04848, etc). */
+.book-page-hero .jake-lockup {
+    display: block;
+    width: clamp(200px, 22vw, 260px);
+    height: auto;
+    margin: 0 0 10px;
+}
+
+.book-page-hero .series-anchor-rule {
+    width: 80px;
+    height: 4px;
+    margin: 0 0 14px;
+    background: var(--book-accent, var(--c-gold));
+    border-radius: 2px;
+}
+
 .series-meta-row {
     display: flex;
     justify-content: center;
