@@ -55,6 +55,7 @@ BOOKS = [
     ("punish-the-system", "pts-cover.jpg", "pts", "PUNISH THE SYSTEM · BOOK 1", "Punish\nthe System", "Connor Keene died saving the world. The world hates him for it."),
     ("mr-glimms-skull", "boys-1.jpg", "boys", "BOY'S OWN ADVENTURES · BOOK 1", "The Weird Map in\nMr Glimm's Skull", "Part Hardy Boys, part Cold War thriller, a touch of horror."),
     ("terror-from-the-deep", "boys-2.jpg", "boys", "BOY'S OWN ADVENTURES · BOOK 2 · JUNE 2026", "Terror from\nthe Deep", "A war for ancient technology on the ocean floor. Pre-order now."),
+    ("punish-the-system-2", "pts-2-cover.jpg", "pts", "PUNISH THE SYSTEM · BOOK 2 · AUG 31, 2026", "Punish the System\nBook 2", "Connor Keene is the ultimate bug remover. Pre-order now."),
 ]
 
 f_kick = F("Inter-SemiBold-static.ttf", 30)
