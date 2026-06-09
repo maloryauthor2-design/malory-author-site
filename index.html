@@ -826,7 +826,7 @@
                     <div id="newsletter-success" class="newsletter-success" hidden>
                         <i class="fas fa-check-circle" aria-hidden="true" style="color: #6dbf67; font-size: 1.5rem;"></i>
                         <p style="margin: 8px 0 4px;"><strong>Almost there.</strong></p>
-                        <p style="margin: 0; font-size: 0.95rem;">Check your inbox for a confirmation link from Substack. Once you click it, <em>Crude</em> lands within minutes.</p>
+                        <p style="margin: 0; font-size: 0.95rem;">Finish in the Substack tab that just opened &mdash; one click on Subscribe and <em>Crude</em> lands within minutes. <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">Tab didn't open?</a></p>
                     </div>
 
                     <p id="newsletter-fallback" style="margin-top: 14px; font-size: 0.8rem; color: var(--color-text-dim);">Trouble? <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">Use the full Substack page</a>.</p>
@@ -1020,36 +1020,16 @@
                     return;
                 }
 
-                /* Disable while submitting */
-                button.disabled = true;
-                button.style.opacity = '0.6';
-                const originalLabel = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending…';
+                /* Hand off to Substack's subscribe page with the email
+                   prefilled — the direct API rejects cross-origin posts
+                   (verified 503), so this is the only reliable path. */
+                window.open(
+                    'https://maloryauthor.substack.com/subscribe?email=' + encodeURIComponent(email),
+                    '_blank',
+                    'noopener'
+                );
 
-                /* Fire-and-forget POST to Substack signup API.
-                   Substack does not enable CORS for this endpoint, so we use
-                   no-cors mode — request is sent, response is opaque. */
-                try {
-                    await fetch('https://maloryauthor.substack.com/api/v1/free', {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            email: email,
-                            first_url: window.location.href,
-                            first_referrer: document.referrer || '',
-                            current_url: window.location.href,
-                            current_referrer: document.referrer || '',
-                            referral_code: '',
-                            source: 'maloryauthor.com inline form'
-                        })
-                    });
-                } catch (err) {
-                    /* Even on network error, fall through to success state —
-                       Substack will email if the request reached them. */
-                }
-
-                /* Reveal success message, hide form */
+                /* Reveal handoff message, hide form */
                 newsletterForm.hidden = true;
                 if (newsletterFallback) newsletterFallback.hidden = true;
                 if (newsletterSuccess) newsletterSuccess.hidden = false;

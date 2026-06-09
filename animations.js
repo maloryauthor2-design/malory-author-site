@@ -170,13 +170,13 @@
             else raf = null;
         }
 
-        resize();
-        createStars();
-        draw();
-
         // Pause starfield when tab is hidden or idle for 2s
         let starfieldIdle = false;
         let starfieldIdleTimer = null;
+
+        resize();
+        createStars();
+        draw();
 
         function resetStarfieldIdle() {
             starfieldIdle = false;
