@@ -10,6 +10,10 @@ Companion pen name: **Jake Malory** — used only for *Psyker Marine* and *Arcan
 
 **Author of sci-fi, LitRPG, and progression fantasy.** Six active series across military sci-fi, post-apocalyptic LitRPG, space opera, military progression fantasy, and dark-fantasy adventure. PhD researcher in the day job. Writes the kind of genre fiction that men in their 30s–50s actually read on Kindle Unlimited at 11pm.
 
+**Hero tagline (site):** "Snark, swords, and broken systems."
+
+**Credential line:** Jim Baen Memorial Short Story Award winner — "Orbital Decay," 2026. Use on press material, About copy, and anywhere a third-party proof point earns its place.
+
 **Core promise to the reader:** the characters are competent, the stakes are real, the prose is dry and confident. Books deliver action, system mechanics, and emotional weight — in that order. No filler. No slop. The cover says "you know what this is" and the inside delivers.
 
 **Imprint:** Operates as Malory directly — no separate imprint name. The author IS the brand.
@@ -33,14 +37,17 @@ The current website palette refined into named roles. Every cover band, every so
 | Role | Hex | Used for |
 |---|---|---|
 | **Primary deep** | `#0D1015` | Background base, dark cover bands, the canvas |
-| Primary mid | `#1A1E24` | Surface 1 — card backgrounds, raised UI panels |
-| Surface 2 | `#22272F` | Hover/active states, secondary surfaces |
-| Line | `#333A44` | Hairline rules, panel borders |
+| Background deepest | `#0A0D12` | Below primary deep — full-bleed page fields (site `--c-bg-deep`) |
+| Surface 1 | `#14181F` | Card backgrounds, raised UI panels (site `--c-surface-1`) |
+| Surface 2 | `#1A1E26` | Secondary surfaces (site `--c-surface-2`; supersedes legacy `#1A1E24`) |
+| Surface 3 | `#1F2530` | Hover/active states, top-layer panels (site `--c-surface-3`; supersedes legacy `#22272F`) |
+| Line | `#333A44` | Hairline rules, panel borders (site also uses white at 6–16% alpha) |
 | **Brand brass** | `#C9A85A` | Primary accent — author name, key headings, illuminated detail. Less bright than casino gold, more like aged hardware. |
 | Brass bright | `#E0C478` | Highlights, hover states on brass elements |
 | Brass deep | `#927838` | Pressed/active states, shadows |
 | **Signal red** | `#D04848` | Warnings, "limited time" CTAs, deal alerts. Used sparingly — when it appears, it means something. |
-| Cream | `#E8E0CC` | Body text on dark surfaces, light author-name on dark covers |
+| Cream | `#E8E0CC` | Display/hero text on dark, light author-name on dark covers |
+| Text | `#E6E6EA` | Body text on dark surfaces (site `--c-text`) |
 | Muted | `#9AA0A8` | Secondary copy, meta text, kicker labels |
 
 **Cover Band tone:**
@@ -68,7 +75,7 @@ The current website palette refined into named roles. Every cover band, every so
 - Position: Top or bottom band of cover, centered, with a thin brass underline rule (1px, 60% width)
 
 **Note on Orbitron / Rajdhani:**
-The current site has these as legacy variables. They are deprecated as of this document. New work uses the four faces above only. When refactoring CSS, the rule is: anywhere Orbitron currently lives, switch to Fraunces; anywhere Rajdhani lives, switch to Inter (or JetBrains Mono if it's a status/meta context).
+Deprecated and now fully refactored out of the site CSS (June 2026) — Fraunces renders everywhere Orbitron lived; Inter/JetBrains Mono replaced Rajdhani. The names survive only in CSS comments and fallback notes. New work uses the four faces above only.
 
 ---
 
@@ -154,4 +161,4 @@ The two channels we promote prominently are **Substack** (the newsletter — `ma
 
 ---
 
-*Last updated: May 2026. Update this doc whenever a brand decision changes — and update the dependent scripts/templates in the same commit.*
+*Last updated: June 2026 — added hero tagline + Jim Baen credential line, reconciled surface/text tokens with live site CSS, marked Orbitron/Rajdhani refactor complete. Update this doc whenever a brand decision changes — and update the dependent scripts/templates in the same commit.*
