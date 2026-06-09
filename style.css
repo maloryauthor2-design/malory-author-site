@@ -220,6 +220,26 @@ header {
     text-align: right;
 }
 
+/* Header wordmark on non-homepage pages: <p class="site-name"> styled to
+   match the homepage <h1> exactly, so each page keeps a single H1. */
+.site-name {
+    font-family: var(--font-display);
+    color: var(--c-text-strong);
+    font-size: clamp(2rem, 6vw, var(--fs-4xl));
+    line-height: 1.18;
+    text-transform: none;
+    letter-spacing: -0.005em;
+    text-shadow: none;
+    margin: 0;
+}
+
+/* Page-title H1s that keep the visual scale of an h2 (about, books). */
+h1.page-title-h2 {
+    font-size: clamp(1.4rem, 3.5vw, var(--fs-2xl));
+    letter-spacing: inherit;
+    text-shadow: none;
+}
+
 .header-tagline {
     color: var(--color-text);
     font-size: 1.1rem;
