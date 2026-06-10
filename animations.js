@@ -396,3 +396,30 @@
     })();
 
 })();
+
+    /* =========================================
+       BUY-CLICK TRACKING (Plausible custom events)
+       Records which page sells which book. Goals to add in
+       the Plausible dashboard: "Buy Click", "Magnet Click".
+       ========================================= */
+    (function () {
+        if (typeof window.plausible !== 'function') return;
+        document.addEventListener('click', (e) => {
+            const a = e.target.closest('a[href]');
+            if (!a) return;
+            const href = a.getAttribute('href') || '';
+            const m = href.match(/links\.maloryauthor\.com\/([a-z0-9-]+)(\?format=audible)?/);
+            if (m) {
+                const event = m[1] === 'crude' ? 'Magnet Click' : 'Buy Click';
+                window.plausible(event, { props: {
+                    slug: m[1],
+                    format: m[2] ? 'audible' : 'kindle',
+                    page: window.location.pathname
+                }});
+            } else if (href.indexOf('bookfunnel.com') !== -1) {
+                window.plausible('Magnet Click', { props: { slug: 'crude', page: window.location.pathname } });
+            } else if (href.indexOf('substack.com/subscribe') !== -1) {
+                window.plausible('Newsletter Click', { props: { page: window.location.pathname } });
+            }
+        });
+    })();

@@ -4069,3 +4069,29 @@ footer p {
     border-radius: 4px;
 }
 
+
+/* --- Hero pull-quote: social proof beside the buy button --- */
+.hero-pull-quote {
+    margin: 0 0 18px;
+    padding: 2px 0 2px 14px;
+    border-left: 3px solid var(--book-accent, #C9A85A);
+    font-style: italic;
+    color: var(--color-review-text, #cfd2d6);
+    font-size: 1.02rem;
+    line-height: 1.5;
+}
+.hero-pull-quote .pq-stars {
+    display: block;
+    margin-bottom: 4px;
+    color: #E0C478;
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+}
+.hero-pull-quote cite {
+    display: block;
+    margin-top: 6px;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #9AA0A8);
+}
