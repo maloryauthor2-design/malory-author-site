@@ -18,16 +18,23 @@ Malory writes indie LitRPG / progression-fantasy / military-sci-fi across six+ s
 | 3 | Soar / Lowe | case file | 600 | follower-inclusive |
 | 4 | M&M / Morgan & Merlin | iMessage (1:1, naming scene) | **600** | **Trial (cold only)** |
 | 5 | M&M / Morgan | "537 AD Wrapped" stat card | **400** | **Trial (cold only)** |
-| 6 | Arcane Galaxy / Rivers crew | group chat (prison break + boom) | pending | (built, not yet trialled) |
+| 6 | Arcane Galaxy / Rivers crew | group chat (prison break + boom) | **200** · 4 likes · 0 saves · 0 shares | **Trial (cold only)** |
+| 7 | M&M / Morgan & Merlin | lock screen (same ch12 scene as #4) | pending | (built; Trial with auto-share OFF — reused gag) |
+| 8 | M&M / THE MORGAN SHOW ep 1 | iMessage from "Unknown" (ch1 recruitment) | pending | (built, ready to trial; auto-share ON) |
 
-**The caveat that governs everything:** Trial Reels are shown to **non-followers only**, so 4 and 5 (600 → 400) are the only two cleanly comparable numbers. The older 1,000 / 800 / 600 *included existing followers*, so the AG receipt's "1,000" is NOT a fair benchmark for a Trial — AG/Rivers likely has the biggest home crowd, which inflated it. When reading any new Trial, compare **watch-through %, follows-per-view, and shares/saves** against the iMessage (600) and Wrapped (400), not raw views.
+**Strategy shift (June 2026): we now build a SHOW, not one-offs.** Views weren't converting to follows because a one-off gag leaves nothing to follow for. See `SERIES_STRATEGY.md` (why) and `SEASON_ONE.md` (the 10-episode slate + bench, mined from the Book 1 post-beta docx in `~/Downloads/the-novel-vault/`). Wrapper: violet "537 AD · ep N" badge, title-card tease naming the next episode (cadence-neutral copy), Mon/Wed/Fri cadence, fresh canon every episode (auto-share safe). Renderer: `render_morgan_show.py` — swap the EPISODE dict. Show covers (Series hub / playlist / pinned anchor): `morgan-show-brand/`, built by `render_show_cover.py`.
+
+**The caveat that governs everything:** Trial Reels are shown to **non-followers only**, so 4, 5, and 6 (600 → 400 → 200) are the only cleanly comparable numbers. The older 1,000 / 800 / 600 *included existing followers*, so the AG receipt's "1,000" is NOT a fair benchmark for a Trial — AG/Rivers likely has the biggest home crowd, which inflated it. When reading any new Trial, compare **watch-through %, follows-per-view, and shares/saves** against the cold baselines, not raw views.
+
+**Read on the AG 200 (June 2026):** zero saves and zero shares is the diagnosis, not the 200 itself — Trials distribute in waves triggered by watch-time/shares/saves, so the reel never earned a second wave. The cold trend is monotone in density: iMessage (5 bubbles, 11.3s) 600 → Wrapped (stat card) 400 → group chat (13 messages, scrolling, 16.7s) 200. The AG reel changed three variables at once (series, format, density) so attribution isn't clean, but density is the only theory consistent with all three points — and a 13-message first frame reads as homework where a single text reads as gossip. Benchmarks for a *working* trial (2026 data): ~60%+ avg watch time, 3–5% saves, 5–10% shares. Discipline going forward: **one variable per trial, 24h+ between trials** (same non-follower pool), and screenshot 24h insights every time.
 
 ---
 
 ## What's built this session (all in `brand/reels/`)
 - `morgan-merlin-imessage/` — Merlin texts Morgan; she names herself Morgan le Fay. 1:1 thread, progressive reveal. **600 trial.**
 - `morgan-merlin-wrapped/` — "537 AD Wrapped": Top Artist Merlin, "my dear ×103", aura "Anxious & Flammable". Spotify-Wrapped homage (no logo). **400 trial.**
-- `arcane-galaxy-imessage/` — "The Gazelle" crew group chat: Rivers/Bluey/Henrik break Henrik out of space prison; he'd rather stay; ends on a literal explosion. Scrolling thread + boom. **Ready to trial.**
+- `arcane-galaxy-imessage/` — "The Gazelle" crew group chat: Rivers/Bluey/Henrik break Henrik out of space prison; he'd rather stay; ends on a literal explosion. Scrolling thread + boom. **Trialled: 200 / 4 likes / 0 saves / 0 shares.**
+- `morgan-merlin-lockscreen/` — iOS lock screen ("Thursday, 537 AD", 5:37 clock), three notifications: Merlin's naming lecture → `[Can of Whoopass] technique named` (violet CULTIVATION SYSTEM app) → "You could not help yourself, could you?". Same verified ch12 lines as the 600 iMessage — pure density/format A/B, one variable changed. **Ready to trial; decision rule in its brief.**
 
 Each folder has: `*_reel.mp4`, a cover/final frame PNG, `PRODUCTION_BRIEF.md` (the source of truth for that reel — copy, canon, captions, tags, posting spec).
 
@@ -46,6 +53,7 @@ Each folder has: `*_reel.mp4`, a cover/final frame PNG, `PRODUCTION_BRIEF.md` (t
 - `render_imessage_group_ag.py` — **reusable group-chat engine**: bottom-anchored scrolling, sender names + coloured avatars, swap the `THREAD` list for any crew/series. Phone-owner = blue/right.
 - `render_titlecard_ag.py` — Jake Malory lockup (Jake 400 over Malory 600), Troy Osgood credit, electric-blue anchor, arcane-1.jpg.
 - `render_boom.py` — explosion finish (white flash + fireball with radial rays, smoke, debris incl. message-bubble shards, dry payoff caption).
+- `render_lockscreen_mm.py` — iOS lock screen with notification stack, newest-on-top progressive reveal. Swap the `NOTIFS` list for any series (Messages icon + one custom app icon, e.g. CULTIVATION SYSTEM in series-anchor colour).
 
 **Covers:** `welcome-cover.jpg` (M&M), `arcane-1.jpg` (AG), plus murder/tower/cuckoo/curator/psyker/pts/boys covers in the repo root.
 
@@ -88,17 +96,18 @@ ffmpeg -y -f concat -safe 0 -i frames.txt \
 ---
 
 ## Open questions / ranked next tests
-1. **Rivers receipt (highest information, still open).** Same series, the proven receipt format, given a *clean cold-audience Trial* for the first time. Isolates "is the receipt the franchise, or was it always the follower base?" The group chat changed both series and format, so it did NOT answer this.
-2. **Lock-screen push notification** — the next rung down the density ladder after the iMessage; tests the "density is hurting watch-time" theory directly.
-3. **Motion format (Veo 3 / Grok)** — tests algorithm format-fatigue (motion vs static, same hook).
-4. **AG Book 2 group chat** — the Leni/Trevor/Gargle "vaporised-the-client-before-payday" thread is written and funny; **hold for the Swashbuckler (Book 2) launch.** Regenerate via the group-chat engine.
-5. **More Morgan formats, same vibe** (offered, not built): real **chapter-titles card** (shows her actual prose voice — likely highest book-conversion), **Wikipedia stub**, **Google autocomplete**.
+1. **M&M lock screen — BUILT, trial next.** Same ch12 scene as the 600 iMessage, one variable changed (format/density). Decision rule in `morgan-merlin-lockscreen/PRODUCTION_BRIEF.md`: ≥600 density confirmed → scale low-density formats; 400–600 M&M is the asset; ≤300 density wasn't it → test motion or fix the profile funnel.
+2. **Rivers receipt.** Same series, the proven receipt format, first clean cold Trial. Isolates "is the receipt the franchise, or was it always the follower base?" Now also the AG redemption test after the group chat's 200.
+3. **Profile funnel audit (free, do anytime).** Trials send strangers to the profile; if grid/bio don't convert, cold reach leaks out. Worth a pass before burning more trials.
+4. **Motion format (Veo 3 / Grok)** — tests algorithm format-fatigue (motion vs static, same hook). Promoted if the lock screen lands ≤300.
+5. **AG Book 2 group chat** — hold for the Swashbuckler (Book 2) launch. Regenerate via the group-chat engine.
+6. **More Morgan formats** (offered, not built): chapter-titles card (likely highest book-conversion), Wikipedia stub, Google autocomplete. NOTE: the qi-graffiti iMessage (Reel 5 in the iMessage brief) is funny but its punchline risks IG's Recommendation Guidelines — Trials distribute entirely via recommendations, so soften the line before trialling it.
 
-Per-reel, watch: completion %, profile-visits & follows per 1k cold reach, saves/shares as tiebreaker.
+Per-reel, watch: completion %, profile-visits & follows per 1k cold reach, saves/shares as the wave trigger. Screenshot 24h insights every trial. One variable per trial; 24h+ spacing.
 
 ---
 
 ## How to pick up in a new chat
-> "Continuing Malory's IG/TikTok Reel system (indie LitRPG author, Jake Malory pen name for AG/Psyker). Read `brand/reels/HANDOFF.md` and `brand/BRAND_FOUNDATION.md`, plus the `PRODUCTION_BRIEF.md` in whichever reel folder we're touching. Trial results so far: M&M iMessage 600, M&M Wrapped 400 (both cold-audience). AG prison-break group chat is built and ready to trial. I want to test [X] next."
+> "Continuing Malory's IG/TikTok Reel system (indie LitRPG author, Jake Malory pen name for AG/Psyker). Read `brand/reels/HANDOFF.md` and `brand/BRAND_FOUNDATION.md`, plus the `PRODUCTION_BRIEF.md` in whichever reel folder we're touching. Cold-trial results so far: M&M iMessage 600, M&M Wrapped 400, AG group chat 200 (0 saves/shares). The M&M lock screen (same scene as the 600, density A/B) is built and ready to trial. I want to test [X] next."
 
 Renderers are in `brand/scripts/`, assets and briefs in `brand/reels/<reel>/`. Swap a `THREAD`/stat list and re-render in one command. The group-chat engine and the boom renderer are reusable across series.

@@ -826,7 +826,7 @@
                     <div id="newsletter-success" class="newsletter-success" hidden>
                         <i class="fas fa-check-circle" aria-hidden="true" style="color: #6dbf67; font-size: 1.5rem;"></i>
                         <p style="margin: 8px 0 4px;"><strong>Almost there.</strong></p>
-                        <p style="margin: 0; font-size: 0.95rem;">Finish in the Substack tab that just opened &mdash; one click on Subscribe and <em>Crude</em> lands within minutes. <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">Tab didn't open?</a></p>
+                        <p style="margin: 0; font-size: 0.95rem;">Check your inbox for a confirmation link &mdash; one click and <em>Crude</em> is on its way.</p>
                     </div>
 
                     <p id="newsletter-fallback" style="margin-top: 14px; font-size: 0.8rem; color: var(--color-text-dim);">Trouble? <a href="https://maloryauthor.substack.com/subscribe" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">Use the full Substack page</a>.</p>
@@ -958,7 +958,7 @@
         /* --- Promo ticker rotation --- */
         const ticker = document.getElementById('promo-ticker');
         const messages = [
-            { text: "Get the free monster-hunter short story, Crude!", url: "https://maloryauthor.substack.com/subscribe", target: "_blank" },
+            { text: "Get the free monster-hunter short story, Crude!", url: "https://links.maloryauthor.com/crude", target: "_blank" },
             { text: "Discover Morgan and Merlin's Excellent Adventures!", url: "books.html#merlin", target: "_self" },
             { text: "Grab the Arcane Galaxy: Chaos Protocols audiobook!", url: "https://links.maloryauthor.com/chaos-protocols?format=audible", target: "_blank" }
         ];
@@ -1020,19 +1020,30 @@
                     return;
                 }
 
-                /* Hand off to Substack's subscribe page with the email
-                   prefilled — the direct API rejects cross-origin posts
-                   (verified 503), so this is the only reliable path. */
-                window.open(
-                    'https://maloryauthor.substack.com/subscribe?email=' + encodeURIComponent(email),
-                    '_blank',
-                    'noopener'
-                );
+                /* Subscribe via MailerLite (form: Website — Get the Free Novella).
+                   Endpoint verified live 2026-06-10 — returns {"success":true}. */
+                button.disabled = true;
+                const originalLabel = button.innerHTML;
+                button.innerHTML = 'Sending\u2026';
+                let ok = false;
+                try {
+                    const resp = await fetch('https://assets.mailerlite.com/jsonp/2422540/forms/189888327806092559/subscribe', {
+                        method: 'POST',
+                        body: new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' })
+                    });
+                    const data = await resp.json();
+                    ok = !!(data && data.success);
+                } catch (err) { ok = false; }
 
-                /* Reveal handoff message, hide form */
-                newsletterForm.hidden = true;
-                if (newsletterFallback) newsletterFallback.hidden = true;
-                if (newsletterSuccess) newsletterSuccess.hidden = false;
+                if (ok) {
+                    newsletterForm.hidden = true;
+                    if (newsletterFallback) newsletterFallback.hidden = true;
+                    if (newsletterSuccess) newsletterSuccess.hidden = false;
+                } else {
+                    button.disabled = false;
+                    button.innerHTML = originalLabel;
+                    if (newsletterFallback) newsletterFallback.innerHTML = 'That didn\u2019t go through. <a href="https://links.maloryauthor.com/crude" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">Grab Crude directly instead</a>.';
+                }
             });
         }
 
