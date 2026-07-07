@@ -4095,3 +4095,8 @@ footer p {
     font-size: 0.85rem;
     color: var(--color-text-muted, #9AA0A8);
 }
+
+/* Second stacked credential line under the header (e.g. Tangent Online reviewer credit) */
+.header-award-secondary {
+    margin-top: 2px !important;
+}
