@@ -1022,14 +1022,14 @@
                     return;
                 }
 
-                /* Subscribe via MailerLite (form: Website — Get the Free Novella).
-                   Endpoint verified live 2026-06-10 — returns {"success":true}. */
+                /* Subscribe via MailerLite (form: Malory Site — Newsletter Signup, account 2489284).
+                   Repointed 2026-07-10 — consolidated account. */
                 button.disabled = true;
                 const originalLabel = button.innerHTML;
                 button.innerHTML = 'Sending\u2026';
                 let ok = false;
                 try {
-                    const resp = await fetch('https://assets.mailerlite.com/jsonp/2422540/forms/189888327806092559/subscribe', {
+                    const resp = await fetch('https://assets.mailerlite.com/jsonp/2489284/forms/192551300523624412/subscribe', {
                         method: 'POST',
                         body: new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' })
                     });
