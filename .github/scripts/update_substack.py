@@ -8,10 +8,14 @@ Runs in GitHub Actions on a schedule. Replaces the contents of
 rendered cards. Idempotent: if the posts haven't changed, the file is byte-for-
 byte identical and the workflow's `git diff` finds nothing to commit.
 
-Resilient fetch: tries the Substack RSS feed directly (with browser headers),
-and if that's blocked — GitHub's datacenter IPs are often 403'd by Cloudflare —
-falls back to the rss2json proxy, which fetches the feed server-side. Stdlib
-only; no pip installs in CI.
+Resilient fetch, three independent sources, each retried with backoff:
+  1) Substack RSS directly (browser headers) — often 403'd on datacenter IPs
+  2) rss2json proxy (fetches the feed server-side)
+  3) allorigins proxy (raw RSS, different infra to rss2json)
+If ALL sources are down (rare simultaneous outage), the script leaves
+index.html untouched and exits 0 — the previously baked posts stay in place and
+the client-side live-pull is a second safety net, so a transient blip does NOT
+fail the workflow (no false-alarm red X / failure email). Stdlib only.
 
 Usage:
     python3 .github/scripts/update_substack.py            # fetch + write
@@ -22,6 +26,7 @@ import sys
 import re
 import html
 import json
+import time
 import pathlib
 import urllib.request
 import urllib.parse
@@ -29,11 +34,15 @@ from email.utils import parsedate_to_datetime
 from xml.etree import ElementTree as ET
 
 FEED_URL = "https://maloryauthor.substack.com/feed"
-PROXY_URL = ("https://api.rss2json.com/v1/api.json?rss_url="
-             + urllib.parse.quote(FEED_URL, safe=""))
+PROXY_RSS2JSON = ("https://api.rss2json.com/v1/api.json?rss_url="
+                  + urllib.parse.quote(FEED_URL, safe=""))
+PROXY_ALLORIGINS = ("https://api.allorigins.win/raw?url="
+                    + urllib.parse.quote(FEED_URL, safe=""))
 ROOT = pathlib.Path(__file__).resolve().parents[2]   # .github/scripts/ -> repo root
 INDEX = ROOT / "index.html"
 N_POSTS = 3
+RETRIES = 3
+BACKOFF = 2  # seconds, multiplied by attempt number
 
 HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -59,12 +68,21 @@ GRID_RE = re.compile(
 
 
 def _get(url: str) -> str:
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read().decode("utf-8", "replace")
+    """GET with retries + backoff. Raises the last exception if all attempts fail."""
+    last = None
+    for attempt in range(1, RETRIES + 1):
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read().decode("utf-8", "replace")
+        except Exception as ex:                       # noqa: BLE001
+            last = ex
+            if attempt < RETRIES:
+                time.sleep(BACKOFF * attempt)
+    raise last
 
 
-def _parse_rss(xml_text: str, limit: int) -> list[dict]:
+def _parse_rss(xml_text: str, limit: int) -> list:
     root = ET.fromstring(xml_text)
     out = []
     for item in root.iterfind(".//item"):
@@ -78,30 +96,37 @@ def _parse_rss(xml_text: str, limit: int) -> list[dict]:
     return out
 
 
-def get_items(limit: int = N_POSTS, force_proxy: bool = False) -> list[dict]:
-    # 1) direct RSS (unless we're explicitly testing the proxy path)
-    if not force_proxy:
-        try:
-            items = _parse_rss(_get(FEED_URL), limit)
-            if items:
-                print(f"Fetched {len(items)} posts via direct Substack RSS.")
-                return items
-            print("Direct RSS returned no items; trying proxy.")
-        except Exception as ex:                       # noqa: BLE001
-            print(f"Direct RSS failed ({type(ex).__name__}: {ex}); trying proxy.")
+def _from_rss2json(limit: int) -> list:
+    data = json.loads(_get(PROXY_RSS2JSON))
+    if data.get("status") == "ok" and data.get("items"):
+        return [{"title": i.get("title", ""), "link": i.get("link", ""),
+                 "pubDate": i.get("pubDate", ""), "description": i.get("description", "")}
+                for i in data["items"][:limit]]
+    raise RuntimeError(f"rss2json status={data.get('status')!r}")
 
-    # 2) rss2json proxy (fetches the feed server-side; not blocked on runner IPs)
-    try:
-        data = json.loads(_get(PROXY_URL))
-        if data.get("status") == "ok" and data.get("items"):
-            items = [{"title": i.get("title", ""), "link": i.get("link", ""),
-                      "pubDate": i.get("pubDate", ""), "description": i.get("description", "")}
-                     for i in data["items"][:limit]]
-            print(f"Fetched {len(items)} posts via rss2json proxy.")
-            return items
-        raise RuntimeError(f"proxy status={data.get('status')!r}")
-    except Exception as ex:                            # noqa: BLE001
-        raise SystemExit(f"ERROR: could not fetch feed (direct + proxy both failed): {ex}")
+
+def get_items(limit: int = N_POSTS, force_proxy: bool = False) -> list:
+    """Try each source in turn; return [] only if every source fails."""
+    sources = []
+    if not force_proxy:
+        sources.append(("direct Substack RSS", lambda: _parse_rss(_get(FEED_URL), limit)))
+    sources.append(("rss2json proxy", lambda: _from_rss2json(limit)))
+    sources.append(("allorigins proxy", lambda: _parse_rss(_get(PROXY_ALLORIGINS), limit)))
+
+    for name, fn in sources:
+        try:
+            items = fn()
+            if items:
+                print(f"Fetched {len(items)} posts via {name}.")
+                return items
+            print(f"{name} returned no items; trying next source.")
+        except Exception as ex:                       # noqa: BLE001
+            print(f"{name} failed ({type(ex).__name__}: {ex}); trying next source.")
+
+    print("WARNING: all sources failed (Substack + both proxies). "
+          "Leaving index.html unchanged; existing posts and the client-side "
+          "live-pull cover the gap. Not failing the workflow.")
+    return []
 
 
 def slug_of(link: str) -> str:
@@ -141,7 +166,7 @@ def e(s: str) -> str:
     return html.escape(s or "", quote=True)
 
 
-def render_cards(items: list[dict]) -> str:
+def render_cards(items: list) -> str:
     cards = []
     for p in items:
         slug = slug_of(p["link"])
@@ -193,7 +218,9 @@ def main():
         items = get_items(force_proxy=proxytest)
 
     if not items:
-        raise SystemExit("ERROR: no items to render")
+        # No fetch succeeded — leave the file as-is and exit cleanly (see get_items).
+        print("No items fetched — homepage left unchanged.")
+        return
 
     src = INDEX.read_text(encoding="utf-8")
     out = update_html(src, render_cards(items))
@@ -206,7 +233,7 @@ def main():
         return
     if proxytest:
         print("PROXYTEST: fetched via proxy and rendered;",
-              "would change file:" , out != src)
+              "would change file:", out != src)
         return
 
     if out != src:
