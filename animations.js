@@ -65,13 +65,13 @@
                 .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
             visible.forEach((entry, i) => {
-                const delay = Math.min(i * 80, 400);
+                const delay = Math.min(i * 50, 200);
                 setTimeout(() => entry.target.classList.add('visible'), delay);
                 observer.unobserve(entry.target);
             });
         }, {
             threshold: 0.07,
-            rootMargin: '0px 0px -30px 0px'
+            rootMargin: '0px 0px 0px 0px'
         });
 
         elements.forEach(el => observer.observe(el));

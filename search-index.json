@@ -1,0 +1,260 @@
+[
+ {
+  "title": "About Malory — Baen Award-Winning Sci-Fi & LitRPG Author",
+  "desc": "Malory — PhD candidate researching men's reading habits and 2026 Jim Baen Award-winning author of Morgan & Merlin, Psyker Marine, and Arcane Galaxy.",
+  "url": "about.html",
+  "type": "Page"
+ },
+ {
+  "title": "Books Like Cradle by Will Wight — Read-Next Guide",
+  "desc": "Finished Cradle? Seven progression-fantasy read-alikes that keep the ladder, the grind, and the found family — from Iron Prince to Malory's Morgan & Merlin.",
+  "url": "books-like-cradle.html",
+  "type": "Reader guide"
+ },
+ {
+  "title": "Books Like Dungeon Crawler Carl — Read-Next Guide",
+  "desc": "Finished Dungeon Crawler Carl? Eight read-alikes that keep the voice, the fury, and the body count — from He Who Fights with Monsters to Malory's own catalogue.",
+  "url": "books-like-dungeon-crawler-carl.html",
+  "type": "Reader guide"
+ },
+ {
+  "title": "Books",
+  "desc": "The full Malory library — Morgan & Merlin, The Soar Chronicles, Punish the System, Boy's Own Adventures, plus Psyker Marine and Arcane Galaxy as Jake Malory.",
+  "url": "books.html",
+  "type": "Page"
+ },
+ {
+  "title": "Chaos Protocols — Arcane Galaxy Book 1 by Jake Malory",
+  "desc": "Arcane Galaxy Book 1 by Jake Malory. A trigger-happy SAS operator, an elf pilot, and a broken ship against an unforgiving LitRPG System. Free on Kindle Unlimited.",
+  "url": "chaos-protocols.html",
+  "type": "Book"
+ },
+ {
+  "title": "The Clockwork Terror of Blackglass Island",
+  "desc": "Boy's Own Adventures Book 2 by Malory. A Felix Jones Adventure on a fog-locked island. Free on Kindle Unlimited.",
+  "url": "clockwork-terror.html",
+  "type": "Book"
+ },
+ {
+  "title": "Combat & Military LitRPG — The Best of the Subgenre",
+  "desc": "A reader's guide to combat-focused LitRPG and military sci-fi with progression mechanics. From Galaxy's Edge to Psyker Marine (Galactic Invasion) by Jake Malory.",
+  "url": "combat-litrpg.html",
+  "type": "Reader guide"
+ },
+ {
+  "title": "Cultivation & Progression Fantasy — A Reader's Guide",
+  "desc": "A reader's guide to cultivation and progression fantasy: what makes the genre work, who's writing it well, and where to start. From Cradle to Morgan & Merlin.",
+  "url": "cultivation-progression-fantasy.html",
+  "type": "Reader guide"
+ },
+ {
+  "title": "Death of a Curator — The Soar Chronicles Book 2",
+  "desc": "The Soar Chronicles Book 2 by Malory. A second body. A different god. Same investigator, still Classless, still owed money. Free on Kindle Unlimited.",
+  "url": "death-of-a-curator.html",
+  "type": "Book"
+ },
+ {
+  "title": "The Art of the Bait-and-Switch Chapter End",
+  "desc": "How a well-placed bait-and-switch chapter ending keeps readers binge-reading — and how it breaks the book when it goes wrong. Wednesday Deconstruction series.",
+  "url": "essays/bait-and-switch-chapter-end.html",
+  "type": "Essay"
+ },
+ {
+  "title": "Using First-Person Narrative Voice",
+  "desc": "A working novelist's take on when first-person narrative voice earns its place — and when it doesn't. Part of the Wednesday Deconstruction craft series.",
+  "url": "essays/first-person-narrative-voice.html",
+  "type": "Essay"
+ },
+ {
+  "title": "Essays",
+  "desc": "Essays by Malory on the male reading decline, the craft of fiction, and the LitRPG / progression-fantasy genre. Mirrored from the Snark and Shotguns Substack.",
+  "url": "essays/",
+  "type": "Essay"
+ },
+ {
+  "title": "The Curious Case of the Male Reader",
+  "desc": "What the data actually says about the male reading decline — and what it means for fiction. From Malory's PhD research on men's reading habits.",
+  "url": "essays/the-curious-case-of-the-male-reader.html",
+  "type": "Essay"
+ },
+ {
+  "title": "What You Told Me About Boys and Books",
+  "desc": "Reader responses on the boys-and-books question, and what the patterns in those responses reveal about how fiction lost its male audience.",
+  "url": "essays/what-you-told-me-about-boys-and-books.html",
+  "type": "Essay"
+ },
+ {
+  "title": "Hardboiled & Detective LitRPG — Reading List & Guide",
+  "desc": "Hardboiled detective LitRPG — what it is, why it works, and where to start: The Soar Chronicles by Malory. A reader's guide. Free on Kindle Unlimited.",
+  "url": "hardboiled-litrpg.html",
+  "type": "Reader guide"
+ },
+ {
+  "title": "Malory",
+  "desc": "The official website of Malory, award-winning author of the Morgan & Merlin series, Psyker Marine, and epic Sci-Fi, LitRPG, and Progression Fantasy novels.",
+  "url": "./",
+  "type": "Page"
+ },
+ {
+  "title": "Journey to the Dark Tower — Morgan & Merlin Book 2",
+  "desc": "Morgan & Merlin Book 2 by Malory. The cultivation gets harder, the Saxons get louder, and Merlin's commentary doesn't improve. Free on Kindle Unlimited.",
+  "url": "journey-to-the-dark-tower.html",
+  "type": "Book"
+ },
+ {
+  "title": "The Weird Map in Mr Glimm's Skull — Boy's Own Adventures",
+  "desc": "Boy's Own Adventures Book 1 by Malory. Part Hardy Boys, part Cold War spy thriller, part Stranger Things — with a touch of horror. Free on Kindle Unlimited.",
+  "url": "mr-glimms-skull.html",
+  "type": "Book"
+ },
+ {
+  "title": "Murder in the Temple — The Soar Chronicles Book 1",
+  "desc": "The Soar Chronicles Book 1 by Malory. A low-Level PI with no Class, no god, and a very punchable face — in a city where faith is currency. Free on Kindle Unlimited.",
+  "url": "murder-in-the-temple.html",
+  "type": "Book"
+ },
+ {
+  "title": "Orbital Decay — Jim Baen Award Winner 2026",
+  "desc": "Orbital Decay by Malory won the 2026 Jim Baen Memorial Short Story Award. Read the story free at Baen.com and grab the free Crude novella.",
+  "url": "orbital-decay.html",
+  "type": "Book"
+ },
+ {
+  "title": "Post-Apocalyptic LitRPG — Reading Guide",
+  "desc": "When the System arrives and the world stops working. A reader's guide to post-apocalyptic LitRPG, from Dungeon Crawler Carl to Malory's Punish the System.",
+  "url": "post-apocalyptic-litrpg.html",
+  "type": "Reader guide"
+ },
+ {
+  "title": "Press & Media Kit",
+  "desc": "Press kit for Malory — 2026 Jim Baen Award winner, PhD researcher of men's reading habits, author of 30+ LitRPG novels. Bios, photos, covers, contact.",
+  "url": "press.html",
+  "type": "Page"
+ },
+ {
+  "title": "Psyker Marine Book 1 — Combat LitRPG by Jake Malory",
+  "desc": "Psyker Marine Book 1 by Jake Malory. Thorne wasn't supposed to matter — then the aliens came, and a pissed-off Psyker Marine matters a lot. Free on Kindle Unlimited.",
+  "url": "psyker-marine-1.html",
+  "type": "Book"
+ },
+ {
+  "title": "Psyker Marine Book 2 — Combat LitRPG by Jake Malory",
+  "desc": "Psyker Marine Book 2 by Jake Malory. The war that opened in Book 1 escalates. The squad takes ground. The cost rises. Free on Kindle Unlimited.",
+  "url": "psyker-marine-2.html",
+  "type": "Book"
+ },
+ {
+  "title": "Psyker Marine Book 3 — Combat LitRPG by Jake Malory",
+  "desc": "Psyker Marine Book 3 by Jake Malory. The mid-war turn. The System reveals more rules; the squad reveals more cracks. Free on Kindle Unlimited.",
+  "url": "psyker-marine-3.html",
+  "type": "Book"
+ },
+ {
+  "title": "Psyker Marine Book 4 — Combat LitRPG by Jake Malory",
+  "desc": "Psyker Marine Book 4 by Jake Malory. The second half of the war — larger engagements, hostile politics, a System Thorne no longer trusts. Free on Kindle Unlimited.",
+  "url": "psyker-marine-4.html",
+  "type": "Book"
+ },
+ {
+  "title": "Psyker Marine Book 5 — Combat LitRPG by Jake Malory",
+  "desc": "Psyker Marine Book 5 by Jake Malory. The war finds its shape, the alliances find their cost, and the System finds out what Thorne is for. Free on Kindle Unlimited.",
+  "url": "psyker-marine-5.html",
+  "type": "Book"
+ },
+ {
+  "title": "Psyker Marine Book 6 — Combat LitRPG by Jake Malory",
+  "desc": "Psyker Marine Book 6 by Jake Malory. The finale. Everything the war has been pointing at, settled or not. Free on Kindle Unlimited.",
+  "url": "psyker-marine-6.html",
+  "type": "Book"
+ },
+ {
+  "title": "Punish the System Book 2 — Sci-Fi LitRPG Pre-Order",
+  "desc": "Punish the System Book 2 by Malory and Cassius Lange. The Punisher Class has evolved — and put Connor on the High Houses' agenda. Free on Kindle Unlimited.",
+  "url": "punish-the-system-2.html",
+  "type": "Book"
+ },
+ {
+  "title": "Punish the System Book 1 — Sci-Fi LitRPG",
+  "desc": "Punish the System Book 1 by Malory. Connor Keene died, got resurrected as a Punisher, and now the world hates him for trying to save it. Free on Kindle Unlimited.",
+  "url": "punish-the-system.html",
+  "type": "Book"
+ },
+ {
+  "title": "Quest for the Dark Blade — Morgan & Merlin Book 3",
+  "desc": "Morgan & Merlin Book 3 by Malory. Higher realms, sharper enemies, and a sword that has opinions. Free on Kindle Unlimited.",
+  "url": "quest-for-the-dark-blade.html",
+  "type": "Book"
+ },
+ {
+  "title": "Arcane Galaxy — Series Guide",
+  "desc": "Arcane Galaxy by Jake Malory & Troy Osgood — space western LitRPG. Reading order, world, and Aethon audiobook info.",
+  "url": "series/arcane-galaxy.html",
+  "type": "Series"
+ },
+ {
+  "title": "Boy's Own Adventures — Series Guide",
+  "desc": "Boy's Own Adventures by Malory — classic adventure for young readers. Reading order, world, and the books.",
+  "url": "series/boys-own-adventures.html",
+  "type": "Series"
+ },
+ {
+  "title": "Morgan and Merlin's Excellent Adventures — Series Guide",
+  "desc": "Morgan & Merlin by Malory — reincarnation, cultivation, Dark Age Cornwall. Reading order, world, and the full three-book series.",
+  "url": "series/morgan-and-merlin.html",
+  "type": "Series"
+ },
+ {
+  "title": "Psyker Marine — Series Guide",
+  "desc": "Psyker Marine (Galactic Invasion) by Jake Malory — weaponised minds, galactic war, six books and an omnibus. Reading order, world, and audiobook info.",
+  "url": "series/psyker-marine.html",
+  "type": "Series"
+ },
+ {
+  "title": "Punish the System — Series Guide",
+  "desc": "Punish the System by Malory & Cassius Lange — gritty post-apocalyptic LitRPG. Soundbooth Theater immersive audiobook. Reading order and world.",
+  "url": "series/punish-the-system.html",
+  "type": "Series"
+ },
+ {
+  "title": "The Soar Chronicles — Series Guide",
+  "desc": "The Soar Chronicles by Malory — a hardboiled investigator in a city where faith is literal currency. Reading order, world, and the three-book series.",
+  "url": "series/the-soar-chronicles.html",
+  "type": "Series"
+ },
+ {
+  "title": "Space Western LitRPG — A Reader's Guide",
+  "desc": "Space western LitRPG — what it is, why it works, and where to start: Arcane Galaxy by Jake Malory. A reader's guide. Free on Kindle Unlimited.",
+  "url": "space-western-litrpg.html",
+  "type": "Reader guide"
+ },
+ {
+  "title": "Start Here — Which Malory Book to Read First",
+  "desc": "New to Malory? A one-page guide to which series to start with — LitRPG, sci-fi, or classic adventure. Free on Kindle Unlimited.",
+  "url": "start-here.html",
+  "type": "Page"
+ },
+ {
+  "title": "Swashbuckler — Arcane Galaxy Book 2 by Jake Malory",
+  "desc": "Arcane Galaxy Book 2 by Jake Malory. Rivers and the crew get further into the System — and further into trouble they can't walk back. Free on Kindle Unlimited.",
+  "url": "swashbuckler.html",
+  "type": "Book"
+ },
+ {
+  "title": "Terror from the Deep — Boy's Own Adventures Book 3",
+  "desc": "Boy's Own Adventures Book 3 by Malory. A digital detox in a sleepy Welsh village turns into a war for ancient technology on the ocean floor. Free on Kindle Unlimited",
+  "url": "terror-from-the-deep.html",
+  "type": "Book"
+ },
+ {
+  "title": "The Cuckoo's Last Call — The Soar Chronicles Book 3",
+  "desc": "The Soar Chronicles Book 3 by Malory. The third case. The city's patience is thinner. So is the investigator's. Free on Kindle Unlimited.",
+  "url": "the-cuckoos-last-call.html",
+  "type": "Book"
+ },
+ {
+  "title": "Welcome to the Dark Ages — Morgan & Merlin Book 1",
+  "desc": "Morgan & Merlin Book 1 by Malory. Reincarnated into Dark Age Cornwall with Merlin's ghost offering \"helpful\" commentary. Free on Kindle Unlimited.",
+  "url": "welcome-to-the-dark-ages.html",
+  "type": "Book"
+ }
+]

@@ -1118,8 +1118,8 @@ footer {
    ========================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
+    transform: translateY(14px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .reveal.visible {
