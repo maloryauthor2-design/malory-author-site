@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Essays by Malory</title>
+    <link>https://maloryauthor.com/essays/</link>
+    <atom:link href="https://maloryauthor.com/essays/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Essays on fiction, craft, and the male reader from Malory — Sci-Fi, LitRPG and Progression Fantasy author.</description>
+    <language>en-gb</language>
+    <item>
+      <title>The Art of the Bait-and-Switch Chapter End</title>
+      <link>https://maloryauthor.com/essays/bait-and-switch-chapter-end.html</link>
+      <guid>https://maloryauthor.com/essays/bait-and-switch-chapter-end.html</guid>
+      <pubDate>Fri, 15 May 2026 09:00:00 +0000</pubDate>
+      <description>How a well-placed bait-and-switch chapter ending keeps readers binge-reading — and how it breaks the book when it goes wrong. Wednesday Deconstruction series.</description>
+    </item>
+    <item>
+      <title>Using First-Person Narrative Voice</title>
+      <link>https://maloryauthor.com/essays/first-person-narrative-voice.html</link>
+      <guid>https://maloryauthor.com/essays/first-person-narrative-voice.html</guid>
+      <pubDate>Fri, 15 May 2026 09:00:00 +0000</pubDate>
+      <description>A working novelist's take on when first-person narrative voice earns its place — and when it doesn't. Part of the Wednesday Deconstruction craft series.</description>
+    </item>
+    <item>
+      <title>The Curious Case of the Male Reader</title>
+      <link>https://maloryauthor.com/essays/the-curious-case-of-the-male-reader.html</link>
+      <guid>https://maloryauthor.com/essays/the-curious-case-of-the-male-reader.html</guid>
+      <pubDate>Fri, 15 May 2026 09:00:00 +0000</pubDate>
+      <description>What the data actually says about the male reading decline — and what it means for fiction. From Malory's PhD research on men's reading habits.</description>
+    </item>
+    <item>
+      <title>What You Told Me About Boys and Books</title>
+      <link>https://maloryauthor.com/essays/what-you-told-me-about-boys-and-books.html</link>
+      <guid>https://maloryauthor.com/essays/what-you-told-me-about-boys-and-books.html</guid>
+      <pubDate>Fri, 15 May 2026 09:00:00 +0000</pubDate>
+      <description>Reader responses on the boys-and-books question, and what the patterns in those responses reveal about how fiction lost its male audience.</description>
+    </item>
+  </channel>
+</rss>
