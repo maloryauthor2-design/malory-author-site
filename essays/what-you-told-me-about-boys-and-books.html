@@ -262,6 +262,7 @@
             <nav aria-label="Main navigation">
                 <a href="../">Home</a>
                 <a href="../books.html">Books</a>
+                <a href="./">Essays</a>
                 <a href="../about.html">About</a>
             </nav>
         </div>
@@ -290,6 +291,42 @@
                 <p style="font-size: 0.95rem;">For new essays as they go up, plus a free copy of the <em>Crude</em> novella, <a href="/#newsletter">subscribe</a>.</p>
             </div>
 
+            <div class="essay-signup" style="margin: 36px 0 8px; padding: 26px 22px; border: 1px solid rgba(201, 168, 90, 0.35); border-radius: 10px; text-align: center; background: rgba(255, 255, 255, 0.02);">
+                <p style="margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--color-gold);">Snark and Shotguns</p>
+                <p style="margin: 0 0 16px;">New essays as they go up, first chapters of every new book, and a free copy of the monster-hunter story <em>Crude</em>.</p>
+                <form class="essay-subscribe-form" novalidate style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <label class="visually-hidden" for="essay-email">Email address</label>
+                    <input type="email" id="essay-email" name="email" placeholder="your@email.com" required autocomplete="email" style="padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(0, 0, 0, 0.35); color: inherit; min-width: 220px;">
+                    <button type="submit" class="buy-button btn-pulse"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Subscribe</button>
+                </form>
+                <p class="essay-subscribe-note" style="margin: 12px 0 0; font-size: 0.8rem; color: var(--color-text-dim);">No spam, unsubscribe anytime.</p>
+            </div>
+            <script>
+            (function () {
+                var f = document.querySelector('.essay-subscribe-form');
+                if (!f) return;
+                f.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    var email = f.querySelector('input[name=email]').value.trim();
+                    var note = document.querySelector('.essay-subscribe-note');
+                    var btn = f.querySelector('button');
+                    if (!email || email.indexOf('@') < 0) { note.textContent = 'That email doesn\u2019t look right \u2014 try again?'; return; }
+                    btn.disabled = true; var old = btn.innerHTML; btn.innerHTML = 'Sending\u2026';
+                    var ok = false;
+                    try {
+                        var r = await fetch('https://assets.mailerlite.com/jsonp/2489284/forms/192551300523624412/subscribe', { method: 'POST', body: new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' }) });
+                        var d = await r.json(); ok = !!(d && d.success);
+                    } catch (err) { ok = false; }
+                    if (ok) {
+                        f.hidden = true;
+                        note.innerHTML = '<strong>Almost there.</strong> Check your inbox for a confirmation link \u2014 one click and you\u2019re in (and <em>Crude</em> is on its way).';
+                    } else {
+                        btn.disabled = false; btn.innerHTML = old;
+                        note.innerHTML = 'That didn\u2019t go through \u2014 <a href="https://preview.mailerlite.io/forms/2489284/192551300523624412/share" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">use the direct signup page</a>.';
+                    }
+                });
+            })();
+            </script>
             <nav class="essay-nav" aria-label="Essay navigation">
                 <a href="./"><i class="fas fa-arrow-left" aria-hidden="true"></i> All Essays</a>
                 <a href="/#newsletter">Subscribe <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
