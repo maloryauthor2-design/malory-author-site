@@ -54,15 +54,15 @@
   "type": "Book"
  },
  {
-  "title": "The Art of the Bait-and-Switch Chapter End",
-  "desc": "How a well-placed bait-and-switch chapter ending keeps readers binge-reading — and how it breaks the book when it goes wrong. Wednesday Deconstruction series.",
-  "url": "essays/bait-and-switch-chapter-end.html",
+  "title": "A Field Guide to the Performative Male Reader",
+  "desc": "The Performative Male Reader, catalogued — seven species, one blind spot, and the clandestine readers the whole panic keeps missing.",
+  "url": "essays/a-field-guide-to-the-performative-male-reader.html",
   "type": "Essay"
  },
  {
-  "title": "Using First-Person Narrative Voice",
-  "desc": "A working novelist's take on when first-person narrative voice earns its place — and when it doesn't. Part of the Wednesday Deconstruction craft series.",
-  "url": "essays/first-person-narrative-voice.html",
+  "title": "How to Manufacture a Man Who Doesn’t Read",
+  "desc": "A century of schools, stereotypes and tests built men who don’t dare read — and where boys’ reading actually went. From Malory’s PhD research.",
+  "url": "essays/how-to-manufacture-a-man-who-doesnt-read.html",
   "type": "Essay"
  },
  {
@@ -72,9 +72,21 @@
   "type": "Essay"
  },
  {
+  "title": "The Age of Reading Isn’t Over. It’s Just Not Happening to Everyone.",
+  "desc": "The Atlantic says reading is dying for everyone. The data says the collapse is male and arrived a generation early — a reply to Rose Horowitch.",
+  "url": "essays/the-age-of-reading-isnt-over.html",
+  "type": "Essay"
+ },
+ {
   "title": "The Curious Case of the Male Reader",
   "desc": "What the data actually says about the male reading decline — and what it means for fiction. From Malory's PhD research on men's reading habits.",
   "url": "essays/the-curious-case-of-the-male-reader.html",
+  "type": "Essay"
+ },
+ {
+  "title": "The One-Word Experiment",
+  "desc": "One word flipped the boys’ reading gap in a single afternoon. What stereotype threat says about the 2026 literacy panic — from Malory’s PhD research.",
+  "url": "essays/the-one-word-experiment.html",
   "type": "Essay"
  },
  {

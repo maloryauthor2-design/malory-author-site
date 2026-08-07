@@ -55,14 +55,12 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://maloryauthor.com/essays/bait-and-switch-chapter-end.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://maloryauthor.com/essays/a-field-guide-to-the-performative-male-reader.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://maloryauthor.com/essays/first-person-narrative-voice.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://maloryauthor.com/essays/how-to-manufacture-a-man-who-doesnt-read.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -73,8 +71,18 @@
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://maloryauthor.com/essays/the-age-of-reading-isnt-over.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
     <loc>https://maloryauthor.com/essays/the-curious-case-of-the-male-reader.html</loc>
     <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-one-word-experiment.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -230,6 +238,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/start-here.html</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
