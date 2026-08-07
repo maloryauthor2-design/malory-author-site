@@ -21,14 +21,17 @@ jobs:
       - name: Bake latest Substack posts into index.html
         run: python3 .github/scripts/update_substack.py
 
-      - name: Commit & push if the posts changed
+      - name: Render Latest Release block from latest-release.json
+        run: python3 .github/scripts/update_latest_release.py
+
+      - name: Commit & push if the homepage changed
         run: |
           if git diff --quiet -- index.html; then
-            echo "No change — homepage already shows the latest posts."
+            echo "No change - homepage already up to date."
           else
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add index.html
-            git commit -m "Auto: refresh homepage Substack posts"
+            git commit -m "Auto: refresh homepage (Substack posts / latest release)"
             git push
           fi
