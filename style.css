@@ -4100,3 +4100,16 @@ footer p {
 .header-award-secondary {
     margin-top: 2px !important;
 }
+
+/* Accessible hidden labels (moved from index inline styles so all pages can use it) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
