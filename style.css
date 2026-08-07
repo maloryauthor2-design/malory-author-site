@@ -4113,3 +4113,10 @@ footer p {
     white-space: nowrap;
     border: 0;
 }
+
+/* Inner article headers (essay title blocks) must not inherit the masthead's
+   flex layout — the bare `header` rule above is for the site masthead only. */
+.essay-header {
+    display: block;
+    border-bottom: 0;
+}
