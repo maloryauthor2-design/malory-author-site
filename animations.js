@@ -418,8 +418,16 @@
                 }});
             } else if (href.indexOf('bookfunnel.com') !== -1) {
                 window.plausible('Magnet Click', { props: { slug: 'crude', page: window.location.pathname } });
-            } else if (href.indexOf('substack.com/subscribe') !== -1) {
-                window.plausible('Newsletter Click', { props: { page: window.location.pathname } });
+            } else if (href.indexOf('substack.com/subscribe') !== -1 || href.indexOf('#newsletter') !== -1) {
+                /* Fixed 2026-08-14: this only ever matched substack.com/subscribe, and the
+                   site has no such links — so "Newsletter Click" had never once fired.
+                   Every newsletter CTA on all 34 pages points at /#newsletter. */
+                window.plausible('Newsletter Click', {
+                    props: {
+                        page: window.location.pathname,
+                        target: href.indexOf('#newsletter') !== -1 ? 'mailerlite-form' : 'substack'
+                    }
+                });
             }
         });
     })();

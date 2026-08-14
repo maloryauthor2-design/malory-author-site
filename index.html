@@ -1007,7 +1007,7 @@
             });
         }
 
-        /* --- Native newsletter form (Substack) --- */
+        /* --- Native newsletter form (posts to MailerLite, account 2489284) --- */
         const newsletterForm = document.getElementById('newsletter-form');
         const newsletterSuccess = document.getElementById('newsletter-success');
         const newsletterFallback = document.getElementById('newsletter-fallback');
@@ -1043,7 +1043,15 @@
                     newsletterForm.hidden = true;
                     if (newsletterFallback) newsletterFallback.hidden = true;
                     if (newsletterSuccess) newsletterSuccess.hidden = false;
+                    /* Added 2026-08-14: the signup itself was never tracked, so the form's
+                       conversion rate was unmeasurable from the site side. */
+                    if (typeof window.plausible === 'function') {
+                        try { window.plausible('Newsletter Signup', { props: { page: location.pathname } }); } catch (e) {}
+                    }
                 } else {
+                    if (typeof window.plausible === 'function') {
+                        try { window.plausible('Newsletter Error', { props: { page: location.pathname } }); } catch (e) {}
+                    }
                     button.disabled = false;
                     button.innerHTML = originalLabel;
                     if (newsletterFallback) newsletterFallback.innerHTML = 'That didn\u2019t go through. <a href="https://links.maloryauthor.com/crude" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">Grab Crude directly instead</a>.';
