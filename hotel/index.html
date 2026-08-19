@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Save State Innkeeper</title>
+    <meta
+      name="description"
+      content="A time-loop choose-your-own-adventure in the Hotel Sans Nuit."
+    />
+    <link rel="icon" href="./favicon.svg" />
+    <style>
+      :root {
+        --bg: #100e0c;
+        --surface: #1c1814;
+        --raised: #261f19;
+        --paper: #efe6d6;
+        --paper-edge: #d9cdb8;
+        --ink: #1c1612;
+        --fg: #efe6d6;
+        --muted: #8a8074;
+        --faint: #5c564e;
+        --line: #3a342c;
+        --display: "Iowan Old Style", Palatino, "Palatino Linotype", "Times New Roman", serif;
+        --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100dvh; background: var(--bg); color: var(--fg); font-family: var(--serif); }
+      button:not(:disabled) { cursor: pointer; font: inherit; }
+      .screen { min-height: 100dvh; }
+      .title {
+        position: relative; overflow: hidden; display: flex; align-items: flex-end;
+        min-height: 100dvh;
+      }
+      .title img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .title .veil { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,14,12,.4), rgba(16,14,12,.55) 45%, #100e0c); }
+      .title .copy { position: relative; width: min(36rem, 100%); padding: 5rem 1.5rem 2.5rem; }
+      .kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: rgba(239,230,214,.8); margin: 0; }
+      h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 8vw, 3.8rem); line-height: .95; letter-spacing: -0.02em; margin: .75rem 0 0; }
+      .lede { max-width: 28rem; color: rgba(239,230,214,.8); line-height: 1.6; margin: 1.25rem 0 0; }
+      .stack { display: flex; flex-direction: column; gap: .75rem; margin-top: 2rem; max-width: 22rem; }
+      .btn {
+        min-height: 3rem; border-radius: 6px; padding: .75rem 1.25rem; border: 1px solid transparent;
+        font-family: var(--display); font-size: 1.05rem;
+      }
+      .btn-solid { background: var(--paper); color: var(--ink); }
+      .btn-solid:hover { background: var(--paper-edge); }
+      .btn-ghost { background: transparent; border-color: rgba(239,230,214,.25); color: rgba(239,230,214,.85); }
+      .btn-ghost:hover { border-color: rgba(239,230,214,.5); color: var(--paper); }
+      .hint { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: rgba(239,230,214,.45); margin-top: 2rem; }
+      header.bar {
+        position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between;
+        gap: .75rem; padding: .75rem 1rem; border-bottom: 1px solid var(--line); background: rgba(16,14,12,.9);
+        backdrop-filter: blur(8px);
+      }
+      .mono { font-family: var(--mono); }
+      .tiny { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin: 0; }
+      .meta { font-size: 12px; color: var(--faint); margin: .2rem 0 0; font-variant-numeric: tabular-nums; }
+      .icon {
+        width: 2.25rem; height: 2.25rem; border: 0; background: transparent; color: var(--fg); border-radius: 6px;
+      }
+      .icon:hover { background: var(--raised); }
+      .grid { max-width: 72rem; margin: 0 auto; display: grid; }
+      @media (min-width: 960px) {
+        .grid { grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); }
+      }
+      .hero { position: relative; aspect-ratio: 16/9; background: var(--surface); overflow: hidden; }
+      @media (min-width: 960px) { .hero { aspect-ratio: auto; min-height: 52vh; } }
+      .hero img { width: 100%; height: 100%; object-fit: cover; }
+      .hero .fade { position: absolute; inset: 0; background: linear-gradient(to top, var(--bg), transparent 45%); }
+      .loc { position: absolute; left: 1rem; bottom: .75rem; font-family: var(--mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(239,230,214,.8); }
+      aside.panel { border-top: 1px solid var(--line); }
+      @media (min-width: 960px) { aside.panel { border-top: 0; border-left: 1px solid var(--line); } }
+      .who { display: flex; align-items: flex-end; gap: .75rem; padding: .75rem 1rem; background: var(--surface); border-bottom: 1px solid var(--line); }
+      .who img { width: 4rem; height: 5rem; object-fit: cover; object-position: top; border-radius: 2px; }
+      .prose { background: var(--paper); color: var(--ink); padding: 1.5rem 1.35rem; }
+      .prose p { white-space: pre-wrap; font-size: 1.05rem; line-height: 1.65; margin: 0; }
+      .choices { display: flex; flex-direction: column; gap: .5rem; padding: 1rem; background: var(--bg); }
+      .choice {
+        min-height: 3rem; text-align: left; border-radius: 6px; border: 1px solid var(--line);
+        background: var(--surface); color: var(--fg); padding: .75rem 1rem; font-family: var(--display);
+      }
+      .choice:hover { border-color: var(--muted); background: var(--raised); }
+      .choice .h { margin-top: .3rem; display: block; font-family: var(--mono); font-size: 11px; color: var(--faint); }
+      .overlay {
+        position: fixed; inset: 0; background: rgba(16,14,12,.72); display: flex; align-items: flex-end; justify-content: center;
+        padding: 1rem; z-index: 40;
+      }
+      .sheet { width: min(32rem, 100%); background: var(--paper); color: var(--ink); border-radius: 10px; padding: 1.25rem 1.25rem 1.5rem; }
+      .sheet h2 { font-family: var(--display); margin: 0 0 1rem; font-weight: 500; }
+      .sheet ol { margin: 0; padding-left: 1.2rem; }
+      .sheet li { margin: .4rem 0; line-height: 1.45; }
+      .row { display: flex; gap: .5rem; margin-top: 1.25rem; }
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div id="title" class="screen title">
+      <img class="bg" src="https://cdn.jsdelivr.net/gh/maloryauthor2-design/save-state-innkeeper@main/docs/art/hotel.jpg" alt="" />
+      <div class="veil"></div>
+      <div class="copy">
+        <p class="kicker">Hotel Sans Nuit</p>
+        <h1>Save State<br />Innkeeper</h1>
+        <p class="lede">
+          You wake in a bed that isn’t yours, with a work order in your fist. The staff know your
+          name. The carpet is boiling. Fix what breaks. Then do it all again.
+        </p>
+        <div class="stack">
+          <button id="begin" class="btn btn-solid" type="button">Check in</button>
+          <button id="fresh" class="btn btn-ghost hidden" type="button">Wake in 204. Forget everything.</button>
+        </div>
+        <p class="hint">An audio choose-your-own-adventure. Tap to unlock the hotel.</p>
+      </div>
+    </div>
+
+    <div id="play" class="screen hidden">
+      <header class="bar">
+        <div>
+          <p class="tiny">Hotel Sans Nuit</p>
+          <p class="meta mono" id="meta"></p>
+        </div>
+        <div>
+          <button class="icon" id="mute" type="button" aria-label="Mute">♫</button>
+          <button class="icon" id="speak" type="button" aria-label="Read this">▶</button>
+          <button class="icon" id="order" type="button" aria-label="Work order">☰</button>
+        </div>
+      </header>
+      <div class="grid">
+        <div class="hero">
+          <img id="art" src="https://cdn.jsdelivr.net/gh/maloryauthor2-design/save-state-innkeeper@main/docs/art/room.jpg" alt="" />
+          <div class="fade"></div>
+          <p class="loc" id="loc"></p>
+        </div>
+        <aside class="panel">
+          <div id="who" class="who hidden">
+            <img id="portrait" alt="" />
+            <div>
+              <p class="tiny" id="role"></p>
+              <p id="whoName" style="font-family:var(--display);font-size:1.15rem;margin:.15rem 0 0"></p>
+            </div>
+          </div>
+          <article class="prose"><p id="prose"></p></article>
+          <div class="choices" id="choices"></div>
+        </aside>
+      </div>
+    </div>
+
+    <div id="sheet" class="overlay hidden">
+      <div class="sheet">
+        <h2>Work order</h2>
+        <ol id="rules"></ol>
+        <div class="row">
+          <button class="btn btn-solid" id="closeOrder" type="button">Close</button>
+          <button class="btn btn-ghost" id="reset" type="button" style="border-color:#1c161233;color:#1c1612">Start over</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./game.js"></script>
+    <script>
+      const ART = "https://cdn.jsdelivr.net/gh/maloryauthor2-design/save-state-innkeeper@main/docs";
+      const KEY = "sans-nuit-static-v1";
+      const NAMES = { jack: "Jack Causey", trudie: "Trudie Crisp", brig: "Brig", ione: "Ione", leland: "Leland Crum" };
+      const $ = (id) => document.getElementById(id);
+      const artUrl = (src) => {
+        if (!src) return ART + "/art/hotel.jpg";
+        if (src.startsWith("http")) return src;
+        if (src.startsWith("./")) return ART + src.slice(1);
+        if (src.startsWith("/")) return ART + src;
+        return ART + "/" + src;
+      };
+
+      let state = Hotel.initialState();
+      let started = false;
+      let muted = false;
+      let speaking = false;
+
+      try {
+        const saved = JSON.parse(localStorage.getItem(KEY) || "null");
+        if (saved?.state) {
+          state = saved.state;
+          started = !!saved.started;
+        }
+      } catch {}
+
+      function persist() {
+        localStorage.setItem(KEY, JSON.stringify({ state, started }));
+      }
+
+      function speak(text) {
+        if (!window.speechSynthesis || muted) return;
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.96;
+        u.pitch = 0.9;
+        speaking = true;
+        u.onend = () => { speaking = false; };
+        window.speechSynthesis.speak(u);
+      }
+
+      function stopSpeak() {
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        speaking = false;
+      }
+
+      function renderTitle() {
+        $("title").classList.remove("hidden");
+        $("play").classList.add("hidden");
+        const has = state.deaths > 0 || state.loop > 1 || state.sceneId !== "wake";
+        $("begin").textContent = has ? "Continue this loop" : "Check in";
+        $("fresh").classList.toggle("hidden", !has);
+      }
+
+      function renderPlay() {
+        $("title").classList.add("hidden");
+        $("play").classList.remove("hidden");
+        const scene = Hotel.getScene(state.sceneId);
+        const text = Hotel.resolveText(state);
+        const choices = Hotel.resolveChoices(state);
+        $("meta").textContent = "Loop " + state.loop + "  /  " + state.deaths + " death" + (state.deaths === 1 ? "" : "s") + "  /  " + Hotel.TIME_LABEL[state.time];
+        $("art").src = artUrl(scene.art);
+        $("loc").textContent = scene.location || "";
+        $("prose").textContent = text;
+        if (scene.portrait) {
+          $("who").classList.remove("hidden");
+          $("portrait").src = artUrl(scene.portrait);
+          $("role").textContent = scene.speaker === "jack" ? "You" : scene.speaker || "";
+          $("whoName").textContent = NAMES[scene.speaker] || "Jack Causey";
+        } else {
+          $("who").classList.add("hidden");
+        }
+        const box = $("choices");
+        box.innerHTML = "";
+        if (scene.tone === "death") {
+          const b = document.createElement("button");
+          b.className = "btn btn-solid";
+          b.textContent = "Wake up. Read the new line.";
+          b.onclick = () => {
+            stopSpeak();
+            state = Hotel.wakeFromDeath(state);
+            persist();
+            renderPlay();
+          };
+          box.appendChild(b);
+        } else {
+          for (const c of choices) {
+            const b = document.createElement("button");
+            b.className = "choice";
+            b.innerHTML = c.label + (c.hint ? '<span class="h">' + c.hint + "</span>" : "");
+            b.onclick = () => {
+              stopSpeak();
+              state = Hotel.applyChoice(state, c);
+              persist();
+              renderPlay();
+            };
+            box.appendChild(b);
+          }
+        }
+        if (!muted) speak(text);
+      }
+
+      $("begin").onclick = () => {
+        started = true;
+        persist();
+        renderPlay();
+      };
+      $("fresh").onclick = () => {
+        state = Hotel.resetRun();
+        started = true;
+        persist();
+        renderPlay();
+      };
+      $("mute").onclick = () => {
+        muted = !muted;
+        if (muted) stopSpeak();
+        $("mute").textContent = muted ? "×" : "♫";
+      };
+      $("speak").onclick = () => {
+        if (speaking) { stopSpeak(); return; }
+        speak(Hotel.resolveText(state));
+      };
+      $("order").onclick = () => {
+        $("rules").innerHTML = state.workOrder.map((r) => "<li>" + r + "</li>").join("");
+        $("sheet").classList.remove("hidden");
+      };
+      $("closeOrder").onclick = () => $("sheet").classList.add("hidden");
+      $("reset").onclick = () => {
+        stopSpeak();
+        state = Hotel.resetRun();
+        started = false;
+        persist();
+        $("sheet").classList.add("hidden");
+        renderTitle();
+      };
+      $("sheet").addEventListener("click", (e) => {
+        if (e.target === $("sheet")) $("sheet").classList.add("hidden");
+      });
+
+      if (started) renderPlay();
+      else renderTitle();
+    </script>
+  </body>
+</html>
