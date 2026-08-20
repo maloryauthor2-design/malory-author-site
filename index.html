@@ -1012,6 +1012,16 @@
         const newsletterSuccess = document.getElementById('newsletter-success');
         const newsletterFallback = document.getElementById('newsletter-fallback');
 
+        /* Backmatter attribution (2026-08-20): links from book backmatter carry
+           ?src=bm; those signups post to the "Malory Site — Backmatter signups"
+           form (196354383571584148) so MailerLite counts the source separately.
+           Same group and welcome flow either way. */
+        let mlEndpoint = 'https://assets.mailerlite.com/jsonp/2489284/forms/192551300523624412/subscribe';
+        try {
+            if (new URLSearchParams(location.search).get('src') === 'bm') sessionStorage.setItem('mal_src', 'bm');
+            if (sessionStorage.getItem('mal_src') === 'bm') mlEndpoint = 'https://assets.mailerlite.com/jsonp/2489284/forms/196354383571584148/subscribe';
+        } catch (e) {}
+
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1031,7 +1041,7 @@
                 button.innerHTML = 'Sending\u2026';
                 let ok = false;
                 try {
-                    const resp = await fetch('https://assets.mailerlite.com/jsonp/2489284/forms/192551300523624412/subscribe', {
+                    const resp = await fetch(mlEndpoint, {
                         method: 'POST',
                         body: new URLSearchParams({ 'fields[email]': email, 'ml-submit': '1', 'anticsrf': 'true' })
                     });
