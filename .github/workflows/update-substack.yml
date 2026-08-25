@@ -2,7 +2,11 @@ name: Refresh Substack posts
 
 on:
   schedule:
+    # Daily catch-all, plus a later Friday/Saturday sweep so a Friday essay that
+    # goes out after 13:10 UTC (14 Aug went out at 19:11) still lands on the
+    # homepage the same day rather than a day late.
     - cron: "10 13 * * *"
+    - cron: "10 21 * * 5,6"
   workflow_dispatch:
 
 permissions:
