@@ -52,11 +52,10 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-MIRRORS = {
-    "wednesday-deconstruction-using-first": "essays/first-person-narrative-voice.html",
-    "what-you-told-me-about-boys-and-books": "essays/what-you-told-me-about-boys-and-books.html",
-    "wednesday-deconstruction-the-art": "essays/bait-and-switch-chapter-end.html",
-}
+# On-site mirrors of Substack posts. Empty on purpose: the posts that used to be
+# mirrored here were taken down from Substack, and their local copies were
+# deleted on 2026-08-25, so every card now links straight to the live post.
+MIRRORS: dict = {}
 
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -148,11 +147,28 @@ def clean_title(title: str) -> str:
 
 
 def format_date(pub: str) -> str:
+    """Format a pubDate for display.
+
+    Substack's own RSS gives RFC 822 ("Fri, 21 Aug 2026 08:21:23 GMT"), but the
+    rss2json proxy hands back "2026-08-21 08:21:23", which parsedate_to_datetime
+    cannot read, and the old version of this function just returned "" when that
+    happened, which is how the homepage ended up showing three blank dates.
+    Try RFC 822 first, then fall back to the leading ISO date.
+    """
+    pub = (pub or "").strip()
+    if not pub:
+        return ""
     try:
         d = parsedate_to_datetime(pub)
         return f"{d.day} {MONTHS[d.month - 1]} {d.year}"
     except Exception:
-        return ""
+        pass
+    m = re.match(r"(\d{4})-(\d{2})-(\d{2})", pub)
+    if m:
+        y, mo, dy = (int(x) for x in m.groups())
+        if 1 <= mo <= 12:
+            return f"{dy} {MONTHS[mo - 1]} {y}"
+    return ""
 
 
 def short_desc(desc_html: str) -> str:
