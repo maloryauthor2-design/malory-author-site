@@ -711,12 +711,11 @@
                 var FEED = 'https://api.rss2json.com/v1/api.json?rss_url=' +
                            encodeURIComponent('https://maloryauthor.substack.com/feed');
 
-                // On-site mirrors — if a Substack post has a local copy, link to that instead.
-                var MIRRORS = {
-                    'wednesday-deconstruction-using-first': 'essays/first-person-narrative-voice.html',
-                    'what-you-told-me-about-boys-and-books': 'essays/what-you-told-me-about-boys-and-books.html',
-                    'wednesday-deconstruction-the-art':     'essays/bait-and-switch-chapter-end.html'
-                };
+                // On-site mirrors — if a Substack post has a local copy, link to that
+                // instead. Empty on purpose: the posts that used to be mirrored here were
+                // taken down from Substack, and their local copies were deleted on
+                // 2026-08-25, so every card now links straight to the live post.
+                var MIRRORS = {};
 
                 function categoryFor(title) {
                     var t = title.toLowerCase();
