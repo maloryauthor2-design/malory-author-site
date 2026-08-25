@@ -7,7 +7,7 @@ import pathlib
 import re
 
 root = pathlib.Path(__file__).resolve().parents[2]
-SKIP = {"404.html", "search.html", "essays/first-person-narrative-voice.html", "essays/bait-and-switch-chapter-end.html"}
+SKIP = {"404.html", "search.html"}
 
 
 def page_type(path):
