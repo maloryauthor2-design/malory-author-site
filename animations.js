@@ -240,8 +240,11 @@
         // Inject spotlight CSS
         const style = document.createElement('style');
         style.textContent = `
-            .series-book-card img, .book-cover {
+            .series-book-card img, .book-cover, .series-book-card picture {
                 position: relative;
+            }
+            .spotlight-wrap picture {
+                display: block;
             }
             .spotlight-wrap {
                 position: relative;
@@ -271,12 +274,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Wrap each book cover image in a spotlight container
             document.querySelectorAll('.series-book-card img, .book-cover').forEach(img => {
+                // A <source> only applies to an <img> that is a DIRECT child of
+                // <picture>. Slipping this div in between silently killed every
+                // WebP on the site, so wrap the <picture> itself where there is one.
+                const target = (img.parentElement && img.parentElement.tagName === 'PICTURE')
+                    ? img.parentElement
+                    : img;
                 // Don't wrap if already wrapped
-                if (img.parentElement.classList.contains('spotlight-wrap')) return;
+                if (target.parentElement && target.parentElement.classList.contains('spotlight-wrap')) return;
                 const wrap = document.createElement('div');
                 wrap.className = 'spotlight-wrap';
-                img.parentNode.insertBefore(wrap, img);
-                wrap.appendChild(img);
+                target.parentNode.insertBefore(wrap, target);
+                wrap.appendChild(target);
 
                 wrap.addEventListener('mousemove', (e) => {
                     const rect = wrap.getBoundingClientRect();
