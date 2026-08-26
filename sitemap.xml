@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/books.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -55,8 +55,26 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://maloryauthor.com/essays/a-chilean-experiment.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
     <loc>https://maloryauthor.com/essays/a-field-guide-to-the-performative-male-reader.html</loc>
     <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/dad-books-arent-dying.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/everyones-a-homer-expert-now.html</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -68,7 +86,19 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/essays/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/mens-and-boys-reading-statistics.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/mudies-did-this-to-us.html</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -79,8 +109,56 @@
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://maloryauthor.com/essays/the-bookshop-that-was-never-there.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-compound-interest-of-reading.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-loneliest-hobby.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-manospheres-best-customer.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-megalosaurus-test.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-oldest-sneer-in-publishing.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
     <loc>https://maloryauthor.com/essays/the-one-word-experiment.html</loc>
     <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-wee-county-experiment.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/worried-your-son-might-be-a-reader.html</loc>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -242,7 +320,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/terror-from-the-deep.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
