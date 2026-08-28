@@ -264,6 +264,12 @@
   "type": "Book"
  },
  {
+  "title": "Reviews for Tangent Online",
+  "desc": "Short fiction reviews by Malory for Tangent Online — Cirsova, Strange Horizons, Utopia Science Fiction and Eric Flint's 1632 & Beyond.",
+  "url": "reviews/",
+  "type": "Review"
+ },
+ {
   "title": "Arcane Galaxy — Series Guide",
   "desc": "Arcane Galaxy by Jake Malory & Troy Osgood — space western LitRPG. Reading order, world, and Aethon audiobook info.",
   "url": "series/arcane-galaxy.html",
