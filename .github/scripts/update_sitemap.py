@@ -36,6 +36,7 @@ files = sorted(
         glob.glob("*.html", root_dir=root)
         + glob.glob("series/*.html", root_dir=root)
         + glob.glob("essays/*.html", root_dir=root)
+        + glob.glob("reviews/*.html", root_dir=root)
     )
     if f not in ("404.html", "search.html")
 )
