@@ -11,6 +11,8 @@ SKIP = {"404.html", "search.html"}
 
 
 def page_type(path):
+    if path.startswith("reviews/"):
+        return "Review"
     if path.startswith("essays/"):
         return "Essay"
     if path.startswith("series/"):
@@ -23,7 +25,7 @@ def page_type(path):
 
 
 entries = []
-for f in sorted(glob.glob("*.html", root_dir=root) + glob.glob("series/*.html", root_dir=root) + glob.glob("essays/*.html", root_dir=root)):
+for f in sorted(glob.glob("*.html", root_dir=root) + glob.glob("series/*.html", root_dir=root) + glob.glob("essays/*.html", root_dir=root) + glob.glob("reviews/*.html", root_dir=root)):
     if f in SKIP:
         continue
     s = (root / f).read_text(encoding="utf-8", errors="replace")
