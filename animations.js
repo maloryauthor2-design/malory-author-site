@@ -389,6 +389,8 @@
             // Only intercept local page links (not external, not anchors, not booklinker)
             if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('//') || link.target === '_blank') return;
             if (!href.endsWith('.html') && href !== '/') return;
+            // Fixed 2026-09-02: cmd/ctrl/shift-click and middle-click must open a new tab, not be swallowed by the fade.
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0 || link.hasAttribute('download')) return;
 
             e.preventDefault();
 
