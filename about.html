@@ -233,7 +233,7 @@
 
     <header>
         <a href="/" class="logo-link" aria-label="Malory - Home">
-            <img src="malory-mark.svg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high" />
+            <img src="malory-mark.svg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high" / loading="eager" decoding="async">
         </a>
         <div class="header-text">
             <p class="site-name">Malory</p>
@@ -253,9 +253,9 @@
     <main id="main-content">
         <section class="about-container" aria-label="About the author">
             <div class="about-image-col">
-                <img src="selfie-1.jpg" alt="Malory - Sci-Fi and Fantasy Author" class="about-image" width="320" height="427" loading="eager" fetchpriority="high">
+                <picture><source srcset="selfie-1.webp" type="image/webp"><img src="selfie-1.jpg" alt="Malory - Sci-Fi and Fantasy Author" class="about-image" width="320" height="427" loading="eager" fetchpriority="high"></picture>
                 <div class="about-badges">
-                    <img src="humanauthored.png" alt="Human Authored Certified" title="100% Human Authored" height="25" loading="lazy">
+                    <picture><source srcset="humanauthored.webp" type="image/webp"><img src="humanauthored.png" alt="Human Authored Certified" title="100% Human Authored" height="25" loading="lazy" width="577" height="601"></picture>
                 </div>
             </div>
 
@@ -317,7 +317,7 @@
             <a href="/#newsletter">Newsletter</a>
         </nav>
         <p>
-            <img src="humanauthored.png" alt="Human Authored Certified" class="footer-badge" height="25" loading="lazy">
+            <picture><source srcset="humanauthored.webp" type="image/webp"><img src="humanauthored.png" alt="Human Authored Certified" class="footer-badge" height="25" loading="lazy" width="577" height="601"></picture>
             &copy; 2026 Malory. All rights reserved.
         </p>
     </footer>

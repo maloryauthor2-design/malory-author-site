@@ -171,7 +171,7 @@
 
     <header>
         <a href="/" class="logo-link" aria-label="Malory - Home">
-            <img src="malory-mark.svg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high" />
+            <img src="malory-mark.svg" alt="Malory - Author of Sci-Fi, LitRPG, and Progression Fantasy" class="site-logo" width="180" height="180" fetchpriority="high" / loading="eager" decoding="async">
         </a>
         <div class="header-text">
             <p class="site-name">Malory</p>
@@ -183,6 +183,7 @@
                 <a href="start-here.html">Start Here</a>
                 <a href="books.html">Books</a>
                 <a href="essays/">Essays</a>
+                <a href="reviews/">Reviews</a>
                 <a href="about.html">About</a>
             </nav>
         </div>
@@ -194,11 +195,11 @@
             <div class="cover-col">
                 <picture>
                     <source srcset="psyker-6-500w.webp 500w, psyker-6.webp 1500w" sizes="(max-width: 768px) 80vw, 320px" type="image/webp">
-                    <img src="psyker-6.jpg" alt="Psyker Marine: Book 6 cover — Psyker Marine Book 6 by Jake Malory" width="320" height="480">
+                    <img src="psyker-6.jpg" alt="Psyker Marine: Book 6 cover — Psyker Marine Book 6 by Jake Malory" width="320" height="480" loading="lazy" decoding="async">
                 </picture>
             </div>
             <div class="info-col">
-                <img src="brand/jake-malory-wordmark.svg" alt="Jake Malory" class="jake-lockup" width="240" height="96">
+                <img src="brand/jake-malory-wordmark.svg" alt="Jake Malory" class="jake-lockup" width="240" height="96" loading="lazy" decoding="async">
                 <div class="series-anchor-rule" aria-hidden="true"></div>
                 <div class="series-eyebrow">Psyker Marine &middot; Book 6 &middot; aka Galactic Invasion series</div>
                 <h1>Psyker Marine: Book 6</h1>
@@ -261,6 +262,7 @@
             <a href="books.html">Books</a>
             <a href="about.html">About</a>
             <a href="essays/">Essays</a>
+                <a href="reviews/">Reviews</a>
             <a href="orbital-decay.html">Baen Award</a>
             <a href="press.html">Press</a>
             <a href="start-here.html">Start Here</a>
@@ -268,7 +270,7 @@
             <a href="/#newsletter">Newsletter</a>
         </nav>
         <p>
-            <img src="humanauthored.png" alt="Human Authored Certified" class="footer-badge" height="25" loading="lazy">
+            <picture><source srcset="humanauthored.webp" type="image/webp"><img src="humanauthored.png" alt="Human Authored Certified" class="footer-badge" height="25" loading="lazy" width="577" height="601"></picture>
             &copy; 2026 Malory. All rights reserved.
         </p>
     </footer>
