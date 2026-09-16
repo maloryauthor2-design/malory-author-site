@@ -34,11 +34,15 @@
 }
 
 /* Stop the page scrolling sideways on a phone. books.html was 105px wider than a
-   390px viewport: three fixed-position elements (the starfield canvas, the mobile
-   buy bar and the page-transition overlay) are 100% wide, so once anything widens
-   the page during load they lock that width in. `clip` rather than `hidden`
-   because books.html uses position: sticky, which a scroll container would break. */
-html, body { overflow-x: clip; }
+   390px viewport, because three fixed-position elements (the starfield canvas, the
+   mobile buy bar and the page-transition overlay) size themselves to the document
+   and lock in whatever width it reaches during load.
+
+   This has to go on main, NOT on html/body. `overflow-x` on body computes to
+   hidden/auto, which makes body a scroll container and silently kills the sticky
+   series menu on books.html. `clip` on main creates no scroll container, so the
+   sticky menu keeps working. Verified both ways before landing. */
+main { overflow-x: clip; }
 
 
 /* --- GLOBAL RESET & BASE --- */
