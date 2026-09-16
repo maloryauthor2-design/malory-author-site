@@ -90,6 +90,12 @@
   "type": "Essay"
  },
  {
+  "title": "Isn’t it a Hoot Your Boyfriend Can’t Read?",
+  "desc": "A TikTok trend filming men mispronouncing words got read as a literacy crisis. It measures which words you have only seen in print.",
+  "url": "essays/isnt-it-a-hoot-your-boyfriend-cant.html",
+  "type": "Essay"
+ },
+ {
   "title": "Men's and Boys' Reading Statistics",
   "desc": "A sourced, myth-checked roundup of men's and boys' reading: the verified numbers, the zombie stats to avoid, and where the audited data stops.",
   "url": "essays/mens-and-boys-reading-statistics.html",
@@ -102,6 +108,12 @@
   "type": "Essay"
  },
  {
+  "title": "Strictly for Men (and the Women Who Read It)",
+  "desc": "The Telegraph got the LitRPG piece right and then ran a headline calling the genre strictly male. Its readers had notes.",
+  "url": "essays/strictly-for-men-and-the-women-who.html",
+  "type": "Essay"
+ },
+ {
   "title": "The Age of Reading Isn’t Over",
   "desc": "The Atlantic says reading is dying for everyone. The data says the collapse is male and arrived a generation early — a reply to Rose Horowitch.",
   "url": "essays/the-age-of-reading-isnt-over.html",
@@ -111,6 +123,12 @@
   "title": "The Bookshop That Was Never There",
   "desc": "The reading gap is less about phones or willpower than supply. Most boys never get within arm's reach of the book they would have loved.",
   "url": "essays/the-bookshop-that-was-never-there.html",
+  "type": "Essay"
+ },
+ {
+  "title": "The Canary Died on Tuesday",
+  "desc": "PISA 2025 landed badly across the UK, and the replies from Cardiff and Edinburgh explain why the girls’ numbers go next.",
+  "url": "essays/the-canary-died-on-tuesday.html",
   "type": "Essay"
  },
  {
@@ -265,7 +283,7 @@
  },
  {
   "title": "Reviews for Tangent Online",
-  "desc": "Short fiction reviews by Malory for Tangent Online: Nightmare, Cirsova, Strange Horizons, Utopia Science Fiction and Eric Flint's 1632 & Beyond.",
+  "desc": "Short fiction reviews by Malory for Tangent Online: Adventitious, Nightmare, Cirsova, Strange Horizons, Utopia SF and 1632 & Beyond.",
   "url": "reviews/",
   "type": "Review"
  },

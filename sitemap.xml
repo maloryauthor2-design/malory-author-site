@@ -86,7 +86,13 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/essays/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/isnt-it-a-hoot-your-boyfriend-cant.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -103,6 +109,12 @@
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://maloryauthor.com/essays/strictly-for-men-and-the-women-who.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
     <loc>https://maloryauthor.com/essays/the-age-of-reading-isnt-over.html</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -111,6 +123,12 @@
   <url>
     <loc>https://maloryauthor.com/essays/the-bookshop-that-was-never-there.html</loc>
     <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/essays/the-canary-died-on-tuesday.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -152,7 +170,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/essays/the-wee-county-experiment.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -266,7 +284,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/reviews/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
