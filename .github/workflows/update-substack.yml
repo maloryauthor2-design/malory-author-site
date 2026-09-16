@@ -36,6 +36,9 @@ jobs:
       - name: Keep JSON-LD dates and book authors honest
         run: python3 .github/scripts/update_schema_dates.py
 
+      - name: Refresh the Amazon offers on the book pages
+        run: python3 .github/scripts/update_book_offers.py
+
       - name: Regenerate sitemap.xml
         run: python3 .github/scripts/update_sitemap.py
 
