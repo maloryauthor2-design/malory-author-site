@@ -39,14 +39,18 @@ jobs:
       - name: Regenerate search index
         run: python3 .github/scripts/update_search_index.py
 
-      - name: Commit & push if the homepage changed
+      - name: Commit & push if any generated page changed
         run: |
-          if git diff --quiet -- index.html sitemap.xml search-index.json; then
-            echo "No change - homepage already up to date."
+          # Deliberately not a fixed file list. The series-count step can touch any
+          # page carrying a Where-to-Start grid (index.html and start-here.html
+          # today), and a hardcoded list here is how start-here.html silently
+          # stopped being updated once before.
+          if git diff --quiet; then
+            echo "No change - generated pages already up to date."
           else
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html sitemap.xml search-index.json
-            git commit -m "Auto: refresh homepage & sitemap"
+            git add -A
+            git commit -m "Auto: refresh generated pages"
             git push
           fi
