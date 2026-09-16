@@ -33,6 +33,14 @@
     --max-width:         900px;
 }
 
+/* Stop the page scrolling sideways on a phone. books.html was 105px wider than a
+   390px viewport: three fixed-position elements (the starfield canvas, the mobile
+   buy bar and the page-transition overlay) are 100% wide, so once anything widens
+   the page during load they lock that width in. `clip` rather than `hidden`
+   because books.html uses position: sticky, which a scroll container would break. */
+html, body { overflow-x: clip; }
+
+
 /* --- GLOBAL RESET & BASE --- */
 *, *::before, *::after {
     box-sizing: border-box;
