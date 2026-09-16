@@ -1,0 +1,25 @@
+{
+  "_comment": "Prices for the Book offers in each book page's JSON-LD. Read from amazon.co.uk on the date below: the Kindle 'to buy' price where there is one, otherwise the paperback price. GBP because the site is en-GB and the -21 Associates tag pays on the European stores. Update the numbers here and the next workflow run rewrites every page.",
+  "_updated": "2026-09-16",
+  "_currency": "GBP",
+  "books": {
+    "welcome-to-the-dark-ages.html": { "slug": "dark-ages",            "price": "5.99", "format": "EBook" },
+    "journey-to-the-dark-tower.html": { "slug": "dark-tower",          "price": "5.99", "format": "EBook" },
+    "quest-for-the-dark-blade.html": { "slug": "dark-blade",           "price": "5.99", "format": "EBook" },
+    "murder-in-the-temple.html":    { "slug": "murder-temple",         "price": "5.99", "format": "EBook" },
+    "death-of-a-curator.html":      { "slug": "death-curator",         "price": "4.99", "format": "EBook" },
+    "the-cuckoos-last-call.html":   { "slug": "cuckoos-call",          "price": "4.99", "format": "EBook" },
+    "psyker-marine-1.html":         { "slug": "psyker-1",              "price": "4.04", "format": "EBook" },
+    "psyker-marine-2.html":         { "slug": "psyker-2",              "price": "3.75", "format": "EBook" },
+    "psyker-marine-3.html":         { "slug": "psyker-3",              "price": "3.99", "format": "EBook" },
+    "psyker-marine-4.html":         { "slug": "psyker-4",              "price": "4.99", "format": "EBook" },
+    "psyker-marine-5.html":         { "slug": "psyker-5",              "price": "3.99", "format": "EBook" },
+    "psyker-marine-6.html":         { "slug": "psyker-6",              "price": "3.99", "format": "EBook" },
+    "chaos-protocols.html":         { "slug": "chaos-protocols",       "price": "3.99", "format": "EBook" },
+    "swashbuckler.html":            { "slug": "swashbuckler",          "price": "4.99", "format": "EBook" },
+    "punish-the-system.html":       { "slug": "punish-system",         "price": "3.02", "format": "EBook" },
+    "clockwork-terror.html":        { "slug": "clockwork-terror",      "price": "2.96", "format": "EBook" },
+    "mr-glimms-skull.html":         { "slug": "mr-glimm",              "price": "11.20", "format": "Paperback" },
+    "terror-from-the-deep.html":    { "slug": "terror-from-the-deep",  "price": "11.99", "format": "Paperback" }
+  }
+}
