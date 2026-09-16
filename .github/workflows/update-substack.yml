@@ -33,6 +33,9 @@ jobs:
       - name: Refresh the Where-to-Start series counts from books.html
         run: python3 .github/scripts/update_series_counts.py
 
+      - name: Keep JSON-LD dates and book authors honest
+        run: python3 .github/scripts/update_schema_dates.py
+
       - name: Regenerate sitemap.xml
         run: python3 .github/scripts/update_sitemap.py
 
