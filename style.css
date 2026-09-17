@@ -44,6 +44,25 @@
    sticky menu keeps working. Verified both ways before landing. */
 main { overflow-x: clip; }
 
+/* Tap targets on touch screens. Google's minimum is 24px each way with space
+   between. The social icons were 12px wide, the nav links 20 to 22px tall, the
+   sample and read-next links a couple of pixels short. This pads the hit area
+   without changing the type, and only on viewports narrow enough to be a phone,
+   so the desktop layout is untouched. */
+@media (max-width: 768px) {
+    .social-links a {
+        display: inline-flex; align-items: center; justify-content: center;
+        min-width: 32px; min-height: 32px; margin-right: 8px;
+    }
+    nav a, .footer-nav a { display: inline-block; padding: 5px 2px; }
+    .footer-nav { gap: 6px 10px; }
+    .sample-link, .sample-link:visited, .continuity-link, .series-header a, .header-award a {
+        padding-top: 3px; padding-bottom: 3px;
+    }
+    .scrolling-text a { display: inline-block; padding: 4px 0; }
+}
+
+
 
 /* --- GLOBAL RESET & BASE --- */
 *, *::before, *::after {
