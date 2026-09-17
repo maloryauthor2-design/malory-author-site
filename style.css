@@ -60,6 +60,11 @@ main { overflow-x: clip; }
         padding-top: 3px; padding-bottom: 3px;
     }
     .scrolling-text a { display: inline-block; padding: 4px 0; }
+    /* Inline links do not grow with vertical padding; these need to be
+       inline-block for the padding to count towards the hit area. */
+    .header-award a, a.essay-teaser, .essay-pull-foot a, .hero-content-box a {
+        display: inline-block; padding-top: 4px; padding-bottom: 4px;
+    }
 }
 
 
