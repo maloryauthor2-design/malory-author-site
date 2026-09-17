@@ -1,5 +1,5 @@
 /* =========================================
-   MALORY AUTHOR WEBSITE — GLOBAL STYLES
+   MALORY AUTHOR WEBSITE: GLOBAL STYLES
    ========================================= */
 
 /* --- CSS CUSTOM PROPERTIES --- */
@@ -9,7 +9,7 @@
     --color-border:      #333;
     --color-border-light:#444;
     --color-border-subtle:rgba(255,255,255,0.05);
-    /* Brand-foundation primary accents — single source of truth. */
+    /* Brand-foundation primary accents: single source of truth. */
     --color-gold:        #C9A85A;  /* brass */
     --color-gold-light:  #E0C478;  /* brass bright */
     --color-text:        #E8E0CC;  /* cream */
@@ -332,7 +332,7 @@ nav a.active-link::after {
 }
 
 /* =========================================
-   HOME PAGE — HERO / LEAD MAGNET
+   HOME PAGE: HERO / LEAD MAGNET
    ========================================= */
 .hero-lead-magnet {
     width: 100%;
@@ -441,7 +441,7 @@ nav a.active-link::after {
 }
 
 /* =========================================
-   HOME PAGE — LATEST RELEASE
+   HOME PAGE: LATEST RELEASE
    ========================================= */
 .book-container {
     display: flex;
@@ -1223,7 +1223,7 @@ footer {
         margin: 0;
     }
 
-    /* On mobile, kill the bounce — just fade between messages via JS */
+    /* On mobile, kill the bounce: just fade between messages via JS */
     .scrolling-text {
         animation: none;
         left: 0;
@@ -1366,7 +1366,7 @@ footer {
 }
 
 /* =====================================================================
-   DESIGN SYSTEM V2 — REFINEMENT LAYER
+   DESIGN SYSTEM V2: REFINEMENT LAYER
    ---------------------------------------------------------------------
    Adds a more refined typographic scale, spacing tokens, card system,
    button polish, refined section dividers, ambient lighting, and
@@ -1376,7 +1376,7 @@ footer {
    ===================================================================== */
 
 :root {
-    /* Refined palette — tertiary accents and warmer grays */
+    /* Refined palette: tertiary accents and warmer grays */
     --c-bg-deep:        #0a0d12;
     --c-bg:             #0d1015;
     --c-surface-1:      #14181f;
@@ -1391,7 +1391,7 @@ footer {
     --c-text-mute:      #7d8088;
     --c-text-strong:    #ffffff;
 
-    --c-gold:           #C9A85A;  /* brass — brand-foundation primary accent */
+    --c-gold:           #C9A85A;  /* brass: brand-foundation primary accent */
     --c-gold-warm:      #E0C478;  /* brass bright */
     --c-gold-deep:      #927838;  /* brass deep */
 
@@ -1419,7 +1419,7 @@ footer {
     --sp-9:  96px;
     --sp-10: 128px;
 
-    /* Refined shadow system — layered, subtle */
+    /* Refined shadow system: layered, subtle */
     --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
     --shadow-2: 0 2px 4px rgba(0,0,0,0.25), 0 1px 2px rgba(0,0,0,0.4);
     --shadow-3: 0 4px 6px rgba(0,0,0,0.25), 0 2px 4px rgba(0,0,0,0.4);
@@ -1432,7 +1432,7 @@ footer {
     --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* --- AMBIENT BACKGROUND — subtle radial wash --- */
+/* --- AMBIENT BACKGROUND: subtle radial wash --- */
 body {
     background:
         radial-gradient(1200px 600px at 80% -10%, rgba(201, 168, 90, 0.045), transparent 60%),
@@ -1489,7 +1489,7 @@ main p + p {
     margin-top: var(--sp-4);
 }
 
-/* --- ACCENT RULE — for under H2s & similar --- */
+/* --- ACCENT RULE: for under H2s & similar --- */
 .accent-rule,
 .section-title::after {
     display: block;
@@ -1501,7 +1501,7 @@ main p + p {
     border-radius: 2px;
 }
 
-/* --- TOP BAR — quieter, denser --- */
+/* --- TOP BAR: quieter, denser --- */
 .top-bar {
     background: linear-gradient(180deg, rgba(20, 24, 31, 0.92), rgba(13, 16, 21, 0.92));
     border: 1px solid var(--c-line);
@@ -1521,7 +1521,7 @@ main p + p {
     color: var(--c-gold);
 }
 
-/* --- HEADER — better balance, refined divider --- */
+/* --- HEADER: better balance, refined divider --- */
 header {
     border-bottom: 1px solid var(--c-line);
     position: relative;
@@ -1621,7 +1621,7 @@ nav a.active-link::after {
     margin-bottom: var(--sp-5);
 }
 
-/* --- CARD SYSTEM — unified treatment for v1 cards --- */
+/* --- CARD SYSTEM: unified treatment for v1 cards --- */
 .book-container,
 .review-card,
 .guide-card,
@@ -1684,7 +1684,7 @@ nav a.active-link::after {
     letter-spacing: 0.12em;
 }
 
-/* --- BUTTONS — refined gradient + better press --- */
+/* --- BUTTONS: refined gradient + better press --- */
 .buy-button {
     font-family: var(--font-body);
     font-weight: 600;
@@ -1736,7 +1736,7 @@ nav a.active-link::after {
     border-color: rgba(0,0,0,0.3);
 }
 
-/* --- SECTION DIVIDERS — gradient hairlines --- */
+/* --- SECTION DIVIDERS: gradient hairlines --- */
 .social-proof,
 .social-video-feed,
 .publisher-strip,
@@ -1980,7 +1980,7 @@ main p a:hover {
     padding-right: 12px;
 }
 
-/* --- MICRO-INTERACTIONS — focus rings --- */
+/* --- MICRO-INTERACTIONS: focus rings --- */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
@@ -2057,7 +2057,7 @@ img {
     font-style: italic;
 }
 
-/* Jake Malory secondary lockup — per BRAND_FOUNDATION §5c.
+/* Jake Malory secondary lockup: per BRAND_FOUNDATION §5c.
    Used on Psyker Marine and Arcane Galaxy: Chaos Protocols material only.
    Sits above the series eyebrow when present. */
 .series-banner .jake-lockup {
@@ -2067,7 +2067,7 @@ img {
     margin: 0 auto var(--sp-3);
 }
 
-/* Umbrella Malory wordmark — per BRAND_FOUNDATION §5a.
+/* Umbrella Malory wordmark: per BRAND_FOUNDATION §5a.
    The everyday brand layer. Lives on series banners for Malory-umbrella
    series (i.e. not Psyker / AG). Sized a touch smaller than the Jake
    variant to soften the duplication with the global nav's "Malory" text. */
@@ -2078,7 +2078,7 @@ img {
     margin: 0 auto var(--sp-3);
 }
 
-/* Series anchor rule — per BRAND_FOUNDATION §6 usage rules.
+/* Series anchor rule: per BRAND_FOUNDATION §6 usage rules.
    A thin 4–6px rule in the series color, drawn beneath the author lockup. */
 .series-banner .series-anchor-rule {
     width: 96px;
@@ -2088,7 +2088,7 @@ img {
     border-radius: 2px;
 }
 
-/* Book-detail page versions — left-aligned to match info-col layout.
+/* Book-detail page versions: left-aligned to match info-col layout.
    Reads --book-accent from the page's :root (each book page sets its own
    color: AG = #3D7FB8, Psyker = #D04848, M&M = #5B3A7A, etc). */
 .book-page-hero .jake-lockup {
@@ -2233,17 +2233,17 @@ img {
 }
 
 /* =====================================================================
-   DESIGN SYSTEM V3 — EDITORIAL MONOGRAPH LAYER
+   DESIGN SYSTEM V3: EDITORIAL MONOGRAPH LAYER
    ---------------------------------------------------------------------
    Aesthetic direction: print-publication discipline applied to the
    existing dark/gold sci-fi shell. Like a sci-fi author's monograph
    if it were designed by NYRB or Fitzcarraldo Editions.
 
    Typographic system:
-     - Fraunces (variable serif) for headlines — characterful, opsz-aware
-     - Newsreader (variable serif) for prose — designed for screens
-     - JetBrains Mono for metadata, eyebrows, dates — working-text feel
-     - Orbitron / Rajdhani deprecated (per brand foundation) — only retained as fallback for
+     - Fraunces (variable serif) for headlines: characterful, opsz-aware
+     - Newsreader (variable serif) for prose: designed for screens
+     - JetBrains Mono for metadata, eyebrows, dates: working-text feel
+     - Orbitron / Rajdhani deprecated (per brand foundation): only retained as fallback for
        sections that already use them
 
    Palette refinement:
@@ -2294,7 +2294,7 @@ body {
     color: var(--text-warm);
 }
 
-/* Film-grain overlay across the page — extremely subtle */
+/* Film-grain overlay across the page: extremely subtle */
 body::before {
     content: "";
     position: fixed;
@@ -2311,7 +2311,7 @@ main, header, .top-bar, footer {
     z-index: 2;
 }
 
-/* --- DISPLAY TYPOGRAPHY — Fraunces takes the headlines --- */
+/* --- DISPLAY TYPOGRAPHY: Fraunces takes the headlines --- */
 .editorial h1,
 .editorial h2,
 .editorial h3,
@@ -2342,7 +2342,7 @@ main > section > h2.editorial,
     font-variation-settings: "opsz" 96, "wght" 500;
 }
 
-/* --- BODY PROSE — Newsreader for reading sections --- */
+/* --- BODY PROSE: Newsreader for reading sections --- */
 .editorial-prose,
 .editorial-prose p,
 .about-text-col p,
@@ -2365,7 +2365,7 @@ main > section > h2.editorial,
     margin-top: 1.1em;
 }
 
-/* --- MONO METADATA — JetBrains Mono for the working-text register --- */
+/* --- MONO METADATA: JetBrains Mono for the working-text register --- */
 .editorial-eyebrow,
 .mono-tag,
 .case-file-line,
@@ -2394,7 +2394,7 @@ main > section > h2.editorial,
     opacity: 0.8;
 }
 
-/* --- SECTION NUMERAL — small numbered marker like a journal --- */
+/* --- SECTION NUMERAL: small numbered marker like a journal --- */
 .section-numeral {
     display: inline-flex;
     flex-direction: column;
@@ -2435,7 +2435,7 @@ main > section > h2.editorial,
     letter-spacing: 0.22em;
 }
 
-/* --- HAIRLINE RULE — print-style section divider --- */
+/* --- HAIRLINE RULE: print-style section divider --- */
 .editorial-rule {
     display: flex;
     align-items: center;
@@ -2691,7 +2691,7 @@ main > section > h2.editorial,
     }
 }
 
-/* Award badge — pinned outside the cover at top-right so it never covers
+/* Award badge: pinned outside the cover at top-right so it never covers
    author/title type. Hangs off the cover edge by 12px on top and right. */
 .hero-editorial-artifact .award-badge {
     position: absolute;
@@ -2755,7 +2755,7 @@ main > section > h2.editorial,
     }
 }
 
-/* --- LIBRARY SHELF — refined book grid --- */
+/* --- LIBRARY SHELF: refined book grid --- */
 .library-shelf {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -2813,7 +2813,7 @@ main > section > h2.editorial,
     text-shadow: none;
 }
 
-/* --- LINKS IN PROSE — refined --- */
+/* --- LINKS IN PROSE: refined --- */
 .editorial-prose a,
 .about-text-col p a,
 .essay-body p a {
@@ -2851,7 +2851,7 @@ main > section > h2.editorial,
 }
 
 /* =====================================================================
-   V3 — MOBILE TIGHTENING + SITE-WIDE ROLLOUT
+   V3: MOBILE TIGHTENING + SITE-WIDE ROLLOUT
    ---------------------------------------------------------------------
    Surgical mobile fixes for the editorial hero, plus the propagation
    move that pushes Fraunces into every page's existing heading rules
@@ -2859,14 +2859,14 @@ main > section > h2.editorial,
    previously rendered Orbitron headlines now render Fraunces.
    ===================================================================== */
 
-/* Make Fraunces the global display face — propagates to every page's
+/* Make Fraunces the global display face: propagates to every page's
    existing inline styles that reference var(--font-display). */
 :root {
     --font-display: 'Fraunces', 'EB Garamond', Georgia, serif;
 }
 
-/* But UI labels that look right in mono — eyebrows, footer-nav,
-   publisher-logos, series-jump-menu tabs, .ku-badge labels —
+/* But UI labels that look right in mono: eyebrows, footer-nav,
+   publisher-logos, series-jump-menu tabs, .ku-badge labels : 
    override back to JetBrains Mono so they don't read as serif
    small-caps where geometric small-caps was the working intent. */
 .footer-nav a,
@@ -2881,7 +2881,7 @@ nav a,
 }
 
 /* Body headings that previously had Orbitron's heavy uppercase
-   tracking now use Fraunces — pull tracking back and drop caps. */
+   tracking now use Fraunces: pull tracking back and drop caps. */
 h1, h2, h3, h4 {
     text-transform: none;
     letter-spacing: -0.005em;
@@ -2889,7 +2889,7 @@ h1, h2, h3, h4 {
 }
 
 /* But the editorial system's intentional eyebrow caps still need
-   wide tracking — these keep their existing class-level settings. */
+   wide tracking: these keep their existing class-level settings. */
 .editorial-eyebrow,
 .mono-tag,
 .case-file-line,
@@ -2902,7 +2902,7 @@ h1, h2, h3, h4 {
 }
 
 /* Page-section h2s on series/book/press/about pages all use
-   Fraunces via --font-display now — refine the size scale so
+   Fraunces via --font-display now: refine the size scale so
    they don't feel as shouty as Orbitron did. */
 .press-section h2,
 .award-section h2,
@@ -2917,7 +2917,7 @@ h1, h2, h3, h4 {
     text-transform: none;
 }
 
-/* Series banner heading — bigger, more confident */
+/* Series banner heading: bigger, more confident */
 .series-banner h1 {
     font-variation-settings: "opsz" 144, "wght" 580;
     letter-spacing: -0.02em;
@@ -2930,7 +2930,7 @@ h1, h2, h3, h4 {
 }
 
 /* About-page h2 (which was using gold + Orbitron-uppercase) becomes
-   editorial — bigger, serif, no underline rule. */
+   editorial: bigger, serif, no underline rule. */
 .about-text-col h2 {
     font-family: var(--font-serif-display) !important;
     font-variation-settings: "opsz" 96, "wght" 580;
@@ -2943,7 +2943,7 @@ h1, h2, h3, h4 {
     letter-spacing: -0.015em;
 }
 
-/* Press / Award / Genre / Essays page h1s — confident editorial */
+/* Press / Award / Genre / Essays page h1s: confident editorial */
 .press-hero h1,
 .award-hero h1,
 .genre-hero h1,
@@ -2954,7 +2954,7 @@ h1, h2, h3, h4 {
     letter-spacing: -0.02em;
 }
 
-/* Eyebrow on existing pages — switch to the editorial eyebrow look */
+/* Eyebrow on existing pages: switch to the editorial eyebrow look */
 .press-hero .press-eyebrow,
 .award-hero .award-eyebrow,
 .genre-hero .eyebrow,
@@ -3012,7 +3012,7 @@ h1, h2, h3, h4 {
         margin-bottom: 2px;
     }
 
-    /* Pull cover registration marks inside the cover at mobile —
+    /* Pull cover registration marks inside the cover at mobile : 
        they were clipping off-screen at narrow widths. */
     .hero-editorial-artifact .cover-wrap::before {
         top: -10px; left: -10px;
@@ -3063,7 +3063,7 @@ h1, h2, h3, h4 {
         letter-spacing: 0.1em;
     }
 
-    /* On very narrow screens the four-stat block is still too dense —
+    /* On very narrow screens the four-stat block is still too dense : 
        allow the values to drop to a single column if needed */
     .hero-editorial-aside {
         grid-template-columns: 1fr 1fr;
@@ -3075,7 +3075,7 @@ h1, h2, h3, h4 {
 }
 
 /* =====================================================================
-   HORIZONTAL SCROLL — READER REVIEWS STRIP
+   HORIZONTAL SCROLL: READER REVIEWS STRIP
    ---------------------------------------------------------------------
    Curated reviews mirrored from Goodreads. No auto-rotation: user
    swipes/drags at their own pace.  Snap-points keep cards aligned.
@@ -3290,7 +3290,7 @@ h1, h2, h3, h4 {
     }
 }
 
-/* Clickable card variant — whole tile is a link to its book page.
+/* Clickable card variant: whole tile is a link to its book page.
    Used on the homepage where each review references a different book. */
 a.review-tile-link {
     text-decoration: none;
@@ -3357,7 +3357,7 @@ a.review-tile-link:hover {
 }
 
 /* =====================================================================
-   V3 — COHESION OVERRIDES
+   V3: COHESION OVERRIDES
    ---------------------------------------------------------------------
    Hard reskin of legacy patterns that still ship on 24 pages and fight
    the editorial v3 system: the .hero-lead-magnet "Don't Miss" CTA box,
@@ -3553,7 +3553,7 @@ a.review-tile-link:hover {
     color: var(--text-warm);
 }
 
-/* ---- 4. Series jump menu (books page) — editorial refinement ---- */
+/* ---- 4. Series jump menu (books page): editorial refinement ---- */
 
 .series-jump-menu .tab-link {
     font-family: var(--font-mono) !important;
@@ -3582,7 +3582,7 @@ a.review-tile-link:hover {
     text-shadow: none !important;
 }
 
-/* ---- 5. Top bar refinement — quieter, more editorial ---- */
+/* ---- 5. Top bar refinement: quieter, more editorial ---- */
 
 .top-bar {
     background: linear-gradient(180deg, rgba(20, 24, 31, 0.85), rgba(13, 16, 21, 0.85)) !important;
@@ -3606,7 +3606,7 @@ a.review-tile-link:hover {
     font-weight: 500 !important;
 }
 
-/* ---- 6. Header award line — editorial discipline ---- */
+/* ---- 6. Header award line: editorial discipline ---- */
 
 .header-award {
     font-family: var(--font-mono) !important;
@@ -3627,7 +3627,7 @@ a.review-tile-link:hover {
     border-bottom: 1px dotted rgba(201, 168, 90, 0.4) !important;
 }
 
-/* ---- 7. Award callout on About — editorial pull ---- */
+/* ---- 7. Award callout on About: editorial pull ---- */
 
 .award-callout {
     background: linear-gradient(180deg, rgba(201, 168, 90, 0.08), transparent) !important;
@@ -3660,7 +3660,7 @@ a.review-tile-link:hover {
     text-decoration: none;
 }
 
-/* ---- 8. Footer — typographic colophon ---- */
+/* ---- 8. Footer: typographic colophon ---- */
 
 footer {
     border-top: 1px solid var(--rule);
@@ -3698,7 +3698,7 @@ footer p {
     line-height: 1.7;
 }
 
-/* ---- 9. Publisher strip — quieter typography ---- */
+/* ---- 9. Publisher strip: quieter typography ---- */
 
 .publisher-strip {
     border-top: 1px solid var(--rule) !important;
@@ -3740,7 +3740,7 @@ footer p {
 }
 
 /* =====================================================================
-   PUBLISHER LOGO STRIP — editorial publisher signal
+   PUBLISHER LOGO STRIP: editorial publisher signal
    ===================================================================== */
 
 .publisher-strip-logos {
@@ -3838,7 +3838,7 @@ footer p {
     color: var(--brass-bright);
 }
 
-/* Restyle the comp-if line — drop the heart icon, use editorial typography */
+/* Restyle the comp-if line: drop the heart icon, use editorial typography */
 .guide-card .comp-if {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -3886,7 +3886,7 @@ footer p {
 }
 
 /* =====================================================================
-   LATEST ESSAYS PULL — homepage essays section (replaces TikTok feed)
+   LATEST ESSAYS PULL: homepage essays section (replaces TikTok feed)
    ===================================================================== */
 
 .latest-essays {
@@ -4041,7 +4041,7 @@ footer p {
 }
 
 /* =====================================================================
-   AUDIBLE SAMPLE PLAYER — on book pages with audiobook editions
+   AUDIBLE SAMPLE PLAYER: on book pages with audiobook editions
    ===================================================================== */
 
 .audible-sample {
@@ -4146,7 +4146,7 @@ footer p {
 }
 
 /* Inner article headers (essay title blocks) must not inherit the masthead's
-   flex layout — the bare `header` rule above is for the site masthead only. */
+   flex layout: the bare `header` rule above is for the site masthead only. */
 .essay-header {
     display: block;
     border-bottom: 0;

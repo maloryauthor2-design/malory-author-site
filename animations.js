@@ -1,5 +1,5 @@
 /**
- * animations.js — Premium interaction engine for Malory's author website
+ * animations.js: Premium interaction engine for Malory's author website
  *
  * Features:
  *   1. Scroll-triggered reveal animations (staggered fade + slide)
@@ -301,7 +301,7 @@
     /* =========================================
        6. SCROLL-TRIGGERED HEADING REVEAL
        ========================================= */
-    /* Series headings get a simple, reliable fade-up — no per-character tricks. */
+    /* Series headings get a simple, reliable fade-up: no per-character tricks. */
 
     /* =========================================
        7. BOOK COVER IMAGE LOADING SHIMMER
@@ -431,7 +431,7 @@
                 window.plausible('Magnet Click', { props: { slug: 'crude', page: window.location.pathname } });
             } else if (href.indexOf('substack.com/subscribe') !== -1 || href.indexOf('#newsletter') !== -1) {
                 /* Fixed 2026-08-14: this only ever matched substack.com/subscribe, and the
-                   site has no such links — so "Newsletter Click" had never once fired.
+                   site has no such links, so "Newsletter Click" had never once fired.
                    Every newsletter CTA on all 34 pages points at /#newsletter. */
                 window.plausible('Newsletter Click', {
                     props: {
