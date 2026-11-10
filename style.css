@@ -4156,3 +4156,220 @@ footer p {
     display: block;
     border-bottom: 0;
 }
+
+
+/* =====================================================================
+   DESIGN PASS, NOVEMBER 2026
+   One layer over everything above. Aims: get the header out of the way
+   (it took the whole first screen on a phone), line sections up on one
+   edge, make cards in a row the same height, lift small grey text to a
+   readable contrast, and bring buy buttons into the brass palette.
+   Remove this block to roll the whole pass back.
+   ===================================================================== */
+
+/* ---- 1. Top bar: promo line sits still, right-aligned ---- */
+.top-bar { margin-top: var(--sp-5); margin-bottom: var(--sp-4); }
+.scrolling-text-container {
+    height: auto; margin: 0 0 0 20px;
+    display: flex; justify-content: flex-end; align-items: center;
+}
+.scrolling-text { position: static; top: auto; transform: none !important; min-width: 0; }
+.scrolling-text a {
+    font-size: 0.72rem !important; letter-spacing: 0.12em;
+    display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    text-align: right; padding: 0;
+}
+.scrolling-text a::after { content: " \2192"; }
+
+/* ---- 2. Header: one compact band, wordmark left, nav right ---- */
+header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+        "logo name nav"
+        "logo tag  award"
+        "logo tag  award2";
+    column-gap: 22px; row-gap: 4px;
+    align-items: center;
+    padding-bottom: 18px; margin-bottom: var(--sp-5);
+}
+header .header-text { display: contents; }
+header .logo-link { grid-area: logo; align-self: center; }
+header .site-logo { width: 88px; max-width: 88px; height: 88px; border-radius: 50%; }
+header .site-name {
+    grid-area: name; text-align: left; align-self: end;
+    font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.05;
+}
+header .header-tagline {
+    grid-area: tag; text-align: left; align-self: start;
+    margin: 0; font-size: 0.92rem; letter-spacing: 0.02em;
+}
+header nav {
+    grid-area: nav; justify-self: end; align-self: end;
+    display: flex; flex-wrap: nowrap; gap: 22px; padding-bottom: 6px;
+}
+header nav a { margin-left: 0; white-space: nowrap; }
+header .header-award {
+    grid-area: award; justify-self: end; text-align: right;
+    margin: 0; font-size: 0.66rem; letter-spacing: 0.12em; font-weight: 500;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    color: var(--c-text-soft);
+}
+header .header-award i { color: var(--c-gold); margin-right: 4px; }
+header .header-award a { color: var(--c-gold); }
+header .header-award-secondary { grid-area: award2; }
+
+@media (max-width: 880px) {
+    header {
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-areas:
+            "logo name"
+            "logo tag"
+            "award award"
+            "award2 award2"
+            "nav nav";
+        column-gap: 14px; row-gap: 2px;
+        padding-bottom: 0; margin-bottom: var(--sp-5);
+    }
+    header .site-logo { width: 54px; max-width: 54px; height: 54px; }
+    header .site-name { font-size: 1.7rem; }
+    header .header-tagline { font-size: 0.8rem; }
+    header .header-award {
+        justify-self: start; text-align: left;
+        font-size: 0.62rem; letter-spacing: 0.06em; margin-top: 8px; line-height: 1.5;
+    }
+    header .header-award-secondary { margin-top: 2px; }
+    header .header-award a { display: inline; padding: 0; }
+    header nav {
+        justify-self: stretch; gap: 18px; margin-top: 12px; padding: 10px 0 12px;
+        border-top: 1px solid var(--c-line);
+        overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    header nav::-webkit-scrollbar { display: none; }
+    header nav { justify-content: space-between; gap: 12px; }
+    header nav a { font-size: 0.68rem; letter-spacing: 0.05em; padding: 6px 0; }
+    .top-bar {
+        flex-direction: row; gap: 10px; text-align: left;
+        margin-top: var(--sp-3); margin-bottom: var(--sp-4); padding: 4px 10px !important;
+    }
+    .top-bar .social-links { display: flex; flex: 0 0 auto; }
+    .top-bar .social-links a { margin-right: 0; font-size: 1rem; }
+    .scrolling-text-container { width: auto; flex: 1 1 0; min-width: 0; margin: 0; }
+    .scrolling-text a { font-size: 0.6rem !important; letter-spacing: 0.06em; }
+    .hero-editorial { padding-top: var(--sp-4); }
+    .hero-editorial-artifact .cover-wrap { width: 150px; }
+    .hero-editorial-artifact .award-badge { top: auto; bottom: -12px; right: -14px; }
+    .hero-editorial-grid { gap: var(--sp-5); }
+}
+
+/* ---- 3. Small text: readable sizes and contrast ---- */
+.hero-editorial-aside .stat { color: var(--c-text-soft); }
+.ku-badge { opacity: 1; color: var(--c-text-soft); }
+.review-tile-link footer .attr .source { font-size: 0.68rem; color: var(--c-text-soft); }
+footer, footer p, .footer-colophon { color: var(--c-text-soft); }
+.series-count { color: var(--c-text-soft); }
+
+/* ---- 4. Homepage hero: tighter, stats on one line ---- */
+.hero-editorial { padding-top: var(--sp-7); padding-bottom: var(--sp-6); }
+.hero-editorial-grid { padding-left: 0; padding-right: 0; }
+.hero-editorial-aside {
+    display: grid; grid-template-columns: repeat(5, auto);
+    justify-content: space-between; gap: var(--sp-4) var(--sp-5);
+}
+.hero-editorial-aside .stat { display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
+.hero-editorial-aside .stat strong { font-size: 1.05rem; letter-spacing: 0.04em; }
+@media (max-width: 880px) {
+    .hero-editorial { padding-top: var(--sp-5); }
+    .hero-editorial-grid { padding-left: var(--sp-4); padding-right: var(--sp-4); }
+    .hero-editorial-aside { grid-template-columns: 1fr 1fr 1fr; justify-content: stretch; }
+    .hero-editorial-aside .stat { white-space: normal; }
+    .hero-editorial-aside .stat strong { font-size: 0.9rem; }
+}
+@media (max-width: 420px) {
+    .hero-editorial-aside { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---- 5. Sections share one left edge ---- */
+@media (min-width: 881px) {
+    .reviews-scroller, .latest-essays { padding-left: 0; padding-right: 0; }
+}
+
+/* ---- 6. Reader reviews: same-height cards, attribution pinned low ---- */
+.reviews-track { align-items: stretch; }
+.review-tile { align-self: stretch; height: auto; }
+.review-tile blockquote { flex: 1 1 auto; }
+.review-tile footer { margin-top: auto; }
+
+/* ---- 7. Where to Start cards: rows line up, one button style ---- */
+.guide-card { display: flex; flex-direction: column; align-items: center; }
+.guide-card h3 { margin-top: var(--sp-3); }
+.guide-card > p:not(.series-count) { flex: 1 1 auto; }
+.guide-card .comp-if { display: block; text-align: center; margin: var(--sp-4) 0; }
+.guide-card .comp-if::before { display: none; }
+.guide-grid .guide-card p.series-count { display: block !important; height: 3.4em !important; min-height: 0 !important; line-height: 1.6 !important; font-size: 0.66rem !important; text-align: center; margin: 0 !important; padding: 0 !important; overflow: hidden; flex: 0 0 auto !important; }
+.guide-card .guide-btn {
+    margin-top: auto;
+    color: var(--c-gold) !important; border-color: rgba(201, 168, 90, 0.55) !important;
+    background: transparent !important;
+}
+.guide-card .guide-btn:hover {
+    background: var(--c-gold) !important; border-color: var(--c-gold) !important; color: #14110a !important;
+}
+
+/* ---- 8. Buy buttons in the brass palette ---- */
+.buy-button.btn-amazon, .btn-amazon {
+    background: linear-gradient(180deg, var(--c-gold-warm), var(--c-gold));
+    color: #14110a; border: 1px solid var(--c-gold);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 6px 16px rgba(0,0,0,0.35);
+    text-shadow: none;
+}
+.buy-button.btn-amazon:hover, .btn-amazon:hover {
+    background: var(--c-gold-warm); color: #14110a;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset, 0 10px 24px rgba(201,168,90,0.25);
+}
+.buy-button.btn-audible, .btn-audible {
+    background: transparent; color: var(--color-text);
+    border: 1px solid var(--c-line-strong); box-shadow: none;
+}
+.buy-button.btn-audible:hover, .btn-audible:hover {
+    border-color: var(--c-gold); color: var(--c-gold-warm); background: rgba(201,168,90,0.06);
+}
+
+/* ---- 9. Latest release card: everything on the text edge ---- */
+.book-container .book-info { text-align: left; }
+.book-container .buy-group { justify-content: flex-start; }
+@media (max-width: 768px) {
+    .book-container .book-info { text-align: center; }
+    .book-container .buy-group { justify-content: center; }
+}
+
+/* ---- 10. Books page: series menu stays on one line and scrolls ---- */
+.series-jump-menu-container .series-jump-menu {
+    flex-wrap: nowrap; justify-content: flex-start; gap: 22px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    padding: 12px 20px;
+}
+.series-jump-menu-container .series-jump-menu::-webkit-scrollbar { display: none; }
+.series-jump-menu-container {
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 36px), transparent 100%);
+            mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 36px), transparent 100%);
+}
+
+/* ---- 11. Legion hardback box: same surface as everything else ---- */
+.series-promo-box {
+    background: rgba(201, 168, 90, 0.04);
+    border: 1px solid var(--c-line);
+    border-left: 2px solid var(--c-gold);
+}
+.buy-button.btn-legion, .btn-legion {
+    background: transparent; color: var(--c-gold);
+    border: 1px solid rgba(201, 168, 90, 0.55); box-shadow: none; text-shadow: none;
+}
+.buy-button.btn-legion:hover, .btn-legion:hover {
+    background: var(--c-gold); color: #14110a; box-shadow: none;
+}
+
+/* ---- 12. Book pages: buy button on the text edge, not floating centre ---- */
+@media (min-width: 769px) {
+    .book-page-hero .info-col .buy-group { justify-content: flex-start; }
+}
