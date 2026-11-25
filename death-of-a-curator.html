@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="Book 2 of The Soar Chronicles. A second body. A different god. Same investigator, still Classless, still owed money.">
     <meta name="twitter:image" content="https://maloryauthor.com/og-book-death-of-a-curator.png">
 
-    <link rel="preload" as="image" href="curator-cover.jpg" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="curator-cover-500w.webp 500w, curator-cover.webp 1500w" imagesizes="(max-width: 768px) 80vw, 320px" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="malory-mark.svg" type="image/svg+xml">
 
     <script type="application/ld+json">
@@ -156,7 +156,7 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar" role="banner">
+    <div class="top-bar">
         <div class="social-links" aria-label="Social media links">
             <a href="https://www.facebook.com/share/1DfRcJtKhQ/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -192,13 +192,13 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
 
         <section class="book-page-hero" aria-label="Death of a Curator">
             <div class="cover-col">
                 <picture>
                     <source srcset="curator-cover-500w.webp 500w, curator-cover.webp 1500w" sizes="(max-width: 768px) 80vw, 320px" type="image/webp">
-                    <img src="curator-cover.jpg" alt="Death of a Curator cover: The Soar Chronicles Book 2 by Malory" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="curator-cover.jpg" alt="Death of a Curator cover: The Soar Chronicles Book 2 by Malory" width="320" height="480" loading="eager" fetchpriority="high" decoding="async">
                 </picture>
             </div>
             <div class="info-col">

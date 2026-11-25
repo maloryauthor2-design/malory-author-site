@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="Book 2 of Arcane Galaxy. Rivers and the crew get further into the System, and further into trouble they can't walk back.">
     <meta name="twitter:image" content="https://maloryauthor.com/og-book-swashbuckler.png">
 
-    <link rel="preload" as="image" href="arcane-2.jpg" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="arcane-2-500w.webp 500w, arcane-2-800w.webp 800w, arcane-2.webp 1500w" imagesizes="(max-width: 768px) 80vw, 320px" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="malory-mark.svg" type="image/svg+xml">
     <link rel="preload" as="image" href="brand/jake-malory-wordmark.svg" type="image/svg+xml">
 
@@ -165,7 +165,7 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar" role="banner">
+    <div class="top-bar">
         <div class="social-links" aria-label="Social media links">
             <a href="https://www.facebook.com/share/1DfRcJtKhQ/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -201,13 +201,13 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
 
         <section class="book-page-hero" aria-label="Swashbuckler">
             <div class="cover-col">
                 <picture>
                     <source srcset="arcane-2-500w.webp 500w, arcane-2-800w.webp 800w, arcane-2.webp 1500w" sizes="(max-width: 768px) 80vw, 320px" type="image/webp">
-                    <img src="arcane-2.jpg" alt="Swashbuckler cover: Arcane Galaxy Book 2 by Jake Malory" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="arcane-2.jpg" alt="Swashbuckler cover: Arcane Galaxy Book 2 by Jake Malory" width="320" height="480" loading="eager" fetchpriority="high" decoding="async">
                 </picture>
             </div>
             <div class="info-col">

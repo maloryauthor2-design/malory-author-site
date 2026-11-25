@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="Book 3 of The Soar Chronicles. The third case. The city's patience is thinner. So is the investigator's.">
     <meta name="twitter:image" content="https://maloryauthor.com/og-book-the-cuckoos-last-call.png">
 
-    <link rel="preload" as="image" href="cuckoo-cover.jpg" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="cuckoo-cover-500w.webp 500w, cuckoo-cover.webp 1500w" imagesizes="(max-width: 768px) 80vw, 320px" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="malory-mark.svg" type="image/svg+xml">
 
     <script type="application/ld+json">
@@ -156,7 +156,7 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar" role="banner">
+    <div class="top-bar">
         <div class="social-links" aria-label="Social media links">
             <a href="https://www.facebook.com/share/1DfRcJtKhQ/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -192,13 +192,13 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
 
         <section class="book-page-hero" aria-label="The Cuckoo's Last Call">
             <div class="cover-col">
                 <picture>
                     <source srcset="cuckoo-cover-500w.webp 500w, cuckoo-cover.webp 1500w" sizes="(max-width: 768px) 80vw, 320px" type="image/webp">
-                    <img src="cuckoo-cover.jpg" alt="The Cuckoo's Last Call cover: The Soar Chronicles Book 3 by Malory" width="320" height="480" loading="lazy" decoding="async">
+                    <img src="cuckoo-cover.jpg" alt="The Cuckoo's Last Call cover: The Soar Chronicles Book 3 by Malory" width="320" height="480" loading="eager" fetchpriority="high" decoding="async">
                 </picture>
             </div>
             <div class="info-col">

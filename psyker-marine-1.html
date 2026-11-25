@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="James Thorne wasn't supposed to matter. Then the aliens came, and a pissed-off Psyker Marine matters quite a lot.">
     <meta name="twitter:image" content="https://maloryauthor.com/og-book-psyker-marine-1.png">
 
-    <link rel="preload" as="image" href="psyker-1.jpg" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="psyker-1-500w.webp 500w, psyker-1.webp 1500w" imagesizes="(max-width: 768px) 50vw, 250px" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="malory-mark.svg" type="image/svg+xml">
     <link rel="preload" as="image" href="brand/jake-malory-wordmark.svg" type="image/svg+xml">
 
@@ -325,7 +325,7 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar" role="banner">
+    <div class="top-bar">
         <div class="social-links" aria-label="Social media links">
             <a href="https://www.facebook.com/share/1DfRcJtKhQ/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -361,11 +361,11 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
 
         <section class="book-page-hero" aria-label="Psyker Marine: Book 1">
             <div class="cover-col">
-                <picture><source srcset="psyker-1-500w.webp 500w, psyker-1.webp 1500w" sizes="(max-width: 768px) 50vw, 250px" type="image/webp"><img src="psyker-1.jpg" alt="Psyker Marine: Book 1 cover (Psyker Marine Book 1 by Jake Malory)" width="320" height="480" loading="lazy" decoding="async"></picture>
+                <picture><source srcset="psyker-1-500w.webp 500w, psyker-1.webp 1500w" sizes="(max-width: 768px) 50vw, 250px" type="image/webp"><img src="psyker-1.jpg" alt="Psyker Marine: Book 1 cover (Psyker Marine Book 1 by Jake Malory)" width="320" height="480" loading="eager" fetchpriority="high" decoding="async"></picture>
             </div>
             <div class="info-col">
                 <img src="brand/jake-malory-wordmark.svg" alt="Jake Malory" class="jake-lockup" width="240" height="96" loading="lazy" decoding="async">

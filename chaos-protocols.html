@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="A trigger-happy SAS operator, an elf pilot, and a broken ship against an unforgiving LitRPG System. Progression has never been so messy.">
     <meta name="twitter:image" content="https://maloryauthor.com/og-book-chaos-protocols.png">
 
-    <link rel="preload" as="image" href="arcane-1.jpg" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="arcane-1-500w.webp 500w, arcane-1-800w.webp 800w, arcane-1.webp 1500w" imagesizes="(max-width: 768px) 50vw, 250px" type="image/webp" fetchpriority="high">
     <link rel="preload" as="image" href="malory-mark.svg" type="image/svg+xml">
     <link rel="preload" as="image" href="brand/jake-malory-wordmark.svg" type="image/svg+xml">
 
@@ -331,7 +331,7 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar" role="banner">
+    <div class="top-bar">
         <div class="social-links" aria-label="Social media links">
             <a href="https://www.facebook.com/share/1DfRcJtKhQ/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -367,11 +367,11 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
 
         <section class="book-page-hero" aria-label="Chaos Protocols">
             <div class="cover-col">
-                <picture><source srcset="arcane-1-500w.webp 500w, arcane-1-800w.webp 800w, arcane-1.webp 1500w" sizes="(max-width: 768px) 50vw, 250px" type="image/webp"><img src="arcane-1.jpg" alt="Chaos Protocols cover: Arcane Galaxy Book 1 by Jake Malory" width="320" height="480" loading="lazy" decoding="async"></picture>
+                <picture><source srcset="arcane-1-500w.webp 500w, arcane-1-800w.webp 800w, arcane-1.webp 1500w" sizes="(max-width: 768px) 50vw, 250px" type="image/webp"><img src="arcane-1.jpg" alt="Chaos Protocols cover: Arcane Galaxy Book 1 by Jake Malory" width="320" height="480" loading="eager" fetchpriority="high" decoding="async"></picture>
             </div>
             <div class="info-col">
                 <img src="brand/jake-malory-wordmark.svg" alt="Jake Malory" class="jake-lockup" width="240" height="96" loading="lazy" decoding="async">

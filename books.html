@@ -638,7 +638,7 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="top-bar" role="banner">
+    <div class="top-bar">
         <div class="social-links" aria-label="Social media links">
             <a href="https://www.facebook.com/share/1DfRcJtKhQ/" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/maloryauthor" target="_blank" rel="me noopener noreferrer" aria-label="Follow Malory on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -674,7 +674,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
 
         <section class="guide-section" aria-label="Where to start reading">
             <h1 class="page-title-h2">Where to Start</h1>
@@ -1169,7 +1169,7 @@
     </footer>
 
     <!-- STICKY MOBILE BUY BAR -->
-    <div class="mobile-buy-bar" id="mobile-buy-bar" aria-hidden="true">
+    <div class="mobile-buy-bar" id="mobile-buy-bar" inert aria-hidden="true">
         <span class="mobile-buy-bar-title" id="mobile-buy-title">Book Title</span>
         <a href="#" class="buy-button btn-amazon" id="mobile-buy-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-amazon" aria-hidden="true"></i> Get It</a>
     </div>
@@ -1196,6 +1196,7 @@
                             barTitle.textContent = h3.textContent;
                             barLink.href = buyBtn.href;
                             bar.classList.add('visible');
+                            bar.inert = false;
                             bar.setAttribute('aria-hidden', 'false');
                             currentBook = card;
                         }
@@ -1217,6 +1218,7 @@
             window.addEventListener('scroll', () => {
                 if (window.scrollY < 300) {
                     bar.classList.remove('visible');
+                    bar.inert = true;
                     bar.setAttribute('aria-hidden', 'true');
                 }
             });
