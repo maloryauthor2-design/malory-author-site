@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/books.html</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -51,6 +51,11 @@
   <url>
     <loc>https://maloryauthor.com/death-of-a-curator.html</loc>
     <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://maloryauthor.com/disavowed.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -206,7 +211,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
@@ -243,12 +248,6 @@
   <url>
     <loc>https://maloryauthor.com/press.html</loc>
     <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://maloryauthor.com/privacy.html</loc>
-    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -314,7 +313,7 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/series/arcane-galaxy.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -356,13 +355,13 @@
   </url>
   <url>
     <loc>https://maloryauthor.com/start-here.html</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://maloryauthor.com/swashbuckler.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>

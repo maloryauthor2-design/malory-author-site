@@ -254,9 +254,19 @@
                     scored.slice(0, 12).forEach(function (x) {
                         var li = document.createElement('li');
                         li.style.cssText = 'margin: 0 0 18px; padding: 16px 18px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px;';
-                        li.innerHTML = '<span style="font-family: \'JetBrains Mono\', monospace; font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold);">' + x.p.type + '</span>' +
-                            '<h3 style="margin: 6px 0 6px;"><a href="' + x.p.url + '" style="color: inherit; text-decoration: none;">' + x.p.title + '</a></h3>' +
-                            '<p style="margin: 0; font-size: 0.95rem; color: var(--color-text-dim);">' + x.p.desc + '</p>';
+                        var url = new URL(x.p.url, location.href);
+                        if (url.origin !== location.origin) return;
+                        var type = document.createElement('span');
+                        type.className = 'result-type';
+                        type.textContent = x.p.type;
+                        var heading = document.createElement('h3');
+                        var link = document.createElement('a');
+                        link.href = url.href;
+                        link.textContent = x.p.title;
+                        heading.appendChild(link);
+                        var description = document.createElement('p');
+                        description.textContent = x.p.desc;
+                        li.append(type, heading, description);
                         list.appendChild(li);
                     });
                 }
