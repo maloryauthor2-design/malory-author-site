@@ -4373,3 +4373,5 @@ footer, footer p, .footer-colophon { color: var(--c-text-soft); }
 @media (min-width: 769px) {
     .book-page-hero .info-col .buy-group { justify-content: flex-start; }
 }
+
+.hero-reader-quote { margin-top: 1rem; color: var(--c-text-soft); font-family: var(--font-body, serif); }

@@ -61,7 +61,7 @@ MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 GRID_RE = re.compile(
-    r'(<div class="essay-pull-grid" id="essay-pull-grid">).*?(</div>)(\s*<script)',
+    r'(<div class="essay-pull-grid" id="essay-pull-grid">).*?(</div>)(\s*<div class="essay-pull-foot">)',
     re.S,
 )
 
