@@ -1058,18 +1058,6 @@ nav a.active-link::after {
 }
 
 /* =========================================
-   PAGE LOAD FADE-IN
-   ========================================= */
-@keyframes page-enter {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-body {
-    animation: page-enter 0.6s ease-out;
-}
-
-/* =========================================
    HEADING DEPTH & TYPOGRAPHY POLISH
    ========================================= */
 h2 {

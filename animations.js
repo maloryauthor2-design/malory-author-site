@@ -8,7 +8,6 @@
  *   5. Interactive book cover spotlight (light follows cursor)
  *   6. Scroll-triggered heading text reveal with brass shimmer
  *   7. Book cover image loading shimmer placeholders
- *   8. Smooth page transitions (View Transitions API + fallback)
  *
  * All animations respect prefers-reduced-motion.
  * Touch devices get a clean, static experience.
@@ -340,69 +339,6 @@
                     setTimeout(() => img.classList.remove('img-shimmer', 'loaded'), 500);
                 }, { once: true });
             });
-        });
-    })();
-
-    /* =========================================
-       8. SMOOTH PAGE TRANSITIONS
-       ========================================= */
-    (function () {
-        if (motionQuery.matches) return;
-
-        // Inject transition overlay
-        const style = document.createElement('style');
-        style.textContent = `
-            .page-transition-overlay {
-                position: fixed;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background: #0d1015;
-                z-index: 100000;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.3s ease;
-            }
-            .page-transition-overlay.active {
-                opacity: 1;
-                pointer-events: all;
-            }
-        `;
-        document.head.appendChild(style);
-
-        const overlay = document.createElement('div');
-        overlay.className = 'page-transition-overlay';
-        document.body.appendChild(overlay);
-
-        // Fade in on page arrival
-        overlay.style.opacity = '1';
-        overlay.style.transition = 'none';
-        requestAnimationFrame(() => {
-            overlay.style.transition = 'opacity 0.4s ease';
-            overlay.style.opacity = '0';
-        });
-
-        // Intercept internal navigation links
-        document.addEventListener('click', (e) => {
-            const link = e.target.closest('a[href]');
-            if (!link) return;
-
-            const href = link.getAttribute('href');
-            // Only intercept local page links (not external, not anchors, not booklinker)
-            if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('//') || link.target === '_blank') return;
-            if (!href.endsWith('.html') && href !== '/') return;
-            // Fixed 2026-09-02: cmd/ctrl/shift-click and middle-click must open a new tab, not be swallowed by the fade.
-            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0 || link.hasAttribute('download')) return;
-
-            e.preventDefault();
-
-            // Check for View Transitions API
-            if (document.startViewTransition) {
-                document.startViewTransition(() => {
-                    window.location.href = href;
-                });
-            } else {
-                overlay.classList.add('active');
-                setTimeout(() => { window.location.href = href; }, 300);
-            }
         });
     })();
 
