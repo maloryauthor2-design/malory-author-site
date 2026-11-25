@@ -317,12 +317,6 @@
             .showcase-card img { width: 80px; }
         }
     </style>
-    <!-- Privacy-friendly analytics by Plausible -->
-    <script async src="https://plausible.io/js/pa-3_ALpn9Wjf6luj6RNx-nk.js"></script>
-    <script>
-      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-      plausible.init()
-    </script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -999,15 +993,7 @@
                     newsletterForm.hidden = true;
                     if (newsletterFallback) newsletterFallback.hidden = true;
                     if (newsletterSuccess) newsletterSuccess.hidden = false;
-                    /* Added 2026-08-14: the signup itself was never tracked, so the form's
-                       conversion rate was unmeasurable from the site side. */
-                    if (typeof window.plausible === 'function') {
-                        try { window.plausible('Newsletter Signup', { props: { page: location.pathname } }); } catch (e) {}
-                    }
                 } else {
-                    if (typeof window.plausible === 'function') {
-                        try { window.plausible('Newsletter Error', { props: { page: location.pathname } }); } catch (e) {}
-                    }
                     button.disabled = false;
                     button.innerHTML = originalLabel;
                     if (newsletterFallback) newsletterFallback.innerHTML = 'That didn\u2019t go through. <a href="https://links.maloryauthor.com/crude" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold);">Grab Crude directly instead</a>.';
