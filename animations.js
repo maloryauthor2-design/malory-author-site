@@ -420,6 +420,12 @@
             if (!a) return;
             const href = a.getAttribute('href') || '';
             const m = href.match(/links\.maloryauthor\.com\/([a-z0-9-]+)(\?format=audible)?/);
+            if (a.matches('.guide-first-pick a, a.malory-book-card')) {
+                window.plausible('Guide Recommendation', { props: {
+                    guide: window.location.pathname,
+                    destination: a.pathname
+                }});
+            }
             if (m) {
                 const event = m[1] === 'crude' ? 'Magnet Click' : 'Buy Click';
                 window.plausible(event, { props: {
